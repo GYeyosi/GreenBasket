@@ -101,7 +101,7 @@
     line-height: 1.42857143;
     color: #878c94; 
     font-size:15px
-    white-space: nowrap;
+   
 }
 .topBar .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
     color: #00BCD4;
