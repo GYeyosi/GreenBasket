@@ -1,3 +1,17 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: login.php");
+  exit;
+}
+
+echo ($_SESSION['username']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -9,7 +23,7 @@
       <meta name="author" content="sumit kumar">
       <title>Green Basket</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link href="css/style.css" rel="stylesheet" type="text/css">
+      <link href="../css/style.css" rel="stylesheet" type="text/css">
       <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
    </head>
    <body>
@@ -49,9 +63,9 @@
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">My Account<i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-150" role="menu">
-                     <li><a href="./login/login.php">Login</a>
+                  <li><a href="cart.html">My Orders</a>
                      </li>
-                     <li><a href="./login/register.php">Create Account</a>
+                     <li><a href="./logout.php">Logout</a>
                      </li>
                      <li class="divider"></li>
                      <li><a href="wishlist.html">Wishlist</a>
@@ -82,7 +96,7 @@
          <div class="container">
             <div class="row display-table">
                <div class="col-sm-3 vertical-align text-left hidden-xs">
-                 <img width="" src="./img/logo.png" alt="">
+                 <img width="" src="../img/logo.png" alt="">
                </div>
                <!-- end col -->
                <div class="col-sm-7 vertical-align text-center">
@@ -200,8 +214,7 @@
                   <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Page <i class="fa fa-angle-down ml-5"></i></a>
                      <ul class="dropdown-menu dropdown-menu-left">
-                        <li><a href="./login/register.php">Register</a></li>
-                        <li><a href="./login/login.php">Login</a></li>
+                        <li><a href="./logout.php">Logout</a></li>
                         <li><a href="#">Password Recovery</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
@@ -215,9 +228,9 @@
             <!-- /.navbar-collapse -->
          </div>
       </nav>
-      <script src="js/jquery-3.1.1.js"></script>
-      <script src="js/bootstrap.js"></script>
-      <script src="./js/hover.js"></script>
+      <script src="../js/jquery-3.1.1.js"></script>
+      <script src="../js/bootstrap.js"></script>
+      <script src="../js/hover.js"></script>
 
    </body>
 </html>
