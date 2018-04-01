@@ -10,6 +10,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 $user= ($_SESSION['username']);
 
+
 header("location: ../loggedin.php");
 
 ?>
