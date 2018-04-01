@@ -1,3 +1,15 @@
+<?php
+
+if(isset($_SESSION['username']) || !empty($_SESSION['username'])){
+  header("./loggedin.php");
+exit;
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -56,7 +68,7 @@
                      <li class="divider"></li>
                      <li><a href="wishlist.html">Wishlist</a>
                      </li>
-                     <li><a href="cart.html">My Cart</a>
+                     <li><a href="cart.html" >My Cart</a>
                      </li>
                      <li><a href="checkout.html">Checkout</a>
                      </li>
@@ -209,7 +221,7 @@
                      </ul>
                   </li>
                   <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Help-Section</a></li>
-                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">FeedBack</a></li>
+                  <li><a href="./feedback_form/formpage.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">FeedBack</a></li>
                </ul>
             </div>
             <!-- /.navbar-collapse -->
