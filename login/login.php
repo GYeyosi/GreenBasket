@@ -175,27 +175,18 @@ mysqli_close($link);
 
 
 
-<style type="text/css">
 
-    body{
-        font: 14px sans-serif; 
-        
-    }
-
-    .wrapper{
-         width: 350px; 
-         padding: 20px; 
-         border: 3px solid black;
-         margin: auto;
-         margin-top: 75px;             
-    }
-
-</style>
 
 </head>
 
 <body>
+<div class="image">
 
+<a href="../index.html">  <img src="../img/logo1.png" alt="Greeen Basket">  </a>
+
+
+
+</div>
 <div class="wrapper">
 
     <h2>Login</h2>
