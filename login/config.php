@@ -9,7 +9,7 @@ $DB_SERVER = "localhost";
 
 $DB_USERNAME = "root";
 
-$DB_PASSWORD = "gyeyosi@123" ;
+$DB_PASSWORD = "iluvmymom" ;
 
 $DB_NAME = "test";
 

@@ -32,6 +32,7 @@ echo ($_SESSION['username']);
          <div class="container">
             <ul class="list-inline pull-left hidden-sm hidden-xs">
                <li><span class="text-primary">Have a question? </span> Call +120 558 7885</li>
+                <li>           <h3>An e-Vegetable Market</h3></li>
             </ul>
             <ul class="topBarNav pull-right">
                <!-- <li class="dropdown">
@@ -108,41 +109,21 @@ echo ($_SESSION['username']);
                         <!-- end col -->
                         <div class="col-sm-3">
                            <select class="form-control input-lg" name="category">
-                              <option value="all">Regions</option>
-                              <optgroup label="Mens">
-                                 <option value="shirts">Shirts</option>
-                                 <option value="coats-jackets">Coats & Jackets</option>
-                                 <option value="underwear">Underwear</option>
-                                 <option value="sunglasses">Sunglasses</option>
-                                 <option value="socks">Socks</option>
-                                 <option value="belts">Belts</option>
+                               <option value="all">Categories</option>
+                              <optgroup label="Vegetables">
+                                 <option value="tomato">Tomato</option>
+                                 <option value="potato">Potato</option>
+                                 <option value="ladys-finger">Lady's Finger</option>
+                                 <option value="brinjals">Brinjals</option>
+                                 <option value="carrot">Carrot</option>
+                                 <option value="cucumber">Cucumber</option>
                               </optgroup>
-                              <optgroup label="Womens">
-                                 <option value="bresses">Bresses</option>
-                                 <option value="t-shirts">T-shirts</option>
-                                 <option value="skirts">Skirts</option>
-                                 <option value="jeans">Jeans</option>
-                                 <option value="pullover">Pullover</option>
-                              </optgroup>
-                              <option value="kids">Kids</option>
-                              <option value="fashion">Fashion</option>
-                              <optgroup label="Sportwear">
-                                 <option value="shoes">Shoes</option>
-                                 <option value="bags">Bags</option>
-                                 <option value="pants">Pants</option>
-                                 <option value="swimwear">Swimwear</option>
-                                 <option value="bicycles">Bicycles</option>
-                              </optgroup>
-                              <option value="bags">Bags</option>
-                              <option value="shoes">Shoes</option>
-                              <option value="hoseholds">HoseHolds</option>
-                              <optgroup label="Technology">
-                                 <option value="tv">TV</option>
-                                 <option value="camera">Camera</option>
-                                 <option value="speakers">Speakers</option>
-                                 <option value="mobile">Mobile</option>
-                                 <option value="pc">PC</option>
-                              </optgroup>
+                              <optgroup label="Daily Vegetables">
+                                 <option value="onion">Onioins</option>
+                                 <option value="Garlic">Garlic</option>
+                                 <option value="ginger">Ginger</option>
+                                 </optgroup>
+                              <optgroup></optgroup>
                            </select>
                         </div>
                         <!-- end col -->

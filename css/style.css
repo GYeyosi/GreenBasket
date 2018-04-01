@@ -18,9 +18,10 @@
 
 
 .topBar {
-    background-color: #ffffff;
+    background-color: #8ac651;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     font-size: 13px;
+
 }
 .topBar ul {
     margin: 0;
@@ -29,10 +30,10 @@
     line-height: 42px;
 }
 .topBar a {
-    color: #878c94;text-decoration:none;
+    color: #682b28;text-decoration:none;
 }
 .text-primary {
-    color: #0cd4d2;
+    color: #682b28;
 }
 
 .topBar ul.topBarNav {
@@ -99,12 +100,12 @@
     clear: both;
     font-weight: normal;
     line-height: 1.42857143;
-    color: #878c94; 
+    color: #682b28; 
     font-size:15px
    
 }
 .topBar .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    color: #00BCD4;
+    color: #682b28;
     text-decoration: none;
    background-color: rgba(0, 0, 0, 0.02);
 }
@@ -185,6 +186,7 @@
     padding: 10px 0 0 0;
     margin: 0;min-height: 70px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    background: #7eddb9;
 }
 
 @media (min-width: 767px){
@@ -196,7 +198,7 @@
 .vertical-align {
     display: table-cell;
     vertical-align: middle;
-    float: none;
+    float: left;
 }
  .grid-space-1 div[class*="col-"] {
     padding: 0 1px;
@@ -278,7 +280,7 @@ div[class^="col-"] {
     transition: all 0.2s ease-in;
 }
 .middleBar .header-items .header-item a:hover {
-    background-color: #0cd4d2;
+    background-color: #0cd4d2;                                          /* BLUE FOR MIDDLE*/
     color: #ffffff;
 }
 
@@ -291,21 +293,22 @@ div[class^="col-"] {
     background-color: #ffffff;
     margin-bottom: 0;
     border: none;
+    background: #7eddb9;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    color: #0cd4d2;
+    color: #8e5412;
     background-color: transparent;
 }
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:after {
-   border-top:solid 2px #0cd4d2;
+   border-top:solid 2px #8e5412;
    
 }
 .navbar-default .dropdown-menu {
     padding: 0;
     font-size: 14px;
     background-color: #ffffff;
-    color: #878c94;
+    color: #8e5412;                                                /*brown*/
     border: none;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -328,11 +331,14 @@ div[class^="col-"] {
     clear: both;
     font-weight: normal;
     line-height: 1.42857143;
-    color: #878c94;
+    color: #494e56;
     white-space: nowrap;
 }
 .dropdown-menu > li > a:hover{
-     color: #0cd4d2;
+     color: #8e5412;
+}
+.dropdown-toggle{
+    colour:#682b28;
 }
 
 
@@ -355,13 +361,17 @@ div[class^="col-"] {
     font-size: 16px;
     text-transform: uppercase;
     /* text-align: center; */
-    color: #0cd4d2;
+    color: #8e5412;
 }
 .navbar-default .navbar-collapse li.dropdown.megaDropMenu .dropdown-menu li ul li a{
-    display:block;color:#878c94;font-size: 14px;text-decoration:none;padding:8px 15px;
+    display:block;
+    color:#494e56; /*     Non hover Black     */
+    font-size: 14px;
+    text-decoration:none;
+    padding:8px 15px;
 }
 .navbar-default .navbar-collapse li.dropdown.megaDropMenu .dropdown-menu li ul li a:hover{
-     color: #00BCD4;
+     color: #8e5412;
     text-decoration: none;
    background-color: rgba(0, 0, 0, 0.02);
 }
