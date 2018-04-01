@@ -15,6 +15,9 @@ $_SESSION = array();
 // Destroy the session.
 
 session_destroy();
+echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
+header('Location:../index.php');  
+
 
  
 ?>
