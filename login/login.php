@@ -4,6 +4,14 @@
 
 // Include config file
 
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(isset($_SESSION['username']) || !empty($_SESSION['username'])){
+  header("location: ./welcome.php");
+  exit;
+}
+
 require_once 'config.php';
 
 
@@ -163,10 +171,13 @@ mysqli_close($link);
 <title>Login</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+<link rel="stylesheet" href="./sl.css">
+
+
 
 <style type="text/css">
 
-    body{ 
+    body{
         font: 14px sans-serif; 
         
     }
@@ -176,10 +187,7 @@ mysqli_close($link);
          padding: 20px; 
          border: 3px solid black;
          margin: auto;
-         
-         margin-top: 75px;
-         
-                 
+         margin-top: 75px;             
     }
 
 </style>

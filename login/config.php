@@ -11,7 +11,7 @@ $DB_USERNAME = "root";
 
 $DB_PASSWORD = "iluvmymom" ;
 
-$DB_NAME = "test";
+$DB_NAME = "test1";
 
 
 
