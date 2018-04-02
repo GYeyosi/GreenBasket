@@ -27,6 +27,16 @@ $user= ($_SESSION['username']);
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="./css/style.css" rel="stylesheet" type="text/css">
       <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
+
+      
+
+
+
+
+
+
+
+      
    </head>
    <body>
       <!--=========-TOP_BAR============-->
@@ -69,7 +79,7 @@ $user= ($_SESSION['username']);
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">My Account<i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-150" role="menu">
-                    <li><a href="./profile.html"><?php echo $user ?> </a>
+                    <li><a href="./profile/profile.html"><?php echo $user ?> </a>
                      </li>
                     <li><a href="cart.html">My Orders</a>
                      </li>
@@ -104,7 +114,8 @@ $user= ($_SESSION['username']);
          <div class="container">
             <div class="row display-table">
                <div class="col-sm-3 vertical-align text-left hidden-xs">
-                 <img width="" src="./img/logo.png" alt="">
+                  <a href="./index.php"><img width="180px" src="./img/logo.png" alt="Green Basket"></a>
+                 
                </div>
                <!-- end col -->
                <div class="col-sm-7 vertical-align text-center">
