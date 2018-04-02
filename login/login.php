@@ -176,10 +176,7 @@ mysqli_close($link);
          padding: 20px; 
          border: 3px solid black;
          margin: auto;
-         
-         margin-top: 75px;
-         
-                 
+         margin-top: 75px;             
     }
 
 </style>

@@ -8,7 +8,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   exit;
 }
 
-echo ($_SESSION['username']);
+$user= ($_SESSION['username']);
 
 ?>
 
@@ -49,6 +49,9 @@ echo ($_SESSION['username']);
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <span class="hidden-xs"> More <i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-100" role="menu">
+                      <li>
+                        <a href="#">Edit Profile</a>
+                     </li>
                      <li>
                         <a href="#">Your Orders</a>
                      </li>
@@ -63,7 +66,9 @@ echo ($_SESSION['username']);
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">My Account<i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-150" role="menu">
-                  <li><a href="cart.html">My Orders</a>
+                    <li><a href="./profile.html"><?php echo $user ?> </a>
+                     </li>
+                    <li><a href="cart.html">My Orders</a>
                      </li>
                      <li><a href="./logout.php">Logout</a>
                      </li>
