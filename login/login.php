@@ -110,7 +110,7 @@ if(empty($username_err) && empty($password_err)){
 
                         session_start();
 
-                        $_SESSION['username'] = $username;      
+                        $_SESSION['username'] = $username;    
 
                         header("location: welcome.php");
 

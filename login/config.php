@@ -9,7 +9,7 @@ $DB_SERVER = "localhost";
 
 $DB_USERNAME = "root";
 
-$DB_PASSWORD = "iluvmymom" ;
+$DB_PASSWORD = "gyeyosi" ;
 
 $DB_NAME = "test";
 
@@ -18,8 +18,6 @@ $DB_NAME = "test";
 /* Attempt to connect to MySQL database */
 
 $link = mysqli_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD, $DB_NAME);
-
-
 
 // Check connection
 
