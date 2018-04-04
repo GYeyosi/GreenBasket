@@ -36,18 +36,10 @@
     margin-right: 30px;
 }
 
-.userleft form input {
-    border: 1px solid #ececec;
-    height: 35px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding-left: 10px;
-    width: 365px;
-}
 
 .userright {
   float: left;
-  margin-top: 35px;
+  margin-top: 20px;
 }
 .userright h5 {
     color: #ff0000;
@@ -56,14 +48,7 @@
     letter-spacing: 1px;
 }
 
-.userright form input {
-    border: 1px solid #ececec;
-    height: 35px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding-left: 10px;
-    width: 365px;
-}
+
 
 .change-form form input {
     border: 1px solid #ececec;
@@ -84,7 +69,16 @@
   padding: 9px 37px;
   text-transform: uppercase;
 }
-
+.personal-form button {
+  background: #f89d18 none repeat scroll 0 0;
+  border: 0 solid;
+  border-radius: 0;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 17px;
+  padding: 9px 37px;
+  text-transform: uppercase;
+}
 .change-form {
     margin-bottom: 60px;
 }
@@ -95,3 +89,12 @@
 
 
 /* End Of Style */
+
+.personal-form form input {
+    border: 1px solid #ececec;
+    height: 35px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 365px;
+}

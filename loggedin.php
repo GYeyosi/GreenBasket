@@ -79,7 +79,9 @@ $user= ($_SESSION['username']);
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">My Account<i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-150" role="menu">
+
                     <li><a href="./profile/profile.php"><?php echo $user ?> </a>
+
                      </li>
                     <li><a href="cart.html">My Orders</a>
                      </li>

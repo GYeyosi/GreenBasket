@@ -11,6 +11,16 @@ name VARCHAR(255) NOT NULL,
 
 password VARCHAR(255) NOT NULL,
 
+flat VARCHAR(255) ,
+
+street VARCHAR(255) ,
+
+state VARCHAR(255) ,
+
+phone VARCHAR(255) ,
+
+zip INT(6) ,
+
 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 
 );
