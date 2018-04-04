@@ -1,0 +1,30 @@
+.textFormat{
+	color:#004b4b;
+	font-family: "Garamond";
+	text-align: center;
+
+}
+
+.vegetable {
+	border: 1px solid #142700;
+	position: relative;
+	background-color: #cfff9c;
+	border-radius: 5px;
+	padding: 16px;
+	float:left;
+	
+
+}
+.butt {
+	position: relative;
+	margin-left: 50px;
+}
+.image {
+    position: relative;
+    float: left;
+    width:  200px;
+    height: 200px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}
