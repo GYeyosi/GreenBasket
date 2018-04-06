@@ -26,6 +26,18 @@ exit;
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="css/style.css" rel="stylesheet" type="text/css">
       <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
+      
+       <link href="./css/footer.css" rel="stylesheet"/>
+      <script src="./js/footer.js"></script>
+
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
    
 
 
@@ -236,6 +248,93 @@ exit;
             <!-- /.navbar-collapse -->
          </div>
       </nav>
+
+
+
+
+
+
+
+
+
+
+
+<div class="footer-section">
+    <div class="footer">
+   <div class="container">
+          <div class="col-md-4 footer-one">
+            <div class="foot-logo">
+                <img src="./img/logo.png">
+            </div> 
+             
+             <p>Providing Life Changing Experiences Through Education. Class That Fit Your Busy Life. Closer to Home
+                </p>
+            <div class="social-icons"> 
+               <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+               <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+               <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+               <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+           </div>
+          </div>
+          <div class="col-md-2 footer-two">
+             <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#"> About Us</a> </li>
+                    <li><a href="#"> Our News</a> </li>
+                    <li><a href="#"> Our Services</a> </li>
+                    <li><a href="#"> Contact Us</a> </li>
+                  </ul>
+                  
+          </div>
+          <div class="col-md-2 footer-three">
+             <h5>Services</h5>
+                <ul>
+                    <li><a href="#"> About Us</a> </li>
+                    <li><a href="#"> Our News</a> </li>
+                    <li><a href="#"> Our Services</a> </li>
+                    <li><a href="#"> Contact Us</a> </li>
+                  </ul>
+                  
+          </div>
+          <div class="col-md-4 footer-four">
+             <h5>Contact Us</h5>
+                <ul>
+                    <li><i class="fa fa-map-marker"></i>350 Avenue, India, Delhi 110001 </li>
+                    <li><i class="fa fa-envelope-o"></i>info@mailme.com </li>
+                    <li><i class="fa fa-phone"></i>+91-xxx-xxx-2040 </li>
+                    
+                  </ul>
+                  
+          </div>
+          
+      
+      
+      
+      
+      
+      <div class="clearfix"></div>
+   </div>
+</div>
+
+</div>
+<div class="footer-bottom">
+        <div class="container">
+               <div class="row">
+                  <div class="col-sm-6 ">
+                     <div class="copyright-text">
+                        <p>CopyRight © 2017 Digital All Rights Reserved</p>
+                     </div>
+                  </div> <!-- End Col -->
+                  <div class="col-sm-6  ">
+                      <div class="copyright-text pull-right">
+                        <p> <a href="#">Home</a> | <a href="#">Privacy</a> |<a href="#">Terms & Conditions</a> | <a href="#">Refund Policy</a> </p>
+                     </div>               
+                                       
+                  </div> <!-- End Col -->
+               </div>
+            </div>
+    </div>
+   </div>
       <script src="js/jquery-3.1.1.js"></script>
       <script src="js/bootstrap.js"></script>
       <script src="./js/hover.js"></script>
