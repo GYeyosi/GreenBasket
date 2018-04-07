@@ -1,0 +1,16 @@
+
+CREATE TABLE revenue (
+
+paymentid INT NOT NULL PRIMARY KEY ,
+
+sellerid VARCHAR(50) NOT NULL ,
+
+buyerid VARCHAR(50) NOT NULL 
+
+price float(4,2) NOT NULL,
+
+time DATETIME DEFAULT CURRENT_TIMESTAMP
+
+);
+
+

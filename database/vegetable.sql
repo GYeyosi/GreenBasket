@@ -1,0 +1,11 @@
+
+CREATE TABLE vegetable (
+
+vegid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+
+name VARCHAR(50) NOT NULL ,
+
+image VARCHAR(255) NOT NULL,
+);
+
+
