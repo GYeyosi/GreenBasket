@@ -18,6 +18,7 @@ $user= ($_SESSION['username']);
 <!DOCTYPE html>
 <html lang="en">
    <head>
+
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
       <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -30,20 +31,29 @@ $user= ($_SESSION['username']);
       <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
        <link href="./css/footer.css" rel="stylesheet"/>
       <script src=".js/footer.js"></script>
+    
+
+
+    <!-- Bootstrap css      -->
+    <link rel="stylesheet" href="./css/mid/bootstrap.css">
+    
+  
+    
+    <!-- Main css   -->
+    <link rel="stylesheet" href="./css/mid/style(1).css">
+    <link rel="stylesheet" href="./css/mid/responsive.css">
+
+
+
+
 
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
- <script src="./js/jquery.js"></script> 
-    <script> 
-    $(function(){
-      $("#includedContent").load("./green.html"); 
-    });
-    </script> 
+<!------ Include the above in your HEAD tag ---------->
 
 
-      
    </head>
    <body>
       <!--=========-TOP_BAR============-->
@@ -243,7 +253,182 @@ $user= ($_SESSION['username']);
 
 
 
+ <section class="women-accessories-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="headline women_head">
+                        <h2>Products</h2>
+                    </div>
+                    <div class="product-tab">
+                        
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="women-single">
+                                            <a href="http://premiumlayers.net/demo/html/ecom/index.html#"><img src="./img/mid/women_access1.png" alt="">
+                                            </a>
+                                            <div class="tag new">
+                                                <span>new</span>
+                                            </div>
+                                            <div class="hot-wid-rating">
+                                                <h4><a href="http://premiumlayers.net/demo/html/ecom/single-product.html">Best Handbags For girls</a></h4>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <div class="product-wid-price">
+                                                    <ins>$260.00</ins> <del>$280.00</del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="women-single">
+                                            <a href="http://premiumlayers.net/demo/html/ecom/index.html#"><img src="./img/mid/women_access2.png" alt="">
+                                            </a>
+
+                                            <div class="hot-wid-rating">
+                                                <h4><a href="http://premiumlayers.net/demo/html/ecom/single-product.html">stylish dress for women</a></h4>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <div class="product-wid-price">
+                                                    <ins>$3000.00</ins>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="women-single">
+                                            <a href="http://premiumlayers.net/demo/html/ecom/index.html#"><img src="./img/mid/women_access3.png" alt="">
+                                            </a>
+                                            <div class="tag percent">
+                                                <span>15%</span>
+                                            </div>
+                                            <div class="hot-wid-rating">
+                                                <h4><a href="http://premiumlayers.net/demo/html/ecom/single-product.html">Leather Handbags For girls</a></h4>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <div class="product-wid-price">
+                                                    <ins>$180.00</ins> <del>$200.00</del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="women-single">
+                                            <a href="http://premiumlayers.net/demo/html/ecom/index.html#"><img src="./img/mid/women_access4.png" alt="">
+                                            </a>
+
+                                            <div class="hot-wid-rating">
+                                                <h4><a href="http://premiumlayers.net/demo/html/ecom/single-product.html">Trendy Shoes For Women</a></h4>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <div class="product-wid-price">
+                                                    <ins>$250.00</ins>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="women-single">
+                                            <a href="http://premiumlayers.net/demo/html/ecom/index.html#"><img src="./img/mid/women_access5.png" alt="">
+                                            </a>
+                                            <div class="hot-wid-rating">
+                                                <h4><a href="http://premiumlayers.net/demo/html/ecom/single-product.html">Best Handbags For girls</a></h4>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <div class="product-wid-price">
+                                                    <ins>$260.00</ins> <del>$280.00</del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="women-single">
+                                            <a href="http://premiumlayers.net/demo/html/ecom/index.html#"><img src="./img/mid/women_access6.png" alt="">
+                                            </a>
+                                            <div class="tag percent">
+                                                <span>15%</span>
+                                            </div>
+                                            <div class="hot-wid-rating">
+                                                <h4><a href="http://premiumlayers.net/demo/html/ecom/single-product.html">stylish dress for women</a></h4>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <div class="product-wid-price">
+                                                    <ins>$3000.00</ins>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="women-single">
+                                            <a href="http://premiumlayers.net/demo/html/ecom/index.html#"><img src="./img/mid/women_access7.png" alt="">
+                                            </a>
+                                            <div class="hot-wid-rating">
+                                                <h4><a href="http://premiumlayers.net/demo/html/ecom/single-product.html">Leather Handbags For girls</a></h4>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <div class="product-wid-price">
+                                                    <ins>$180.00</ins> <del>$200.00</del>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="women-single">
+                                            <a href="http://premiumlayers.net/demo/html/ecom/index.html#"><img src="./img/mid/women_access8.png" alt="">
+                                            </a>
+                                            <div class="tag new">
+                                                <span>new</span>
+                                            </div>
+                                            <div class="hot-wid-rating">
+                                                <h4><a href="http://premiumlayers.net/demo/html/ecom/single-product.html">Trendy Shoes For Women</a></h4>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                                <div class="product-wid-price">
+                                                    <ins>$250.00</ins>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 <!-- END OF NATURES BASKET -->
+
 
 
 
@@ -329,6 +514,9 @@ $user= ($_SESSION['username']);
       <script src="./js/jquery.js"></script>
       <script src="./js/bootstrap.js"></script>
       <script src="./js/hover.js"></script>
+
+
+  
 
    </body>
 </html>
