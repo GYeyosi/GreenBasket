@@ -1,15 +1,14 @@
 
 CREATE TABLE cart_dealer (
 
-cartid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+cartid INT NOT NULL  AUTO_INCREMENT,
+
+vegname VARCHAR(50) NOT NULL    ,
+
+dealer VARCHAR(255) NOT NULL  ,
 
 
-vegid INT NOT NULL PRIMARY KEY ,
-
-dealer VARCHAR(255) NOT NULL PRIMARY KEY,
-
-
-
+PRIMARY KEY (cartid,vegname,dealer)
 
 );
 

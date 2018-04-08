@@ -297,27 +297,48 @@ $user= ($_SESSION['username']);
                                  <p>Descriptions</p>
 
                               </div>
-                              <p>Compare Differences</p>
+                              <p>Compare Differences***CHOOSE ROLE IN PHP - CREATE VIEW***</p>
                               <div class="single-color">
                                  
                                  <div class="product-size">
                                     <p>Retailer :</p>
                                     <select>
-                                       <option>XL</option>
-                                       <option>L</option>
-                                       <option>M</option>
-                                       <option>S</option>
-                                       <option>XS</option>
+                                        <?php 
+                                          include './login/config.php';
+                                          $vegname=$name;             
+                                          $result = mysqli_query($link,"SELECT dealerid FROM stock where vegname='$vegname'");
+
+                                          if (mysqli_num_rows($result)) {
+                                              // output data of each row
+                                              while($row = mysqli_fetch_assoc($result)) {
+
+                                                  $dealerid= $row["dealerid"];
+                                                    echo ' <option>'.$dealerid.'</option>
+                                                    ';                                                  
+
+                                                  }
+                                                 }
+                                                 ?>
                                     </select>
                                  </div>
                                  <div class="product-size">
                                     <p>Whole-Seller :</p>
-                                    <select>
-                                       <option>XL</option>
-                                       <option>L</option>
-                                       <option>M</option>
-                                       <option>S</option>
-                                       <option>XS</option>
+                                    <select><?php 
+                                          include './login/config.php';
+                                          $vegname=$name;             
+                                          $result = mysqli_query($link,"SELECT dealerid FROM stock where vegname='$vegname'");
+
+                                          if (mysqli_num_rows($result)) {
+                                              // output data of each row
+                                              while($row = mysqli_fetch_assoc($result)) {
+
+                                                  $dealerid= $row["dealerid"];
+                                                    echo ' <option>'.$dealerid.'</option>
+                                                    ';                                                  
+
+                                                  }
+                                                 }
+                                                 ?>
                                     </select>
                                  </div>
                                  <div>

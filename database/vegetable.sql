@@ -3,10 +3,10 @@ CREATE TABLE vegetable (
 
 vegid INT NOT NULL  AUTO_INCREMENT,
 
-name VARCHAR(50) NOT NULL ,
+vegname VARCHAR(50) NOT NULL ,
 
 image VARCHAR(255) NOT NULL
-PRIMARY KEY(vegid)
+PRIMARY KEY(vegname)
 );
 
 insert into vegetable (name,image) values('beans','beans.png');

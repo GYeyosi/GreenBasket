@@ -21,6 +21,7 @@ phone VARCHAR(255) ,
 
 zip INT(6) ,
 
+role VARCHAR(255),
 
 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 
