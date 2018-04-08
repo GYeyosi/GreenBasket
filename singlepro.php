@@ -4,12 +4,11 @@
 session_start();
  
 // If session variable is not set it will redirect to login page
-if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: ./login/login.php");
-  exit;
-}
+if(isset($_SESSION['username']) || !empty($_SESSION['username'])){
 
 $user= ($_SESSION['username']);
+
+}
 
 
 ?>
@@ -31,20 +30,17 @@ $user= ($_SESSION['username']);
       <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
        <link href="./css/footer.css" rel="stylesheet"/>
       <script src=".js/footer.js"></script>
-    
+      
+
+
 
 
     <!-- Bootstrap css      -->
     <link rel="stylesheet" href="./css/mid/bootstrap.css">
     
-  
-    
     <!-- Main css   -->
     <link rel="stylesheet" href="./css/mid/style(1).css">
     <link rel="stylesheet" href="./css/mid/responsive.css">
-
-
-
 
 
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -52,29 +48,6 @@ $user= ($_SESSION['username']);
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <!------ Include the above in your HEAD tag ---------->
-
-<style>
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    margin-left: 18%;
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-}
-
-
-.button1:hover {
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
-</style>
 
 
    </head>
@@ -270,156 +243,156 @@ $user= ($_SESSION['username']);
          </div>
       </nav> 
 
-<!-- START OF NATURES BASKET -->
+<!-- START OF singleproduct BASKET -->
 
 
 
 
 
- <section class="women-accessories-area section-padding">
-        <div class="container">
+
+
+<div class="single-product-area section-padding">
+         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="headline women_head">
-                        <h2>Products</h2>
-                    </div>
-                    <div class="product-tab">
-                        
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="home">
-                                <div class="row">
-                                  <?php 
-                                    include './login/config.php';
-                                    $result = mysqli_query($link,"SELECT name,image FROM vegetable");
+                      <?php 
+                          session_start();
+                          $name=$_GET['name'];
+                          $image=$_GET['image'];
+                                                        
+                          echo '
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="women-single">
+                                          <a href="#"><img src="./img/vegetables/'.$image.'" alt="">
+                                          </a>
 
-                                    if (mysqli_num_rows($result)) {
-                                        // output data of each row
-                                        while($row = mysqli_fetch_assoc($result)) {
-
-                                            $name= $row["name"];
-                                            $image= $row["image"];           
-
-                                             echo '<div class="col-md-3 col-sm-3 col-xs-12" >
-                                              <div class="women-single" >
-                                                  <a href="#"><img src="./img/vegetables/'.$image.'" alt="">
-                                                  </a>
-                                                   
-                                                  <div class="hot-wid-rating">
-                                                      <h4><a href="" style="color:black;margin-left:33%;font-weight:bold;">'.
-                                                      $name.'
-                                                      </a></h4>
-                                                     
-                                                  </div>
-                                                    <form method="post" action="singlepro.php?name='.$name.'&image='.$image.'">
-                                                        <button class="button button1" type="submit" name="buy">Buy This Item</a></button> 
-                                                    </form>
-                                                   
-                                              
-                                              </div>
-                                           </div>';
-                                           
-                                        }
-                                    } else {
-                                        echo "0 results";
-                                    }
-
-                                  ?>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href="#"><img src="./img/mid/women_access1.png" alt="">
-                                            </a>
-                                        
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Best Handbags For girls</a></h4>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access2.png" alt="">
-                                            </a>
-
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">stylish dress for women</a></h4>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access3.png" alt="">
-                                            </a>
+                                          <div class="hot-wid-rating">
+                                              <h4><a href="" style="color:black;margin-left:33%;font-weight:bold;">'.
+                                              $name.'
+                                              </a></h4>
+                                             
+                                          </div>
                                       
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Leather Handbags For girls</a></h4>
-                                              
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access4.png" alt="">
-                                            </a>
+                                      </div>
+                                </div>';
 
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Trendy Shoes For Women</a></h4>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access5.png" alt="">
-                                            </a>
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Best Handbags For girls</a></h4>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access6.png" alt="">
-                                            </a>
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">stylish dress for women</a></h4>
-                                              
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access7.png" alt="">
-                                            </a>
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Leather Handbags For girls</a></h4>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access8.png" alt="">
-                                            </a>
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Trendy Shoes For Women</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
+                        ?>
+
+                        
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                           <div class="single-product-content">
+                              <h3>Awesome stylish shirts</h3>
+                              <div class="product-review">
+                                 
+                                 <h4>Availability <span>: In Stock 20 Item(s)</span>
+                                 </h4>
+                                 <div class="product-wid-price">
+                                    <ins>$75</ins> <del>$85</del>
+                                 </div>
+                                 <p>The ship set ground on the shore of this uncharted desert isle with Gilligan the Skipper too the millionaire and his wife. And when the odds are against him and their dangers work to do. </p>
+                              </div>
+                              <div class="single-color">
+                                 
+                                 <div class="product-size">
+                                    <p>Size :</p>
+                                    <select>
+                                       <option>XL</option>
+                                       <option>L</option>
+                                       <option>M</option>
+                                       <option>S</option>
+                                       <option>XS</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="single-color last-color-child">
+                                 <div class="size-heading">
+                                    <h5>Qty :</h5>
+                                 </div>
+                                 <div class="size-down">
+                                    <input type="number" step="1" min="0" max="119" name="quantity[113]" value="1" title="Qty" class="input-text qty text" size="4">
+                                 </div>
+                                 <div class="size-cart">
+                                    <a href="" class="fa fa-shopping-cart"> Add to cart</a>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
-                    </div>
-                </div>
+                     </div>
+                  </div>
+                  <!--
+                     <div class="product-tab product-tab-single">
+                         <ul class="nav nav-tabs" role="tablist">
+                             <li role="presentation" class="active"><a href="http://premiumlayers.net/demo/html/ecom/single-product.html#home" aria-controls="home" role="tab" data-toggle="tab">Product description</a>
+                             </li>
+                             <li role="presentation"><a href="http://premiumlayers.net/demo/html/ecom/single-product.html#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a>
+                             </li>
+                             <li role="presentation"><a href="http://premiumlayers.net/demo/html/ecom/single-product.html#messages" aria-controls="messages" role="tab" data-toggle="tab">Product tags</a>
+                             </li>
+                         </ul>
+                        
+                         <div class="tab-content">
+                             <div role="tabpanel" class="tab-pane active" id="home">Then along come two they got nothin' but their jeans. Flying away on a wing and a prayer. Who could it be? Believe it or not its just me. Today still wanted by the government they survive as soldiers of fortune. Boy the way Glen Miller played. Songs that made the hit parade. Guys like us we had it made. Those were the days.</div>
+                             <div role="tabpanel" class="tab-pane" id="profile">
+                     <div class="review_panel">
+                     <div class="review_comments">
+                     <div class="review_heading">
+                     <div class="review_heading_left">
+                     <h2><span>Review for </span> "Gray Structured T-Shirt"</h2>
+                     </div>
+                     <div class="review_heading_right">
+                     <ul id="review_heading_star">
+                     <li><a href="http://premiumlayers.net/demo/html/ecom/single-product.html" class="fa fa-star"></a></li>
+                     <li><a href="http://premiumlayers.net/demo/html/ecom/single-product.html" class="fa fa-star"></a></li>
+                     <li><a href="http://premiumlayers.net/demo/html/ecom/single-product.html" class="fa fa-star"></a></li>
+                     <li><a href="http://premiumlayers.net/demo/html/ecom/single-product.html" class="fa fa-star"></a></li>
+                     <li><a href="http://premiumlayers.net/demo/html/ecom/single-product.html" class="fa fa-star"></a></li>
+                     </ul>
+                     </div>
+                     </div>
+                     <div class="single_review_comment">
+                     <div class="single_review_img">
+                     <img src="./Ecomshop _ Ecommerce HTL5 template _ Single Product page_files/kous.png" alt="">
+                     </div>
+                     <div class="single_review_text">
+                     <h4>A Stunning Beauty!</h4>
+                     <ul id="single_review_star">
+                     <li><a href="http://premiumlayers.net/demo/html/ecom/single-product.html" class="fa fa-star"></a></li>
+                     <li><a href="http://premiumlayers.net/demo/html/ecom/single-product.html" class="fa fa-star"></a></li>
+                     <li><a href="http://premiumlayers.net/demo/html/ecom/single-product.html" class="fa fa-star"></a></li>
+                     <li><a href="http://premiumlayers.net/demo/html/ecom/single-product.html" class="fa fa-star"></a></li>
+                     <li><a href="http://premiumlayers.net/demo/html/ecom/single-product.html" class="fa fa-star"></a></li>
+                     </ul>
+                     <p>Semper orci etiam ac ultricies ante. Donec lobortis variusjusto et. Curabitur egestas aliquet massa non elementum. Quisque at risus nisl. Aliquam erat volutpat. Suspendisse potenti. Nullam porta faucibus elit.</p>
+                     <div class="review_italic">
+                     <p><span>Nicole Bailey,</span> 12.05.2013</p>
+                     </div>
+                     </div>
+                     </div>
+                     </div>
+                     <div class="Review_input">
+                     <div class="review_input_heading">
+                     <h3>Write your review</h3>
+                     </div>
+                     <div class="review_comment_input">
+                     <input type="text" placeholder="Enter Your Nickname"><br>
+                     <input type="text" placeholder="Summary of your Review"><br>
+                     <textarea cols="30" rows="10" placeholder="Write your review"></textarea><br>
+                     <input type="submit" value="Submit Review">
+                     </div>
+                     </div>
+                     </div>
+                     </div>
+                             <div role="tabpanel" class="tab-pane" id="messages">Boy the way Glen Miller played.Then along come two they got nothin' but their jeans. Flying away on a wing and a prayer. Who could it be? Believe it or not its just me. Today still wanted by the government they survive as soldiers of fortune. Boy the way Glen Miller played. Songs that made the hit parade. Guys like us we had it made. Those were the days.</div>
+                         </div>
+                     </div>
+                     
+                     
+                     -->                  
+               </div>
             </div>
-        </div>
-    </section>
+         </div>
+      </div>
 
-
-<!-- END OF NATURES BASKET -->
+<!-- END OF singleproduct BASKET -->
 
 
 
