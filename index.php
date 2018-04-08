@@ -72,9 +72,32 @@ exit;
          <meta name="msapplication-TileImage" content="./img/ms-icon-144x144.png">
          <meta name="theme-color" content="#ffffff">
 
+<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    margin-left: 18%;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
 
 
-   </head>
+.button1:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+</style>
+
+
+
+</head>
    <body>
       <!--=========-TOP_BAR============-->
       <nav class="topBar">
@@ -265,11 +288,6 @@ exit;
 
 
 
-
-
-
-
-
  <section class="women-accessories-area section-padding">
         <div class="container">
             <div class="row">
@@ -290,11 +308,12 @@ exit;
                                     if (mysqli_num_rows($result)) {
                                         // output data of each row
                                         while($row = mysqli_fetch_assoc($result)) {
+
                                             $name= $row["name"];
-                                            $image= $row["image"];
-                                           
-                                            echo '<div class="col-md-3 col-sm-3 col-xs-12" >
-                                              <div class="women-single">
+                                            $image= $row["image"];           
+
+                                             echo '<div class="col-md-3 col-sm-3 col-xs-12" >
+                                              <div class="women-single" >
                                                   <a href="#"><img src="./img/vegetables/'.$image.'" alt="">
                                                   </a>
                                                    
@@ -304,9 +323,10 @@ exit;
                                                       </a></h4>
                                                      
                                                   </div>
-                                                   <a href="#" class="btn btn-info btn-lg" style="margin-left:15%;""> 
-                                                  <span class="glyphicon glyphicon-shopping-cart" ></span> Buy This Item
-                                                </a>
+                                                    <form method="post" action="singlepro.php?name='.$name.'&image='.$image.'">
+                                                        <button class="button button1" type="submit" name="buy">Buy This Item</a></button> 
+                                                    </form>
+                                                   
                                               
                                               </div>
                                            </div>';
@@ -317,90 +337,7 @@ exit;
                                     }
 
                                   ?>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href="#"><img src="./img/mid/women_access1.png" alt="">
-                                            </a>
-                                        
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Best Handbags For girls</a></h4>
-                                             
- 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access2.png" alt="">
-                                            </a>
-
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">stylish dress for women</a></h4>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access3.png" alt="">
-                                            </a>
-                                      
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Leather Handbags For girls</a></h4>
-                                              
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access4.png" alt="">
-                                            </a>
-
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Trendy Shoes For Women</a></h4>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access5.png" alt="">
-                                            </a>
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Best Handbags For girls</a></h4>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access6.png" alt="">
-                                            </a>
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">stylish dress for women</a></h4>
-                                              
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access7.png" alt="">
-                                            </a>
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Leather Handbags For girls</a></h4>
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
-                                        <div class="women-single">
-                                            <a href=""><img src="./img/mid/women_access8.png" alt="">
-                                            </a>
-                                            <div class="hot-wid-rating">
-                                                <h4><a href="">Trendy Shoes For Women</a></h4>
-                                            </div>
-                                        </div>
-                                    </div>
+                                
                                 </div>
                             </div>
                             
@@ -410,6 +347,7 @@ exit;
             </div>
         </div>
     </section>
+
 
 
 
