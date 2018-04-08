@@ -1,0 +1,100 @@
+
+
+
+
+
+.headline {
+  border-bottom: 2px solid #eeeeee;
+  display: block;
+  margin-bottom: 21px;
+  margin-top: 11px;
+}
+.latest-product-area .headline {
+  margin-bottom: 54px;
+}
+
+.headline h2 {
+  border-bottom: 2px solid #f89d18;
+  color: #222222;
+  display: inline-block;
+  font-family: "Bitter";
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 -2px;
+  padding-bottom: 22px;
+  text-transform: uppercase;
+}
+
+/*  11. Profile page  */
+
+.personal-form {
+    overflow: hidden;
+}
+
+.userleft {
+    float: left;
+    margin-right: 30px;
+}
+
+
+.userright {
+  float: left;
+  margin-top: 20px;
+}
+.userright h5 {
+    color: #ff0000;
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+
+
+.change-form form input {
+    border: 1px solid #ececec;
+    height: 35px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 365px;
+}
+
+.change-form button {
+  background: #f89d18 none repeat scroll 0 0;
+  border: 0 solid;
+  border-radius: 0;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 17px;
+  padding: 9px 37px;
+  text-transform: uppercase;
+}
+.personal-form button {
+  background: #f89d18 none repeat scroll 0 0;
+  border: 0 solid;
+  border-radius: 0;
+  color: #ffffff;
+  font-weight: 600;
+  margin-top: 17px;
+  padding: 9px 37px;
+  text-transform: uppercase;
+}
+.change-form {
+    margin-bottom: 60px;
+}
+
+.userleft p input [type="text"]::-webkit-input-placeholder {
+    color: #222;
+}
+
+
+/* End Of Style */
+
+.personal-form form input {
+    border: 1px solid #ececec;
+    height: 35px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 365px;
+}
