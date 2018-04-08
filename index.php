@@ -313,7 +313,7 @@ exit;
                                             $image= $row["image"];           
 
                                              echo '<div class="col-md-3 col-sm-3 col-xs-12" >
-                                              <div class="women-single" >
+                                              <div class="women-single" " >
                                                   <a href="#"><img src="./img/vegetables/'.$image.'" alt="">
                                                   </a>
                                                    

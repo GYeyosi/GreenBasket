@@ -12,7 +12,6 @@ PRIMARY KEY(vegid)
 insert into vegetable (name,image) values('beans','beans.png');
 insert into vegetable (name,image) values('bitter_gourd','bitter_gourd.png');
 insert into vegetable (name,image) values('brinjal','brinjal.png');
-insert into vegetable (name,image) values('cabbage','cabbage.png');
 insert into vegetable (name,image) values('carrot','carrot.png');
 insert into vegetable (name,image) values('chicken_pea','chicken_pea.png');
 insert into vegetable (name,image) values('cucumber','cucumber.png');
@@ -32,7 +31,7 @@ insert into vegetable (name,image) values('cauliflower','cauliflower.png');
 insert into vegetable (name,image) values('coriander','coriander.png');
 insert into vegetable (name,image) values('drumstick','drumstick.png');
 insert into vegetable (name,image) values('ginger','ginger.png');
-insert into vegetable (name,image) values('ladys_finger','.png');
+insert into vegetable (name,image) values('ladys_finger','ladys_finger.png');
 insert into vegetable (name,image) values('methi','methi.png');
 insert into vegetable (name,image) values('potato','potato.png');
 insert into vegetable (name,image) values('spinach','spinach.png');
