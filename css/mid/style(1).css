@@ -927,7 +927,7 @@ ul.slimmenu li ul li a:hover {
   overflow: hidden;
 }
 .women-single img {
-  background-color: black;
+  background-color: transparent;
   width: 100%;
 }
 .wid-rating h4 {
@@ -3294,6 +3294,7 @@ input[type="radio"], input[type="checkbox"] {
   font-weight: normal;
   margin: 0 0 8px;
   text-transform: uppercase;
+
 }
 
 .product-review ul {
@@ -3454,13 +3455,13 @@ input[type="radio"], input[type="checkbox"] {
     cursor: pointer;
     height: 38px;
     padding-left: 10px;
-    width: 40%;
+    width: 100%;
 }
 
 .size-cart {
   background: #f89d18 none repeat scroll 0 0;
   float: left;
-  margin-left: -90px;
+  margin-left: 90px;
   overflow: hidden;
 }
 

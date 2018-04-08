@@ -11,6 +11,12 @@ $user= ($_SESSION['username']);
 }
 
 
+
+
+
+
+
+
 ?>
 
 
@@ -39,7 +45,7 @@ $user= ($_SESSION['username']);
     <link rel="stylesheet" href="./css/mid/bootstrap.css">
     
     <!-- Main css   -->
-    <link rel="stylesheet" href="./css/mid/style(1).css">
+    <link rel="stylesheet" href="./css/singlepro.css">
     <link rel="stylesheet" href="./css/mid/responsive.css">
 
 
@@ -280,7 +286,7 @@ $user= ($_SESSION['username']);
                         
                         <div class="col-md-6 col-sm-6 col-xs-12">
                            <div class="single-product-content">
-                              <h3>Awesome stylish shirts</h3>
+                              <h3><?php   echo $name ?></h3>
                               <div class="product-review">
                                  
                                  <h4>Availability <span>: In Stock 20 Item(s)</span>
@@ -288,12 +294,14 @@ $user= ($_SESSION['username']);
                                  <div class="product-wid-price">
                                     <ins>$75</ins> <del>$85</del>
                                  </div>
-                                 <p>The ship set ground on the shore of this uncharted desert isle with Gilligan the Skipper too the millionaire and his wife. And when the odds are against him and their dangers work to do. </p>
+                                 <p>Descriptions</p>
+
                               </div>
+                              <p>Compare Differences</p>
                               <div class="single-color">
                                  
                                  <div class="product-size">
-                                    <p>Size :</p>
+                                    <p>Retailer :</p>
                                     <select>
                                        <option>XL</option>
                                        <option>L</option>
@@ -302,6 +310,23 @@ $user= ($_SESSION['username']);
                                        <option>XS</option>
                                     </select>
                                  </div>
+                                 <div class="product-size">
+                                    <p>Whole-Seller :</p>
+                                    <select>
+                                       <option>XL</option>
+                                       <option>L</option>
+                                       <option>M</option>
+                                       <option>S</option>
+                                       <option>XS</option>
+                                    </select>
+                                 </div>
+                                 <div>
+
+
+
+                                 </div>
+
+
                               </div>
                               <div class="single-color last-color-child">
                                  <div class="size-heading">
@@ -310,11 +335,14 @@ $user= ($_SESSION['username']);
                                  <div class="size-down">
                                     <input type="number" step="1" min="0" max="119" name="quantity[113]" value="1" title="Qty" class="input-text qty text" size="4">
                                  </div>
-                                 <div class="size-cart">
+                                  <div class="size-cart">
                                     <a href="" class="fa fa-shopping-cart"> Add to cart</a>
-                                 </div>
+                                   </div>
+                                 
                               </div>
+
                            </div>
+                          
                         </div>
                      </div>
                   </div>
