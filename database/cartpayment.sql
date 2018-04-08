@@ -1,9 +1,9 @@
 
 CREATE TABLE cartpayment (
 
-cartid INT NOT NULL   ,
+username VARCHAR(50) NOT NULL   ,
 
-paymentid INT NOT NULL   ,
+paymentid INT NOT NULL AUTO_INCREMENT   ,
 
 flat VARCHAR(255) ,
 
@@ -15,7 +15,7 @@ phone VARCHAR(255) ,
 
 zip INT(6) ,
 
-PRIMARY KEY (cartid,paymentid)
+PRIMARY KEY (username,paymentid)
 
 );
 

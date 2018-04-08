@@ -1,21 +1,64 @@
 
-<?php
+<?php               
+
+include './login/config.php';  
+
+
+
+
+$username= ($_SESSION['username']);
+                    // ERROR PART
 // Initialize the session
+/*
+
 session_start();
+
  
 // If session variable is not set it will redirect to login page
-if(isset($_SESSION['username']) || !empty($_SESSION['username'])){
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])) {
+  header("location: ./login.php");
+  exit;
+}
+$username= ($_SESSION['username']);
 
-$user= ($_SESSION['username']);
+// If session variable is not set it will redirect to login page
 
+
+
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+$param_dealerid = trim($_POST["name"]));
+$param_quantity = trim($_POST["quantity"]);
+$param_vegname= $_GET['vegname'];
+
+$stmt = mysqli_prepare($link, "INSERT INTO cart values (?,?,?,?)");
+mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quantity,$param_vegname);
+// Attempt to execute the prepared statement
+
+        if(mysqli_stmt_execute($stmt)){
+
+            // Redirect to login page
+
+            header("location: ./loggedin.php");
+
+        } else{
+
+            echo "Something went wrong. Please try again later.";
+
+        }
+
+        mysqli_stmt_close($stmt);
+
+
+
+
+ mysqli_close($link);
 }
 
 
 
-
-
-
-
+*/
 
 ?>
 
@@ -262,7 +305,7 @@ $user= ($_SESSION['username']);
             <div class="row">
                       <?php 
                           session_start();
-                          $name=$_GET['name'];
+                          $vegname=$_GET['vegname'];
                           $image=$_GET['image'];
                                                         
                           echo '
@@ -273,7 +316,7 @@ $user= ($_SESSION['username']);
 
                                           <div class="hot-wid-rating">
                                               <h4><a href="" style="color:black;margin-left:33%;font-weight:bold;">'.
-                                              $name.'
+                                              $vegname.'
                                               </a></h4>
                                              
                                           </div>
@@ -298,22 +341,27 @@ $user= ($_SESSION['username']);
 
                               </div>
                               <p>Compare Differences***CHOOSE ROLE IN PHP - CREATE VIEW***</p>
+                              
+                              <form>
+
                               <div class="single-color">
                                  
                                  <div class="product-size">
                                     <p>Retailer :</p>
                                     <select>
+                                        <option value="" disabled selected hidden>Choose Retailer.</option>
                                         <?php 
                                           include './login/config.php';
-                                          $vegname=$name;             
-                                          $result = mysqli_query($link,"SELECT dealerid FROM stock where vegname='$vegname'");
+                                          $vegname=$vegname;             
+                                          $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname'");
 
-                                          if (mysqli_num_rows($result)) {
+                                          if (mysqli_num_rows($result1)) {
                                               // output data of each row
-                                              while($row = mysqli_fetch_assoc($result)) {
+                                              while($row = mysqli_fetch_assoc($result1)) {
 
                                                   $dealerid= $row["dealerid"];
-                                                    echo ' <option>'.$dealerid.'</option>
+                                                  $price=$row["price"];
+                                                    echo ' <option>'.$dealerid.'('.$price.'₹)'.'</option>
                                                     ';                                                  
 
                                                   }
@@ -323,17 +371,20 @@ $user= ($_SESSION['username']);
                                  </div>
                                  <div class="product-size">
                                     <p>Whole-Seller :</p>
-                                    <select><?php 
+                                    <select>
+                                      <option value="" disabled selected hidden>Choose Whole-Seller.</option>
+                                      <?php 
                                           include './login/config.php';
-                                          $vegname=$name;             
-                                          $result = mysqli_query($link,"SELECT dealerid FROM stock where vegname='$vegname'");
+                                          $vegname=$vegname;             
+                                          $result2 = mysqli_query($link,"SELECT dealerid FROM stock where vegname='$vegname'");
 
-                                          if (mysqli_num_rows($result)) {
+                                          if (mysqli_num_rows($result2)) {
                                               // output data of each row
-                                              while($row = mysqli_fetch_assoc($result)) {
+                                              while($row = mysqli_fetch_assoc($result2)) {
 
                                                   $dealerid= $row["dealerid"];
-                                                    echo ' <option>'.$dealerid.'</option>
+                                                    $price2=$row["price"];
+                                                    echo ' <option>'.$dealerid.'('.$price.'₹)'.'</option>
                                                     ';                                                  
 
                                                   }
@@ -341,23 +392,74 @@ $user= ($_SESSION['username']);
                                                  ?>
                                     </select>
                                  </div>
-                                 <div>
+                                 <div class ="product-size">
+                                    <p>   Difference:</p>
+                                    
+                                    <input placeholder="Choose Retailer and WholeSeller" type="text" value="" readonly >
+                                 </div>
+                               </form>
+                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                 <div class ="product-size">
+                                  <p>Select A Dealer to Buy From</p>
+                                    <select>
+                                      <option value="all">Categories</option>
+                                      <optgroup label="Retailer">
+                                         <?php 
+                                          include './login/config.php';
+                                          $vegname=$name;             
+                                          $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname'");
 
+                                          if (mysqli_num_rows($result1)) {
+                                              // output data of each row
+                                              while($row = mysqli_fetch_assoc($result1)) {
+
+                                                  $dealerid= $row["dealerid"];
+                                                  $price=$row["price"];
+                                                    echo ' <option value = "'.$dealerid.'>'.$dealerid.'('.$price.'₹)'.'</option>
+                                                    ';                                                  
+
+                                                  }
+                                                 }
+                                                 ?>
+                                      </optgroup>
+                                      <optgroup label="Whole-Seller">
+                                        <?php 
+                                          include './login/config.php';
+                                          $vegname=$name;             
+                                          $result2 = mysqli_query($link,"SELECT dealerid FROM stock where vegname='$vegname'");
+
+                                          if (mysqli_num_rows($result2)) {
+                                              // output data of each row
+                                              while($row = mysqli_fetch_assoc($result2)) {
+
+                                                  $dealerid= $row["dealerid"];
+                                                    $price2=$row["price"];
+                                                    echo ' <option value = "'.$dealerid.'">'.$dealerid.'('.$price.'₹)'.'</option>
+                                                    ';                                                  
+
+                                                  }
+                                                 }
+                                                 ?>
+                                         </optgroup>
+                                      <optgroup></optgroup>
+                                      </select>
 
 
                                  </div>
-
-
+                                </form>
+                                 
                               </div>
+                             
                               <div class="single-color last-color-child">
                                  <div class="size-heading">
                                     <h5>Qty :</h5>
                                  </div>
                                  <div class="size-down">
-                                    <input type="number" step="1" min="0" max="119" name="quantity[113]" value="1" title="Qty" class="input-text qty text" size="4">
+                                    <input name="quantity" type="number" step="1" min="0" max="119" name="quantity[113]" value="1" title="Qty" class="input-text qty text" size="4">
                                  </div>
-                                  <div class="size-cart">
-                                    <a href="" class="fa fa-shopping-cart"> Add to cart</a>
+                                  <div class="cart-form">
+                                   
+                                    <button type="submit" name="submit" class="btn btn-default">Add to Cart </button>
                                    </div>
                                  
                               </div>
@@ -368,7 +470,7 @@ $user= ($_SESSION['username']);
                      </div>
                   </div>
                   <!--
-                     <div class="product-tab product-tab-single">
+                     <div class="product-tab product-tab-single"> <button type="submit" name="submit" class="btn btn-default">Save changes</button>
                          <ul class="nav nav-tabs" role="tablist">
                              <li role="presentation" class="active"><a href="http://premiumlayers.net/demo/html/ecom/single-product.html#home" aria-controls="home" role="tab" data-toggle="tab">Product description</a>
                              </li>

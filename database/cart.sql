@@ -1,17 +1,15 @@
 
 CREATE TABLE cart (
 
-cartid INT NOT NULL  AUTO_INCREMENT,
-
 username VARCHAR(50) NOT NULL ,
 
-price float(4,2) NOT NULL,
+vegname VARCHAR(50) NOT NULL    ,
 
-discount float(4,2) NOT NULL,
+dealer VARCHAR(50) NOT NULL  ,
 
-PRIMARY KEY (cartid)
+quantity INT NOT NULL,
 
-
+PRIMARY KEY (username,vegname,dealer)
 );
 
 

@@ -291,13 +291,13 @@ $user= ($_SESSION['username']);
                                 <div class="row">
                                   <?php 
                                     include './login/config.php';
-                                    $result = mysqli_query($link,"SELECT name,image FROM vegetable");
+                                    $result = mysqli_query($link,"SELECT vegname,image FROM vegetable");
 
                                     if (mysqli_num_rows($result)) {
                                         // output data of each row
                                         while($row = mysqli_fetch_assoc($result)) {
 
-                                            $name= $row["name"];
+                                            $name= $row["vegname"];
                                             $image= $row["image"];           
 
                                              echo '<div class="col-md-3 col-sm-3 col-xs-12" >
@@ -311,7 +311,7 @@ $user= ($_SESSION['username']);
                                                       </a></h4>
                                                      
                                                   </div>
-                                                    <form method="post" action="singlepro.php?name='.$name.'&image='.$image.'">
+                                                    <form method="post" action="singlepro.php?vegname='.$name.'&image='.$image.'">
                                                         <button class="button button1" type="submit" name="buy">Buy This Item</a></button> 
                                                     </form>
                                                    

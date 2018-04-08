@@ -1,7 +1,7 @@
 
 CREATE TABLE stock (
 
-vegname VARCHAR(255) NOT NULL    ,
+vegname VARCHAR(50) NOT NULL    ,
 
 region VARCHAR(50) NOT NULL  ,
 
