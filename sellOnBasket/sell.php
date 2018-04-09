@@ -360,9 +360,10 @@ mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,
                                                                <select class="form-control input-lg" name="region">
                                                                   <option value="all">Region</option>
                                                                   <optgroup label="Vegetables">
-                                                                     <option value="tomato">North</option>
-                                                                     <option value="potato">South</option>
-                                                                     <option value="ladys-finger">West</option>
+                                                                     <option value="north">North</option>
+                                                                     <option value="south">South</option>
+                                                                     <option value="west">West</option>
+                                                                     <option value="east">East</option>
                                                                   </optgroup>
                                                                   
                                                                </select>
@@ -393,14 +394,14 @@ mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,
                                                                   <optgroup label="Vegetables">
                                                                      <option value="tomato">Tomato</option>
                                                                      <option value="potato">Potato</option>
-                                                                     <option value="ladys-finger">Lady's Finger</option>
+                                                                     <option value="ladys_finger">Lady's Finger</option>
                                                                      <option value="brinjals">Brinjals</option>
                                                                      <option value="carrot">Carrot</option>
                                                                      <option value="cucumber">Cucumber</option>
                                                                   </optgroup>
                                                                   <optgroup label="Daily Vegetables">
                                                                      <option value="onion">Onioins</option>
-                                                                     <option value="Garlic">Garlic</option>
+                                                                     <option value="garlic">Garlic</option>
                                                                      <option value="ginger">Ginger</option>
                                                                      </optgroup>
                                                                   <optgroup></optgroup>
