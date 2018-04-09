@@ -330,7 +330,7 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
                         
                         <div class="col-md-6 col-sm-6 col-xs-12">
                            <div class="single-product-content">
-                              <h3><?php   echo $name ?></h3>
+                              <h3><?php   echo $vegname ?></h3>
                               <div class="product-review">
                                  
                                  <h4>Availability <span>: In Stock 20 Item(s)</span>
@@ -406,8 +406,7 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
                                       <option value="all">Categories</option>
                                       <optgroup label="Retailer">
                                          <?php 
-                                          include './login/config.php';
-                                          $vegname=$name;             
+                                          include './login/config.php';            
                                           $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname'");
 
                                           if (mysqli_num_rows($result1)) {

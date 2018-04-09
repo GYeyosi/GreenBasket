@@ -297,7 +297,7 @@ $user= ($_SESSION['username']);
                                         // output data of each row
                                         while($row = mysqli_fetch_assoc($result)) {
 
-                                            $name= $row["vegname"];
+                                            $vegname= $row["vegname"];
                                             $image= $row["image"];           
 
                                              echo '<div class="col-md-3 col-sm-3 col-xs-12" >
@@ -307,11 +307,11 @@ $user= ($_SESSION['username']);
                                                    
                                                   <div class="hot-wid-rating">
                                                       <h4><a href="" style="color:black;margin-left:33%;font-weight:bold;">'.
-                                                      $name.'
+                                                      $vegname.'
                                                       </a></h4>
                                                      
                                                   </div>
-                                                    <form method="post" action="singlepro.php?vegname='.$name.'&image='.$image.'">
+                                                    <form method="post" action="singlepro.php?vegname='.$vegname.'&image='.$image.'">
                                                         <button class="button button1" type="submit" name="buy">Buy This Item</a></button> 
                                                     </form>
                                                    
