@@ -16,11 +16,8 @@ PRIMARY KEY (vegname,region,dealerid)
 );
 
 INSERT INTO stock values('potato','Hyderabad','Agastya0',87,12.00);
-INSERT INTO stock values('potato','Hyderabad','Agastya1',87,12.00);
-INSERT INTO stock values('potato','Hyderabad','Agastya2',87,12.00);
-INSERT INTO stock values('potato','Hyderabad','Agastya3',87,12.00);
-INSERT INTO stock values('potato','Hyderabad','Agastya4',87,12.00);
-INSERT INTO stock values('potato','Hyderabad','Agastya5',87,12.00);
-INSERT INTO stock values('potato','Hyderabad','Agastya6',87,12.00);
-INSERT INTO stock values('potato','Hyderabad','Agastya7',87,12.00);
+INSERT INTO stock values('cabbage','Hyderabad','Agastya1',87,13.00);
+INSERT INTO stock values('onion','Hyderabad','Agastya2',87,11.00);
+INSERT INTO stock values('brinjal','Hyderabad','Agastya3',87,15.00);
+INSERT INTO stock values('tomato','Hyderabad','Agastya5',7,16.00);
 

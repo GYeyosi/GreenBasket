@@ -29,8 +29,9 @@ $username= ($_SESSION['username']);
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
 $param_dealerid = trim($_POST["name"]));
-$param_quantity = trim($_POST["quantity"]);
 $param_vegname= $_GET['vegname'];
+$param_quantity = trim($_POST["quantity"]);
+
 
 $stmt = mysqli_prepare($link, "INSERT INTO cart values (?,?,?,?)");
 mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quantity,$param_vegname);

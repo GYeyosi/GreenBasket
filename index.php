@@ -303,7 +303,7 @@ exit;
                                 <div class="row">
                                   <?php 
                                     include './login/config.php';
-                                    $result = mysqli_query($link,"SELECT name,image FROM vegetable");
+                                    $result = mysqli_query($link,"SELECT vegname,image FROM vegetable");
 
                                     if (mysqli_num_rows($result)) {
                                         // output data of each row

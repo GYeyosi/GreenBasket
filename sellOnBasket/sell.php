@@ -1,15 +1,64 @@
 
 <?php
 
+include '../login/config.php';
 session_start();
  
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: ./login/login.php");
+  header("location: ../login/login.php");
   exit;
 }
 
 $user= ($_SESSION['username']);
+
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+ 
+$param_vegname = trim($_POST['veggis']);
+ $param_region = trim($_POST['region']);
+ $param_uname = trim($_POST['uname']);
+ $param_quant = trim($_POST['quant']);
+ $param_price = trim($_POST['price']);
+ 
+ 
+$stmt = mysqli_prepare($link, "INSERT INTO  stock values(?,?,?,?,?) ");
+mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,$param_quant,$param_price);
+//mysqli_stmt_execute($stmt);
+
+
+
+
+
+
+
+ 
+
+
+// Attempt to execute the prepared statement
+
+        if(mysqli_stmt_execute($stmt)){
+
+            // Redirect to login page
+
+            header("location: ../loggedin.php");
+
+        } else{
+
+            echo "Something went wrong. Please try again later.";
+
+        }
+
+        mysqli_stmt_close($stmt);
+
+
+
+
+ mysqli_close($link);
+}
+
+
+
 
 
 ?>
@@ -299,7 +348,7 @@ $user= ($_SESSION['username']);
                                                     
                                                         Username
                                                         <br>
-                                                        <input type="text" >
+                                                        <input type="text" name ="uname" >
                                                           <div >
                                                             <br>
                                                            Region 
@@ -311,19 +360,11 @@ $user= ($_SESSION['username']);
                                                                <select class="form-control input-lg" name="region">
                                                                   <option value="all">Region</option>
                                                                   <optgroup label="Vegetables">
-                                                                     <option value="tomato">Tomato</option>
-                                                                     <option value="potato">Potato</option>
-                                                                     <option value="ladys-finger">Lady's Finger</option>
-                                                                     <option value="brinjals">Brinjals</option>
-                                                                     <option value="carrot">Carrot</option>
-                                                                     <option value="cucumber">Cucumber</option>
+                                                                     <option value="tomato">North</option>
+                                                                     <option value="potato">South</option>
+                                                                     <option value="ladys-finger">West</option>
                                                                   </optgroup>
-                                                                  <optgroup label="Daily Vegetables">
-                                                                     <option value="onion">Onioins</option>
-                                                                     <option value="Garlic">Garlic</option>
-                                                                     <option value="ginger">Ginger</option>
-                                                                     </optgroup>
-                                                                  <optgroup></optgroup>
+                                                                  
                                                                </select>
                                                             </div>
                                                              
@@ -347,7 +388,7 @@ $user= ($_SESSION['username']);
 
                                                             <!-- end col -->
                                                             <div >
-                                                               <select class="form-control input-lg" name="region">
+                                                               <select class="form-control input-lg" name="veggis">
                                                                   <option value="all">Select Vegetables</option>
                                                                   <optgroup label="Vegetables">
                                                                      <option value="tomato">Tomato</option>
@@ -374,7 +415,7 @@ $user= ($_SESSION['username']);
                                                     <input name ="quant" type ="text">
                                                     <br> Enter price per Kg
                                                     <br>
-                                                    <input name ="quant" type ="text">
+                                                    <input name ="price" type ="text">
 
 
                                                     <br>
