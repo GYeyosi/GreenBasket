@@ -6,17 +6,22 @@ include './login/config.php';
 
 
 
-$username= ($_SESSION['username']);
                     // ERROR PART
+
+
+                            //Error: Duplicate entry 'dedsec--' for key 'PRIMARY'.
+
+
+      
 // Initialize the session
-/*
+
 
 session_start();
 
  
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])) {
-  header("location: ./login.php");
+  header("location: ./login/login.php");
   exit;
 }
 $username= ($_SESSION['username']);
@@ -27,25 +32,27 @@ $username= ($_SESSION['username']);
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-$param_dealerid = trim($_POST["name"]));
-$param_vegname= $_GET['vegname'];
-$param_quantity = trim($_POST["quantity"]);
+
+$param_dealerid = trim($_POST["dealerid"]);
+$param_vegname= trim($_POST['vegname']);
+$param_quantity= (isset($_POST["quantity"]) ? $_POST['quantity'] :0);     // BEACUSE IT WAS GIVING NULL ERROR
+
+$param_username=trim($_SESSION['username']);
 
 
-$stmt = mysqli_prepare($link, "INSERT INTO cart values (?,?,?,?)");
-mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quantity,$param_vegname);
+$stmt = mysqli_prepare($link, "INSERT INTO cart values(?,?,?,?)");
+mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_vegname,$param_dealerid,$param_quantity);
 // Attempt to execute the prepared statement
-
-        if(mysqli_stmt_execute($stmt)){
+//echo $stmt;
+if(mysqli_stmt_execute($stmt)){
 
             // Redirect to login page
 
             header("location: ./loggedin.php");
 
         } else{
-
-            echo "Something went wrong. Please try again later.";
+          printf("Error: %s.\n", mysqli_stmt_error($stmt));
+          //  echo "Something went wrong. Please try again later.";
 
         }
 
@@ -55,11 +62,11 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
 
 
  mysqli_close($link);
+
+
+
 }
 
-
-
-*/
 
 ?>
 
@@ -353,7 +360,7 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
                                         <option value="" disabled selected hidden>Choose Retailer.</option>
                                         <?php 
                                           include './login/config.php';
-                                          $vegname=$vegname;             
+                                                      
                                           $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname'");
 
                                           if (mysqli_num_rows($result1)) {
@@ -362,7 +369,7 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
 
                                                   $dealerid= $row["dealerid"];
                                                   $price=$row["price"];
-                                                    echo ' <option>'.$dealerid.'('.$price.'₹)'.'</option>
+                                                    echo ' <option>'.$dealerid.'  (  ₹'.$price.')'.'</option>
                                                     ';                                                  
 
                                                   }
@@ -377,7 +384,7 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
                                       <?php 
                                           include './login/config.php';
                                           $vegname=$vegname;             
-                                          $result2 = mysqli_query($link,"SELECT dealerid FROM stock where vegname='$vegname'");
+                                          $result2 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname'");
 
                                           if (mysqli_num_rows($result2)) {
                                               // output data of each row
@@ -385,7 +392,7 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
 
                                                   $dealerid= $row["dealerid"];
                                                     $price2=$row["price"];
-                                                    echo ' <option>'.$dealerid.'('.$price.'₹)'.'</option>
+                                                    echo ' <option>'.$dealerid.'  (  ₹'.$price.')'.'</option>
                                                     ';                                                  
 
                                                   }
@@ -399,14 +406,19 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
                                     <input placeholder="Choose Retailer and WholeSeller" type="text" value="" readonly >
                                  </div>
                                </form>
-                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                                 <div class ="product-size">
+                               
+
+
+                                <form action="./singlepro.php?vegname=<?php echo $vegname ?>&image=<?php echo $vegname?>.png" method="post">
+                                 <div class ="product-size-form">
+                                  <br> </br>
                                   <p>Select A Dealer to Buy From</p>
-                                    <select>
-                                      <option value="all">Categories</option>
+                                    <select class="form-control input-lg" name="dealerid">
+                                      <option value="" disabled selected hidden>Select Dealer</option>
                                       <optgroup label="Retailer">
                                          <?php 
-                                          include './login/config.php';            
+                                          include './login/config.php';
+                                                    $GLOBALS['vegname']=$vegname; 
                                           $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname'");
 
                                           if (mysqli_num_rows($result1)) {
@@ -414,19 +426,19 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
                                               while($row = mysqli_fetch_assoc($result1)) {
 
                                                   $dealerid= $row["dealerid"];
-                                                  $price=$row["price"];
-                                                    echo ' <option value = "'.$dealerid.'>'.$dealerid.'('.$price.'₹)'.'</option>
+                                                    $price=$row["price"];
+                                                    echo ' <option value = "'.$dealerid.'">'.$dealerid.'  (  ₹'.$price.')'.'</option>
                                                     ';                                                  
 
                                                   }
                                                  }
                                                  ?>
                                       </optgroup>
-                                      <optgroup label="Whole-Seller">
+                                      <optgroup label="Whole Seller">
                                         <?php 
                                           include './login/config.php';
                                                     
-                                          $result2 = mysqli_query($link,"SELECT dealerid FROM stock where vegname='$vegname'");
+                                          $result2 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname'");
 
                                           if (mysqli_num_rows($result2)) {
                                               // output data of each row
@@ -434,23 +446,21 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
 
                                                   $dealerid= $row["dealerid"];
                                                     $price2=$row["price"];
-                                                    echo ' <option value = "'.$dealerid.'">'.$dealerid.'('.$price.'₹)'.'</option>
+                                                    echo ' <option value ="'.$dealerid.'">'.$dealerid.'  (  ₹'.$price.')'.'</option>
                                                     ';                                                  
 
                                                   }
                                                  }
                                                  ?>
                                          </optgroup>
-                                      <optgroup></optgroup>
+                                      
                                       </select>
 
 
                                  </div>
-                                </form>
-                                 
-                              </div>
-                             
-                              <div class="single-color last-color-child">
+
+
+                                 <div class="single-color last-color-child">
                                  <div class="size-heading">
                                     <h5>Qty :</h5>
                                  </div>
@@ -463,6 +473,11 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
                                    </div>
                                  
                               </div>
+                                </form>
+                                 
+                              </div>
+                             
+                              
 
                            </div>
                           

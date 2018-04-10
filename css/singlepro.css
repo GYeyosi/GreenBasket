@@ -248,6 +248,21 @@ h6 {
 
 }
 
+.product-size-form{
+  float: auto;
+  margin-top: 9px;
+  margin-right: 90px;
+  width: 250px;
+
+}
+.product-size-form p {
+  color: #222222;
+  font-size: 16px;
+  margin-bottom: 13px;
+  margin-top: 70px;
+}
+
+
 .product-size select {
   padding: 4px 30px;
 }
@@ -340,6 +355,15 @@ h6 {
   overflow: hidden;
   float: left ;
 }
+
+
+
+
+
+
+
+
+
 
 
 /* product-tab  */

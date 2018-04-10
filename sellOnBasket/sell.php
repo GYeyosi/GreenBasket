@@ -25,16 +25,6 @@ $param_vegname = trim($_POST['veggis']);
 $stmt = mysqli_prepare($link, "INSERT INTO  stock values(?,?,?,?,?) ");
 mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,$param_quant,$param_price);
 //mysqli_stmt_execute($stmt);
-
-
-
-
-
-
-
- 
-
-
 // Attempt to execute the prepared statement
 
         if(mysqli_stmt_execute($stmt)){
@@ -343,7 +333,7 @@ mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,
                                  </div>
                                   
                                       <div class="personal-form" >
-                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class>
+                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" >
                                                 <div class="userleft">
                                                                                                       
                                                         
