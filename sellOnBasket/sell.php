@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
 $param_vegname = trim($_POST['veggis']);
  $param_region = trim($_POST['region']);
- $param_uname = trim($_POST['uname']);
+ $param_uname = trim($_SESSION['username']);
  $param_quant = trim($_POST['quant']);
  $param_price = trim($_POST['price']);
  
@@ -345,10 +345,9 @@ mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,
                                       <div class="personal-form" >
                                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class>
                                                 <div class="userleft">
-                                                    
-                                                        Username
-                                                        <br>
-                                                        <input type="text" name ="uname" >
+                                                                                                      
+                                                        
+                                                       
                                                           <div >
                                                             <br>
                                                            Region 
@@ -358,8 +357,8 @@ mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,
                                                             <!-- end col -->
                                                             <div >
                                                                <select class="form-control input-lg" name="region">
-                                                                  <option value="all">Region</option>
-                                                                  <optgroup label="Vegetables">
+                                                                  <option value="" disabled selected hidden>Region </option>
+                                                                  <optgroup label="Regions">
                                                                      <option value="north">North</option>
                                                                      <option value="south">South</option>
                                                                      <option value="west">West</option>
@@ -383,28 +382,31 @@ mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,
                                                     
                                                    <div >
                                                             <br>
-                                                           Select Vegetables 
+                                                           Vegetables 
                                                            <br>
                                                            <br>
 
                                                             <!-- end col -->
                                                             <div >
                                                                <select class="form-control input-lg" name="veggis">
-                                                                  <option value="all">Select Vegetables</option>
-                                                                  <optgroup label="Vegetables">
-                                                                     <option value="tomato">Tomato</option>
-                                                                     <option value="potato">Potato</option>
-                                                                     <option value="ladys_finger">Lady's Finger</option>
-                                                                     <option value="brinjals">Brinjals</option>
-                                                                     <option value="carrot">Carrot</option>
-                                                                     <option value="cucumber">Cucumber</option>
-                                                                  </optgroup>
-                                                                  <optgroup label="Daily Vegetables">
-                                                                     <option value="onion">Onioins</option>
-                                                                     <option value="garlic">Garlic</option>
-                                                                     <option value="ginger">Ginger</option>
-                                                                     </optgroup>
-                                                                  <optgroup></optgroup>
+                                                                  <option value="" disabled selected hidden>Select Vegetables</option>
+                                                                  <?php 
+                                          include './login/config.php';
+                                          $vegname=$name;             
+                                          $result2 = mysqli_query($link,"SELECT vegname FROM vegetable ");
+
+                                          if (mysqli_num_rows($result2)) {
+                                              // output data of each row
+                                              while($row = mysqli_fetch_assoc($result2)) {
+
+                                                  $vegname= $row["vegname"];
+                                                    
+                                                    echo ' <option value = "'.$vegname.'">'.$vegname.'</option>
+                                                    ';                                                  
+
+                                                  }
+                                                 }
+                                                 ?>
                                                                </select>
                                                             </div>
                                                              

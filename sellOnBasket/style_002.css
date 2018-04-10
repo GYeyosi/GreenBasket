@@ -39,7 +39,8 @@
 
 .userright {
   float: left;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-left: 50px;
 }
 .userright h5 {
     color: #ff0000;
