@@ -425,7 +425,7 @@ mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_dealerid,$param_quan
                                       <optgroup label="Whole-Seller">
                                         <?php 
                                           include './login/config.php';
-                                          $vegname=$name;             
+                                                    
                                           $result2 = mysqli_query($link,"SELECT dealerid FROM stock where vegname='$vegname'");
 
                                           if (mysqli_num_rows($result2)) {

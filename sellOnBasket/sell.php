@@ -390,23 +390,23 @@ mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,
                                                             <div >
                                                                <select class="form-control input-lg" name="veggis">
                                                                   <option value="" disabled selected hidden>Select Vegetables</option>
-                                                                  <?php 
-                                          include './login/config.php';
-                                          $vegname=$name;             
-                                          $result2 = mysqli_query($link,"SELECT vegname FROM vegetable ");
+                                                                   <?php 
+                                                                              include './login/config.php';
+                                                                                          
+                                                                              $result2 = mysqli_query($link,"SELECT vegname FROM vegetable ");
 
-                                          if (mysqli_num_rows($result2)) {
-                                              // output data of each row
-                                              while($row = mysqli_fetch_assoc($result2)) {
+                                                                              if (mysqli_num_rows($result2)) {
+                                                                                  // output data of each row
+                                                                                  while($row = mysqli_fetch_assoc($result2)) {
 
-                                                  $vegname= $row["vegname"];
-                                                    
-                                                    echo ' <option value = "'.$vegname.'">'.$vegname.'</option>
-                                                    ';                                                  
+                                                                                      $vegname= $row["vegname"];
+                                                                                        
+                                                                                        echo ' <option value="'.$vegname.'">'.$vegname.'</option>
+                                                                                        ';                                                  
 
-                                                  }
-                                                 }
-                                                 ?>
+                                                                                      }
+                                                                                     }
+                                                                   ?>
                                                                </select>
                                                             </div>
                                                              
