@@ -340,10 +340,25 @@ if(mysqli_stmt_execute($stmt)){
                               <h3><?php   echo $vegname ?></h3>
                               <div class="product-review">
                                  
-                                 <h4>Availability <span>: In Stock 20 Item(s)</span>
+                                 <h4>Government Price
                                  </h4>
                                  <div class="product-wid-price">
-                                    <ins>$75</ins> <del>$85</del>
+                                    <ins>₹
+                                      <?php 
+                                          include './login/config.php';
+                                                      
+                                          $result1 = mysqli_query($link,"SELECT price FROM govt where vegname='$vegname' and region='Hyderabad' ");
+
+                                          if (mysqli_num_rows($result1)) {
+                                              // output data of each row
+                                              while($row = mysqli_fetch_assoc($result1)) {
+                                                  $price=$row["price"];
+                                                    echo   $price;                                                
+
+                                                  }
+                                                 }
+                                      ?>
+                                    </ins> 
                                  </div>
                                  <p>Descriptions</p>
 
