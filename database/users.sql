@@ -1,9 +1,7 @@
 
 CREATE TABLE users (
 
-id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-
-username VARCHAR(50) NOT NULL UNIQUE,
+username VARCHAR(50) primary key NOT NULL UNIQUE,
 
 email VARCHAR(255) NOT NULL,
 
@@ -15,15 +13,16 @@ flat VARCHAR(255) ,
 
 street VARCHAR(255) ,
 
-state VARCHAR(255) ,
+city VARCHAR(255) ,
 
 phone VARCHAR(255) ,
 
 zip INT(6) ,
 
-role VARCHAR(255),
+role VARCHAR(255) NOT NULL DEFAULT "civilian",
 
-created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+createdat DATETIME DEFAULT CURRENT_TIMESTAMP
+
 
 );
 

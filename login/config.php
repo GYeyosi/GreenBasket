@@ -9,9 +9,9 @@ $DB_SERVER = "localhost";
 
 $DB_USERNAME = "root";
 
-$DB_PASSWORD = "iluvmymom";
+$DB_PASSWORD = "gyeyosi";
 
-$DB_NAME = "test";
+$DB_NAME = "greenbasket";
 
 
 

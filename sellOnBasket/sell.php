@@ -348,12 +348,23 @@ mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,
                                                             <div >
                                                                <select class="form-control input-lg" name="region">
                                                                   <option value="" disabled selected hidden>Region </option>
-                                                                  <optgroup label="Regions">
-                                                                     <option value="north">North</option>
-                                                                     <option value="south">South</option>
-                                                                     <option value="west">West</option>
-                                                                     <option value="east">East</option>
-                                                                  </optgroup>
+                                                                     <?php 
+                                                                              include './login/config.php';
+                                                                                          
+                                                                              $result2 = mysqli_query($link,"SELECT region FROM govt group by region ");
+
+                                                                              if (mysqli_num_rows($result2)) {
+                                                                                  // output data of each row
+                                                                                  while($row = mysqli_fetch_assoc($result2)) {
+
+                                                                                      $region= $row["region"];
+                                                                                        
+                                                                                        echo ' <option value="'.$region.'">'.$region.'</option>
+                                                                                        ';                                                  
+
+                                                                                      }
+                                                                                     }
+                                                                   ?>
                                                                   
                                                                </select>
                                                             </div>

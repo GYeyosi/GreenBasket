@@ -1,37 +1,39 @@
 
 CREATE TABLE vegetable (
 
-vegname VARCHAR(50) NOT NULL ,
+vegname VARCHAR(50) NOT NULL UNIQUE,
 
-image VARCHAR(255) NOT NULL,
+image VARCHAR(50) NOT NULL UNIQUE,
 
-PRIMARY KEY(vegname)
+PRIMARY KEY (vegname)
+
 );
-insert into vegetable (vegname,image) values('tomato','tomato.png');
-insert into vegetable (vegname,image) values('potato','potato.png');
-insert into vegetable (vegname,image) values('beans','beans.png');
-insert into vegetable (vegname,image) values('bitter_gourd','bitter_gourd.png');
-insert into vegetable (vegname,image) values('brinjal','brinjal.png');
-insert into vegetable (vegname,image) values('carrot','carrot.png');
-insert into vegetable (vegname,image) values('chicken_pea','chicken_pea.png');
-insert into vegetable (vegname,image) values('cucumber','cucumber.png');
-insert into vegetable (vegname,image) values('garlic','garlic.png');
-insert into vegetable (vegname,image) values('green_chilli','green_chilli.png');
-insert into vegetable (vegname,image) values('lemon','lemon.png');
-insert into vegetable (vegname,image) values('onion','onion.png');
-insert into vegetable (vegname,image) values('raddish','raddish.png');
-insert into vegetable (vegname,image) values('baby_corn','baby_corn.png');
-insert into vegetable (vegname,image) values('beetroot','beetroot.png');
-insert into vegetable (vegname,image) values('bottle_gourd','bottle_gourd.png');
-insert into vegetable (vegname,image) values('brocoli','brocoli.png');
-insert into vegetable (vegname,image) values('cabbage','cabbage.png');
-insert into vegetable (vegname,image) values('capsicum','capsicum.png');
-insert into vegetable (vegname,image) values('cauliflower','cauliflower.png');
-insert into vegetable (vegname,image) values('coriander','coriander.png');
-insert into vegetable (vegname,image) values('drumstick','drumstick.png');
-insert into vegetable (vegname,image) values('ginger','ginger.png');
-insert into vegetable (vegname,image) values('ladys_finger','ladys_finger.png');
-insert into vegetable (vegname,image) values('methi','methi.png');
-insert into vegetable (vegname,image) values('spinach','spinach.png');
 
 
+
+insert into vegetable (vegname,image) values('Tomato','tomato.png');
+insert into vegetable (vegname,image) values('Potato','potato.png');
+insert into vegetable (vegname,image) values('Beans','beans.png');
+insert into vegetable (vegname,image) values('BitterGourd','bittergourd.png');
+insert into vegetable (vegname,image) values('Brinjal','brinjal.png');
+insert into vegetable (vegname,image) values('Carrot','carrot.png');
+insert into vegetable (vegname,image) values('ChickenPeas','chickenpeas.png');
+insert into vegetable (vegname,image) values('Cucumber','cucumber.png');
+insert into vegetable (vegname,image) values('Garlic','garlic.png');
+insert into vegetable (vegname,image) values('GreenChilli','greenchilli.png');
+insert into vegetable (vegname,image) values('Lemon','lemon.png');
+insert into vegetable (vegname,image) values('Onion','onion.png');
+insert into vegetable (vegname,image) values('Raddish','raddish.png');
+insert into vegetable (vegname,image) values('BabyCorn','babycorn.png');
+insert into vegetable (vegname,image) values('Beetroot','beetroot.png');
+insert into vegetable (vegname,image) values('BottleGourd','bottlegourd.png');
+insert into vegetable (vegname,image) values('Brocli','brocoli.png');
+insert into vegetable (vegname,image) values('Cabbage','cabbage.png');
+insert into vegetable (vegname,image) values('Capsicum','capsicum.png');
+insert into vegetable (vegname,image) values('CauliFlower','cauliflower.png');
+insert into vegetable (vegname,image) values('Coriander','coriander.png');
+insert into vegetable (vegname,image) values('DrumStick','drumstick.png');
+insert into vegetable (vegname,image) values('Ginger','ginger.png');
+insert into vegetable (vegname,image) values('LadysFinger','ladysfinger.png');
+insert into vegetable (vegname,image) values('Methi','methi.png');
+insert into vegetable (vegname,image) values('Spinach','spinach.png');

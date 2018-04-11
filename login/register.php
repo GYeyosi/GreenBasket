@@ -32,7 +32,7 @@ if(empty(trim($_POST["username"]))){
 
     // Prepare a select statement
 
-    $sql = "SELECT id FROM users WHERE username = ?";
+    $sql = "SELECT username FROM users WHERE username = ?";
 
     
 
@@ -102,7 +102,7 @@ if(empty(trim($_POST["email"]))){
 
     // Prepare a select statement
     else{
-        $sql = "SELECT id FROM users WHERE email = ?";
+        $sql = "SELECT username FROM users WHERE email = ?";
 
         
 
