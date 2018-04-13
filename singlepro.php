@@ -48,10 +48,10 @@ if(mysqli_stmt_execute($stmt)){
 
             // Redirect to login page
 
-            header("location: ./loggedin.php");
+            header("location: ../loggedin.php");
 
         } else{
-          printf("Error: %s.\n", mysqli_stmt_error($stmt));
+         // printf("Error: %s.\n", mysqli_stmt_error($stmt));
           //  echo "Something went wrong. Please try again later.";
 
         }
@@ -347,7 +347,7 @@ if(mysqli_stmt_execute($stmt)){
                                       <?php 
                                           include './login/config.php';
                                                       
-                                          $result1 = mysqli_query($link,"SELECT price FROM govt where vegname='$vegname' and region='Mumbai' ");
+                                          $result1 = mysqli_query($link,"SELECT price FROM govt where vegname='$vegname' and region='Hyderabad' ");
 
                                           if (mysqli_num_rows($result1)) {
                                               // output data of each row
@@ -376,7 +376,7 @@ if(mysqli_stmt_execute($stmt)){
                                         <?php 
                                           include './login/config.php';
                                                       
-                                          $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'ret%' and region='Mumbai'");
+                                          $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'ret%' ");
 
                                           if (mysqli_num_rows($result1)) {
                                               // output data of each row
@@ -399,7 +399,7 @@ if(mysqli_stmt_execute($stmt)){
                                       <?php 
                                           include './login/config.php';
                                           $vegname=$vegname;             
-                                          $result2 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'who%' and region='Mumbai'");
+                                          $result2 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'who%'");
 
                                           if (mysqli_num_rows($result2)) {
                                               // output data of each row
@@ -434,7 +434,7 @@ if(mysqli_stmt_execute($stmt)){
                                          <?php 
                                           include './login/config.php';
                                                     $GLOBALS['vegname']=$vegname; 
-                                          $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'ret%'  and region='Mumbai'");
+                                          $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'ret%'");
 
                                           if (mysqli_num_rows($result1)) {
                                               // output data of each row
@@ -453,7 +453,7 @@ if(mysqli_stmt_execute($stmt)){
                                         <?php 
                                           include './login/config.php';
                                                     
-                                          $result2 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'who%' and region='Mumbai'");
+                                          $result2 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'who%'");
 
                                           if (mysqli_num_rows($result2)) {
                                               // output data of each row

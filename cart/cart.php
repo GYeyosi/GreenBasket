@@ -1,98 +1,69 @@
 
+<?php
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: ../login/login.php");
+  exit;
+}
+
+$username= ($_SESSION['username']);
+
+
+?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
    <head>
-          
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ecomshop | Ecommerce HTL5 template | Cart page</title>
-  
-  <!-- Font css  -->
-    <link href="./cart/css" rel="stylesheet" type="text/css">
-  <link href="./cart/css(1)" rel="stylesheet" type="text/css">
-    <link href="./cart/css(2)" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="./cart/fonts.css">
-  
-    <!-- Fontawesome css      -->
-    <link rel="stylesheet" href="./cart/font-awesome.min.css">
-    <link rel="stylesheet" href="./cart/normalize.css">
-  
-    <!-- Bootstrap css      -->
-    <link rel="stylesheet" href="./cart/bootstrap.css">
-  
-    <!-- Owncarousel css      -->
-    <link rel="stylesheet" href="./cart/owl.carousel.css">
-  
-  
-    <!-- CSS STYLE-->
-    <link rel="stylesheet" type="text/css" href="./cart/style.css" media="screen">
-  
-  
-    <!-- Main css   -->
-    <link rel="stylesheet" href="./cart/style(1).css">
-    <link rel="stylesheet" href="./cart/responsive.css">
-
-
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Green basket|Cart page</title>
       <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
       <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="author" content="sumit kumar">
-      <title>Green Basket</title> 
+      <title>Green Basket</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="../css/style.css" rel="stylesheet" type="text/css">
       <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
-
-       <link href="../css/footer.css" rel="stylesheet"/>
+      <link href="../css/footer.css" rel="stylesheet"/>
       <script src="./js/footer.js"></script>
-
-
-      
-    <!-- Bootstrap css      -->
-    <link rel="stylesheet" href="../css/mid/bootstrap.css">
-    
-  
-    
-    <!-- Main css   -->
-    <link rel="stylesheet" href="../css/mid/style(1).css">
-    <link rel="stylesheet" href="../css/mid/responsive.css">
-
-
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
-   
-
-
-       <!--FAV ICON-->
-       
-         <link rel="apple-touch-icon" sizes="57x57" href="../img/apple-icon-57x57.png">
-         <link rel="apple-touch-icon" sizes="60x60" href="../img/apple-icon-60x60.png">
-         <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-icon-72x72.png">
-         <link rel="apple-touch-icon" sizes="76x76" href="../img/apple-icon-76x76.png">
-         <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-icon-114x114.png">
-         <link rel="apple-touch-icon" sizes="120x120" href="../img/apple-icon-120x120.png">
-         <link rel="apple-touch-icon" sizes="144x144" href="../img/apple-icon-144x144.png">
-         <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-icon-152x152.png">
-         <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-icon-180x180.png">
-         <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-         <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
-         <link rel="icon" type="image/png" sizes="96x96" href="../img/favicon-96x96.png">
-         <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
-         <link rel="manifest" href="../img/manifest.json">
-         <meta name="msapplication-TileColor" content="#ffffff">
-         <meta name="msapplication-TileImage" content="../img/ms-icon-144x144.png">
-         <meta name="theme-color" content="#ffffff">
-
-
-
+      <!-- Bootstrap css      -->
+      <link rel="stylesheet" href="../css/mid/bootstrap.css">
+      <!-- Main css   -->
+      <link rel="stylesheet" href="../css/mid/style(1).css">
+      <link rel="stylesheet" href="../css/mid/responsive.css">
+      <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <!------ Include the above in your HEAD tag ---------->
+      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+      <!--FAV ICON-->
+      <link rel="apple-touch-icon" sizes="57x57" href="../img/apple-icon-57x57.png">
+      <link rel="apple-touch-icon" sizes="60x60" href="../img/apple-icon-60x60.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="../img/apple-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="76x76" href="../img/apple-icon-76x76.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="../img/apple-icon-114x114.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="../img/apple-icon-120x120.png">
+      <link rel="apple-touch-icon" sizes="144x144" href="../img/apple-icon-144x144.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="../img/apple-icon-152x152.png">
+      <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-icon-180x180.png">
+      <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="96x96" href="../img/favicon-96x96.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+      <link rel="manifest" href="../img/manifest.json">
+      <meta name="msapplication-TileColor" content="#ffffff">
+      <meta name="msapplication-TileImage" content="../img/ms-icon-144x144.png">
+      <meta name="theme-color" content="#ffffff">
    </head>
    <body>
       <!--=========-TOP_BAR============-->
@@ -100,7 +71,9 @@
          <div class="container">
             <ul class="list-inline pull-left hidden-sm hidden-xs">
                <li><span class="text-primary">Have a question? </span> Call +120 558 7885</li>
-                     <li>           <h3>An e-Vegetable Market</h3></li>
+               <li>
+                  <h3>An e-Vegetable Market</h3>
+               </li>
             </ul>
             <ul class="topBarNav pull-right">
                <!-- <li class="dropdown">
@@ -130,16 +103,20 @@
                   </ul>
                </li>
                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">Hello, Sign in<i class="fa fa-angle-down ml-5"></i></span> </a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">Hello,<?php echo $username?><i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-150" role="menu">
-                     <li><a href="../login/login.php">Login</a>
+
+                    <li><a href="../profile/profile.php"><?php echo $user ?> </a>
+
                      </li>
-                     <li><a href="../login/register.php">Create Account</a>
+                    <li><a href="cart.php">My Orders</a>
+                     </li>
+                     <li><a href="../login/logout.php">Logout</a>
                      </li>
                      <li class="divider"></li>
                      <li><a href="wishlist.html">Wishlist</a>
                      </li>
-                     <li><a href="cart.html" >My Cart</a>
+                     <li><a href="./cart.php">My Cart</a>
                      </li>
                      <li><a href="checkout.html">Checkout</a>
                      </li>
@@ -165,7 +142,7 @@
          <div class="container">
             <div class="row display-table">
                <div class="col-sm-3 vertical-align text-left hidden-xs">
-                 <a href="../index.php"><img width="180px" src="../img/logo.png" alt="Green Basket"></a>
+                  <a href="../index.php"><img width="180px" src="../img/logo.png" alt="Green Basket"></a>
                </div>
                <!-- end col -->
                <div class="col-sm-7 vertical-align text-center">
@@ -176,7 +153,7 @@
                         </div>
                         <!-- end col -->
                         <div class="col-sm-3">
-                            <select class="form-control input-lg" name="category">
+                           <select class="form-control input-lg" name="category">
                               <option value="all">Categories</option>
                               <optgroup label="Vegetables">
                                  <option value="tomato">Tomato</option>
@@ -190,7 +167,7 @@
                                  <option value="onion">Onioins</option>
                                  <option value="Garlic">Garlic</option>
                                  <option value="ginger">Ginger</option>
-                                 </optgroup>
+                              </optgroup>
                               <optgroup></optgroup>
                            </select>
                         </div>
@@ -252,12 +229,12 @@
                            </ul>
                         </li>
                         <!--
-                        <li class="col-sm-3 col-xs-12">
-                           <ul class="list-unstyled">
-                              <li>Sumit Kumar</li>
-                           </ul>
-                           <img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive" alt="menu-img">
-                        </li>  -->
+                           <li class="col-sm-3 col-xs-12">
+                              <ul class="list-unstyled">
+                                 <li>Sumit Kumar</li>
+                              </ul>
+                              <img src="https://lh3.googleusercontent.com/-uwagl9sPHag/WM7WQa00ynI/AAAAAAAADtA/hio87ZnTpakcchDXNrKc_wlkHEcpH6vMwCJoC/w140-h148-p-rw/profile-pic.jpg" class="img-responsive" alt="menu-img">
+                           </li>  -->
                      </ul>
                   </li>
                   <li class="dropdown">
@@ -278,255 +255,224 @@
             <!-- /.navbar-collapse -->
          </div>
       </nav>
-
-
-<!-- START OF NATURES BASKET -->
-
-    <!-- PAGE-TITLE-AREA:END -->
-  
-    <!-- BREADCRUMBS -->
-   
-    <!-- BREADCRUMBS:END -->
-  
-    <!-- SHOPING-CART-AREA   -->
-    <div class="shoping-cart section-padding">
-        <div class="container">
+      <!-- START OF NATURES BASKET -->
+      <!-- PAGE-TITLE-AREA:END -->
+      <!-- BREADCRUMBS -->
+      <!-- BREADCRUMBS:END -->
+      <!-- SHOPING-CART-AREA   -->
+      <div class="shoping-cart section-padding">
+         <div class="container">
             <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="headline">
-                    <h2>Shopping cart</h2>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
+               <div class="col-md-12 col-sm-12 col-xs-12">
+                  <div class="headline">
+                     <h2>Shopping cart</h2>
+                  </div>
+                  <div class="table-responsive">
+                     <table class="table table-bordered">
                         <thead>
-                            <tr>
-                                <th class="cart-product item">Product</th>
-                                <th class="cart-product-name item">Product Name</th>
-                                <th class="cart-qty item">Quantity</th>
-                                <th class="cart-unit item">Unit price</th>
-                                <th class="cart-delivery item">Delivery info</th>
-                                <th class="cart-sub-total last-item">Sub total</th>
-                                <th class="cart-romove item">Remove</th>
-                            </tr>
+                           <tr>
+                              <th class="cart-product item">Product</th>
+                              <th class="cart-product-name item">Vegetable Name</th>
+                              <th class="cart-qty item">Quantity</th>
+                              <th class="cart-unit item">Unit price</th>
+                              <th class="cart-delivery item">Delivery info</th>
+                              <th class="cart-sub-total last-item">Sub total</th>
+                              <th class="cart-romove item">Remove</th>
+                           </tr>
                         </thead>
                         <!-- /thead -->
                         <tfoot>
-                            <tr>
-                                <td colspan="7">
-                                    <div class="shopping-cart-btn">
-                                        <button type="button" class="btn btn-default left-cart">Continue Shopping</button>
-                                        <button type="button" class="btn btn-default right-cart right-margin">Clear shopping cart</button>
-                                        <button type="button" class="btn btn-default right-cart">Update shopping cart</button>
-                                    </div>
-                                    <!-- /.shopping-cart-btn -->
-                                </td>
-                            </tr>
+                           <tr>
+                              <td colspan="7">
+                                 <div class="shopping-cart-btn">
+                                   <form action="../loggedin.php"><button type="button" class="btn btn-default left-cart">Continue Shopping</button></form> 
+
+                                    <button type="button" class="btn btn-default right-cart right-margin">Clear shopping cart</button>
+                                    <button type="button" class="btn btn-default right-cart">Update shopping cart</button>
+                                 </div>
+                                 <!-- /.shopping-cart-btn -->
+                              </td>
+                           </tr>
                         </tfoot>
                         <tbody>
-                            <tr>
-                                <td class="cart-image">
-                                    <a href="http://premiumlayers.net/demo/html/ecom/cart-page.html#" class="entry-thumbnail">
-                                        <img src="./cart/cart1.png" alt="">
-                                    </a>
-                                </td>
-                                <td class="cart-product-name-info">
-                  <div class="cc-tr-inner">
-                    <h4 class="cart-product-description"><a href="http://premiumlayers.net/demo/html/ecom/cart-page.html#">Fabulas t-shirt</a></h4>
-                    <div class="cart-product-info">
-                      <span class="product-color">COLOR :</span><span>Black</span>
-                      <br>
-                      <span class="product-color">Size :</span><span>Large</span>
-                    </div>
-                   </div>
-                                </td>
-                                <td class="cart-product-quantity">
-                                    <div class="quant-input">
-                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity[113]" max="119" min="0" step="1">
-                                    </div>
-                                </td>
-                                <td class="cart-product-price"><div class="cc-pr">$75</div></td>
-                                <td class="cart-product-delivery"><div class="cc-pr">Free shipping</div></td>
-                                <td class="cart-product-sub-total"><div class="cc-pr">$75</div></td>
-                                <td class="romove-item">
-                                    <a href="http://premiumlayers.net/demo/html/ecom/cart-page.html#"><img src="./cart/remove.png" alt="">
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="cart-image">
-                                    <a href="http://premiumlayers.net/demo/html/ecom/cart-page.html#" class="entry-thumbnail">
-                                        <img src="./cart/cart2.png" alt="">
-                                    </a>
-                                </td>
-                                <td class="cart-product-name-info">
-                                   <div class="cc-tr-inner">
-                    <h4 class="cart-product-description"><a href="http://premiumlayers.net/demo/html/ecom/cart-page.html#l">Awesome t-shirt</a></h4>
-                    <div class="cart-product-info">
-                      <span class="product-color">COLOR :</span><span>Red</span>
-                      <br>
-                      <span class="product-color">Size :</span><span>Large</span>
-                    </div>
-                   </div>
-                                </td>
-                                <td class="cart-product-quantity">
-                                    <div class="cart-quantity">
-                                        <div class="quant-input">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity[113]" max="119" min="0" step="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="cart-product-price"><div class="cc-pr">$75</div></td>
-                                <td class="cart-product-delivery"><div class="cc-pr">Free shipping</div></td>
-                                <td class="cart-product-sub-total"><div class="cc-pr">$75</div></td>
-                                <td class="romove-item">
-                                    <a href="http://premiumlayers.net/demo/html/ecom/cart-page.html#"><img src="./cart/remove.png" alt="">
-                                    </a>
-                                </td>
-                            </tr>
+                          <?php
+                              include '../login/config.php';
+                                       session_start();
+                                       $totalprice=0;
+                                       
+                            $param_username= $_SESSION['username'];
+
+                            $result1 = mysqli_query($link,"select v.*, i.image from vegetable i join (select c.*,s.price from cart c join (select  dealerid,vegname,region,price from stock) s on c.dealerid=s.dealerid and c.vegname=s.vegname and c.region=s.region where c.username='$param_username' and paymentstatus='no' ) as v  on v.vegname=i.vegname;");
+
+                              if (mysqli_num_rows($result1)) {
+                              // output data of each row
+                                while($row = mysqli_fetch_assoc($result1)) {
+                                      $vegname= $row["vegname"];
+                                      $region= $row["region"];
+                                      $dealerid= $row["dealerid"];
+                                      $quantity=$row["quantity"];
+                                      $price=$row["price"];
+                                      $totalprice= $totalprice+ $quantity*$price;
+                                       $image=$row["image"];
+
+
+
+
+                                      echo ' 
+
+                                            <tr>
+                                                    <td class="cart-image">
+                                                       <a href="../singlepro.php?vegname='.$vegname.'&image='.$image.'" class="entry-thumbnail">
+                                                       <img src="../img/vegetables/'.$image.'" width="600px" alt="">
+                                                       </a>
+                                                    </td>
+                                                    <td class="cart-product-name-info">
+                                                       <div class="cc-tr-inner">
+                                                          <h4 class="cart-product-description"><a href="../singlepro.php?vegname='.$vegname.'&image='.$image.'">'.$vegname.'</a></h4>
+                                                          <div class="cart-product-info">
+                                                             <span class="product-color">DEALER : <p>'.$dealerid.'</p> </span>
+
+                                                             <span class="product-color">REGION : <p>'.$region.'</p></span>
+                                                          </div>
+                                                       </div>
+                                                    </td>
+                                                    <td class="cart-product-quantity">
+                                                       <div class="quant-input">
+                                                         '.$quantity.'
+                                                       </div>
+                                                    </td>
+                                                    <td class="cart-product-price">
+                                                       <div class="cc-pr">₹'.$price.'</div>
+                                                    </td>
+                                                    <td class="cart-product-delivery">
+                                                       <div class="cc-pr">Free shipping</div>
+                                                    </td>
+                                                    <td class="cart-product-sub-total">
+                                                       <div class="cc-pr">'.$quantity*$price.'</div>
+                                                    </td>
+                                                    <td class="romove-item">
+                                                       <a href="#"><img src="./cart/remove.png" alt="">
+                                                       </a>
+                                                    </td>
+                                          </tr>
+
+                                            ';                                                  
+
+                                      }
+                                }
+
+
+
+                          ?>
+
+                           
                         </tbody>
                         <!-- /tbody -->
-                    </table>
-                    <!-- /table -->
-                </div>
-        </div>
-            </div>
-        </div>
-    </div>
-    <!-- SHOPING-CART-AREA:END   -->
-  
-    <!-- SHOPING-CART-BOTTOM-AREA   -->
-    <div class="shoping-cart-bottom-area">
-        <div class="container">
-            <div class="row" >
-                
-                <div >
-                    <div class="checkout">
-                        <p>Subtotal<span>$155</span>
-                        </p>
-                        <h4>Grandtotal<span>$155</span></h4>
-                        <button type="button" class="btn btn-default">Proceed to checkout</button>
-                        <h5>Checkout  with multiple addresses</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  <!-- Entire FOOTER:END -->
-  
-    <!-- jQuery latest -->
-  <script type="text/javascript" src="./cart/jQuery.2.1.4.js.download"></script>
-  
-  <!-- js Modernizr -->
-  <script src="./cart/modernizr-2.6.2.min.js.download"></script>
-
-    
-  
-  <!-- Bootsrap js -->
-    <script src="./cart/bootstrap.min.js.download"></script>
-  
-  <!-- Plugins js -->
-    <script src="./cart/plugins.js.download"></script>
-  
-  
-  <!-- Custom js -->
-    <script src="./cart/main.js.download"></script>
-
-
-
-
-
-
-<!-- END OF NATURES BASKET -->
-
-<!--start of footer -->
-
-
-
-
-
-
-
-
-<div class="footer-section">
-    <div class="footer">
-   <div class="container">
-          <div class="col-md-4 footer-one">
-            <div class="foot-logo">
-                <img src="../img/logo.png">
-            </div> 
-             
-             <p>Providing Life Changing Experiences Through Education. Class That Fit Your Busy Life. Closer to Home
-                </p>
-            <div class="social-icons"> 
-               <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-               <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-               <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-               <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
-           </div>
-          </div>
-          <div class="col-md-2 footer-two">
-             <h5>Quick Links</h5>
-                <ul>
-                    <li><a href="#"> About Us</a> </li>
-                    <li><a href="#"> Our News</a> </li>
-                    <li><a href="#"> Our Services</a> </li>
-                    <li><a href="#"> Contact Us</a> </li>
-                  </ul>
-                  
-          </div>
-          <div class="col-md-2 footer-three">
-             <h5>Services</h5>
-                <ul>
-                    <li><a href="#"> About Us</a> </li>
-                    <li><a href="#"> Our News</a> </li>
-                    <li><a href="#"> Our Services</a> </li>
-                    <li><a href="#"> Contact Us</a> </li>
-                  </ul>
-                  
-          </div>
-          <div class="col-md-4 footer-four">
-             <h5>Contact Us</h5>
-                <ul>
-                    <li><i class="fa fa-map-marker"></i>350 Avenue, India, Delhi 110001 </li>
-                    <li><i class="fa fa-envelope-o"></i>info@mailme.com </li>
-                    <li><i class="fa fa-phone"></i>+91-xxx-xxx-2040 </li>
-                    
-                  </ul>
-                  
-          </div>
-          
-      
-      
-      
-      
-      
-      <div class="clearfix"></div>
-   </div>
-</div>
-
-</div>
-<div class="footer-bottom">
-        <div class="container">
-               <div class="row">
-                  <div class="col-sm-6 ">
-                     <div class="copyright-text">
-                        <p>CopyRight © 2017 Digital All Rights Reserved</p>
-                     </div>
-                  </div> <!-- End Col -->
-                  <div class="col-sm-6  ">
-                      <div class="copyright-text pull-right">
-                        <p> <a href="#">Home</a> | <a href="#">Privacy</a> |<a href="#">Terms & Conditions</a> | <a href="#">Refund Policy</a> </p>
-                     </div>               
-                                       
-                  </div> <!-- End Col -->
+                     </table>
+                     <!-- /table -->
+                  </div>
                </div>
             </div>
-    </div>
-   </div>
-   <!-- end of footer -->
+         </div>
+      </div>
+      <!-- SHOPING-CART-AREA:END   -->
+      <!-- SHOPING-CART-BOTTOM-AREA   -->
+      <div class="shoping-cart-bottom-area">
+         <div class="container">
+            <div class="row" >
+               <div >
+                  <div class="checkout">
+                     <p>Subtotal<span>₹<?php  echo $totalprice ?></span>
+                     </p>
+                     <h4>Grandtotal<span>₹<?php  echo $totalprice ?></span></h4>
+                     <button type="button" class="btn btn-default">Proceed to checkout</button>
+                     <h5>Checkout  with multiple addresses</h5>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Entire FOOTER:END -->
+      <!-- jQuery latest -->
+      <script type="text/javascript" src="./cart/jQuery.2.1.4.js.download"></script>
+      <!-- js Modernizr -->
+      <script src="./cart/modernizr-2.6.2.min.js.download"></script>
+      <!-- Bootsrap js -->
+      <script src="./cart/bootstrap.min.js.download"></script>
+      <!-- Plugins js -->
+      <script src="./cart/plugins.js.download"></script>
+      <!-- Custom js -->
+      <script src="./cart/main.js.download"></script>
+      <!-- END OF NATURES BASKET -->
+      <!--start of footer -->
+      <div class="footer-section">
+         <div class="footer">
+            <div class="container">
+               <div class="col-md-4 footer-one">
+                  <div class="foot-logo">
+                     <img src="../img/logo.png">
+                  </div>
+                  <p>Providing Life Changing Experiences Through Education. Class That Fit Your Busy Life. Closer to Home
+                  </p>
+                  <div class="social-icons"> 
+                     <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                     <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                     <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                     <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                  </div>
+               </div>
+               <div class="col-md-2 footer-two">
+                  <h5>Quick Links</h5>
+                  <ul>
+                     <li><a href="#"> About Us</a> </li>
+                     <li><a href="#"> Our News</a> </li>
+                     <li><a href="#"> Our Services</a> </li>
+                     <li><a href="#"> Contact Us</a> </li>
+                  </ul>
+               </div>
+               <div class="col-md-2 footer-three">
+                  <h5>Services</h5>
+                  <ul>
+                     <li><a href="#"> About Us</a> </li>
+                     <li><a href="#"> Our News</a> </li>
+                     <li><a href="#"> Our Services</a> </li>
+                     <li><a href="#"> Contact Us</a> </li>
+                  </ul>
+               </div>
+               <div class="col-md-4 footer-four">
+                  <h5>Contact Us</h5>
+                  <ul>
+                     <li><i class="fa fa-map-marker"></i>350 Avenue, India, Delhi 110001 </li>
+                     <li><i class="fa fa-envelope-o"></i>info@mailme.com </li>
+                     <li><i class="fa fa-phone"></i>+91-xxx-xxx-2040 </li>
+                  </ul>
+               </div>
+               <div class="clearfix"></div>
+            </div>
+         </div>
+      </div>
+      <div class="footer-bottom">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-6 ">
+                  <div class="copyright-text">
+                     <p>CopyRight © 2017 Digital All Rights Reserved</p>
+                  </div>
+               </div>
+               <!-- End Col -->
+               <div class="col-sm-6  ">
+                  <div class="copyright-text pull-right">
+                     <p> <a href="#">Home</a> | <a href="#">Privacy</a> |<a href="#">Terms & Conditions</a> | <a href="#">Refund Policy</a> </p>
+                  </div>
+               </div>
+               <!-- End Col -->
+            </div>
+         </div>
+      </div>
+      </div>
+      <!-- end of footer -->
       <script src="js/jquery-3.1.1.js"></script>
       <script src="js/bootstrap.js"></script>
       <script src="./js/hover.js"></script>
-
    </body>
 </html>

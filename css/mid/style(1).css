@@ -4037,37 +4037,58 @@ input[type="radio"], input[type="checkbox"] {
 ===============================================*/
 .cart-product-quantity {
     text-align: center;
+    font-size: 16px;  
 }
 
 .cart-product-description a {
-    font-size: 16px;
-    color: #333333;
+    font-size: 18px;    
+    font-weight: bold;    
+    color: #020749;
     text-transform: uppercase;
 }
 
-.cart-product-delivery {
-  color: #87ca3d;
+.cart-product-delivery {      /*BLUE FOR NAME*/
+  color: #87ca3d;         
   font-size: 13px;
   text-align: center;
   text-transform: uppercase;
 }
 
+.cart-product-info p {
+  color: #fc354c;         /*RED FOR DEALER*/
+  font-size: 13px;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: -17px;
+}
+.cart-product-info span {
+  color: #024384;         /*BLACK FOR DEALER*/
+  font-size: 13px;
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
 .cart-product-price,
 .cart-product-sub-total {
-    font-size: 13px;
+    font-size: 20px;
     text-align: center;
+
 }
 
 .quant-input {
   display: inline-block;
+  font-size: 20px;
   height: 35px;
-  margin-top: 19px;
+  margin-top: 25px;
   position: relative;
   width: 70px;
 }
 
 .cc-pr {
-  padding-top: 18px;
+  padding-top: 28px;
 }
 .romove-item > a {
   display: block;
@@ -4103,6 +4124,8 @@ input[type="radio"], input[type="checkbox"] {
   padding: 16px 0;
   text-align: center;
   text-transform: uppercase;
+  border: 1px solid black;
+    width: 100px;
 }
 
 .table-responsive table.table.table-bordered thead tr th td {
@@ -4119,9 +4142,11 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .cc-tr-inner {
-  margin-top: 27px;
-  padding-left: 16px;
+  margin-top: 16px;
+  padding-left: 6px;
 }
+
+
 
 .table-bordered tbody tr td.romove-item {
     text-align: center;

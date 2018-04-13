@@ -57,4 +57,7 @@ select s.region,s.dealerid,s.vegname,s.price as dealer_price,g.price as govt_pri
 select sum(p.govt*p.quantity) as total_revenue from ( select s.quantity as quantity,g.price as govt from govt as g join (select  dealerid,vegname,region,price,quantity from stock) as s on g.vegname=s.vegname and g.region=s.region) p;
 
 
+--FOR IMAGE IN CART>PHP
+select v.*, i.image from vegetable i join (select c.*,s.price from cart c join (select  dealerid,vegname,region,price from stock) s on c.dealerid=s.dealerid and c.vegname=s.vegname and c.region=s.region where c.username='dedsec' and paymentstatus='no' ) as v  on v.vegname=i.vegname;
+
 
