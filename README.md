@@ -20,13 +20,12 @@ Web application for Vegetable Marketing System
 
 # sell.php-->
 	
-	2.if(same username and dealer and vegetable )
-		update quantity of vegtable
+~~2.if(same username and dealer and vegetable ) update quantity of vegtable~~
 	3.if role is civilian redirect to profile page to change role.
 ~~1.extract regions from govt table~~
 
 # singlePro.php-->(MAJOR)
-	2.if(same username and dealer and vegetable update quantity ) ***
+~~2.if(same username and dealer and vegetable update quantity )~~
 ~~1.errors in php(duplicate entries in database)~~
 ~~3. Edit Dropdowns  in page for Retailer~~
 ~~4. Show govt price~~

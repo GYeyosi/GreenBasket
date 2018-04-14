@@ -22,8 +22,8 @@ $param_vegname = trim($_POST['veggis']);
  $param_price = trim($_POST['price']);
  
  
-$stmt = mysqli_prepare($link, "INSERT INTO  stock values(?,?,?,?,?) ");
-mysqli_stmt_bind_param($stmt, "sssss",$param_vegname,$param_region,$param_uname,$param_quant,$param_price);
+$stmt = mysqli_prepare($link, "INSERT INTO  stock values(?,?,?,?,?) ON DUPLICATE KEY UPDATE quantity=quantity+ ? , price=?");
+mysqli_stmt_bind_param($stmt, "sssssss",$param_vegname,$param_region,$param_uname,$param_quant,$param_price,$param_quant,$param_price);
 //mysqli_stmt_execute($stmt);
 // Attempt to execute the prepared statement
 

@@ -25,8 +25,9 @@ $param_quantity= (isset($_POST["quantity"]) ? $_POST['quantity'] :0);     // BEA
 $param_username=trim($_SESSION['username']);
 
 
-$stmt = mysqli_prepare($link, "INSERT into cart (username,vegname,dealerid,region,quantity) values (?,?,?,?,?)");
-mysqli_stmt_bind_param($stmt, "sssss",$param_username,$param_vegname,$param_dealerid,$param_region,$param_quantity);
+$stmt = mysqli_prepare($link, "INSERT into cart (username,vegname,dealerid,region,quantity) values (?,?,?,?,?) ON DUPLICATE KEY UPDATE quantity=quantity + ?");
+
+mysqli_stmt_bind_param($stmt, "ssssss",$param_username,$param_vegname,$param_dealerid,$param_region,$param_quantity,$param_quantity);
 // Attempt to execute the prepared statement
 //echo $stmt;
 if(mysqli_stmt_execute($stmt)){
