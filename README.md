@@ -9,9 +9,9 @@ Web application for Vegetable Marketing System
 	1. add role div to profile page with dropdown box.
 	4.add city with dropdown from govt table.	
 	
-~~2. add change password func ~~
+~~2. add change password func~~
 
-~~3.remove state and country ~~
+~~3.remove state and country~~
 	
 		
 # vegetable table-->
@@ -27,8 +27,8 @@ Web application for Vegetable Marketing System
 
 # singlePro.php-->(MAJOR)
 	2.if(same username and dealer and vegetable update quantity ) ***
-~~1.errors in php(duplicate entries in database) *** ~~
-~~3. Edit Dropdowns  in page for Retailer.~~
+~~1.errors in php(duplicate entries in database)~~
+~~3. Edit Dropdowns  in page for Retailer~~
 ~~4. Show govt price ~~
 ~~5. add js ajax to show diff in prices~~
 ~~6. region dropdown box.~~
