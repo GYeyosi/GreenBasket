@@ -1,7 +1,7 @@
 <?php 
 session_start();
  
- $user= ($_SESSION['username']);
+$user= ($_SESSION['username']);
 $valid = true;
 $error = [];
 $form_data = [];
@@ -106,7 +106,10 @@ if($valid==true)
         }
         else
         {
-            echo "Opps, We can not find your data. Please try again.";
+            //echo "Opps, We can not find your data. Please try again.";
+             
+            header('Location:./profile.php?wrong=1');
+
             die;
         }
     }

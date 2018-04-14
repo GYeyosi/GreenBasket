@@ -309,7 +309,9 @@ if (isset($_POST['clearCart'])){
                                     <a href="../loggedin.php" type="button" class="btn btn-default left-cart">Continue Shopping</a>
 
                                      <form action="" id="form1" method="post">
-                                       <input name="clearCart" type="submit" class="btn btn-default right-cart"value ="Clear shopping cart"/>
+                                       <input name="clearCart" type="submit" class="btn btn-default right-cart"  value ="Clear shopping cart"   
+                                       onclick="return confirm('Are you sure want to clear cart?')"
+                                       />
                                     </form>
                                     <a href="./cart.php" type="button" class="btn btn-default right-cart">Update shopping cart</a>
                                  </div>

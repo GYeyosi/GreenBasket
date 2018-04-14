@@ -13,6 +13,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: ../login/login.php");
   exit;
 }
+if(isset($_GET['wrong']))
+  echo('<script> alert("Oops, You Entered Wrong password. Enter The Correct Password.")</script>');
 
 $user= ($_SESSION['username']);
 $result = mysqli_query($link,"SELECT email,name,city,zip,phone,street,flat FROM users where username= '$user'");

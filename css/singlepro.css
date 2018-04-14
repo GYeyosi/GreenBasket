@@ -106,6 +106,8 @@ h6 {
 .product-img {
     overflow: hidden;
     position: relative;
+    height: 170px;
+    width: 170px;
 }
 
 .flex-control-thumbs li {
@@ -491,8 +493,8 @@ h6 {
 }
 .single_review_img img {
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
 }
 .single_review_text {
   float: left;

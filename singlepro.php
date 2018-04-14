@@ -317,7 +317,7 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
                           echo '
                                 <div class="col-md-3 col-sm-3 col-xs-12">
                                     <div class="women-single">
-                                          <a href="#"><img src="./img/vegetables/'.$image.'" alt="">
+                                          <a href="#"><img  width="250px" src="./img/vegetables/'.$image.'" alt="">
                                           </a>
 
                                           <div class="hot-wid-rating">
@@ -403,10 +403,10 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
 
                                  <div class="single-color last-color-child">
                                  <div class="size-heading">
-                                    <h5>Qty :</h5>
+                                    <h5>Qty in Kgs :</h5>
                                  </div>
                                  <div class="size-down">
-                                    <input name="quantity" type="number" step="1" min="0" max="119" name="quantity[113]" value="1" title="Qty" class="input-text qty text" size="4">
+                                    <input name="quantity" type="number" step="1" min="1" max="119" name="quantity[113]" value="1" title="Qty" class="input-text qty text" size="4">
                                  </div>
                                   <div class="cart-form">
                                    
