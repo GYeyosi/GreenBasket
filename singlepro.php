@@ -5,17 +5,6 @@ include './login/config.php';
 
 
 
-
-                    // ERROR PART
-
-
-                            //Error: Duplicate entry 'dedsec--' for key 'PRIMARY'.
-
-
-      
-// Initialize the session
-
-
 session_start();
 
  
@@ -28,44 +17,57 @@ $username= ($_SESSION['username']);
 
 // If session variable is not set it will redirect to login page
 
+  $vegname=$_GET['vegname'];
+  $image=$_GET['image'];
+  $role="";
 
 
+$result = mysqli_query($link,"SELECT role FROM users where username= '$username'");
+if (mysqli_num_rows($result) == 1) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        $role= $row['role'];
+    }
+}              
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+  $db = new mysqli('localhost','root','gyeyosi','greenbasket');//set your database handler
+  $query = "SELECT region FROM govt group by region";
+  $result = $db->query($query);
 
-$param_dealerid = trim($_POST["dealerid"]);
-$param_vegname= trim($_POST['vegname']);
-$param_quantity= (isset($_POST["quantity"]) ? $_POST['quantity'] :0);     // BEACUSE IT WAS GIVING NULL ERROR
+  while($row = $result->fetch_assoc()){
+    $regions[] = array( "val" => $row['region']);
+  }
 
-$param_username=trim($_SESSION['username']);
+  
+  $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on s.dealerid=u.username where u.role='retailer' and s.vegname='$vegname' ";
+
+  $result = $db->query($query);
+
+  while($row = $result->fetch_assoc()){
+    $retailers[$row['region']][] = array("val" => $row['dealerid'],"price"=> $row['price']);
+  }
+
+$query = "SELECT price,region, dealerid FROM stock as s inner join users as u on s.dealerid=u.username where u.role='wholeseller' and s.vegname='$vegname' ";
+
+  $result = $db->query($query);
+
+  while($row = $result->fetch_assoc()){
+    $wholesellers[$row['region']][] = array("val" => $row['dealerid'],"price"=> $row['price']);
+  }
+
+ $query = "SELECT region,price FROM govt where vegname='$vegname'";
+  $result = $db->query($query);
+
+  while($row = $result->fetch_assoc()){
+    $govtprices[$row['region']] = array( "price"=> $row['price']);
+  }
+ 
+  $jsonregions = json_encode($regions);
+  $jsonretailers = json_encode($retailers);
+  $jsonwholesellers = json_encode($wholesellers);
+    $jsongovtprices= json_encode($govtprices);
 
 
-$stmt = mysqli_prepare($link, "INSERT INTO cart values(?,?,?,?)");
-mysqli_stmt_bind_param($stmt, "ssss",$param_username,$param_vegname,$param_dealerid,$param_quantity);
-// Attempt to execute the prepared statement
-//echo $stmt;
-if(mysqli_stmt_execute($stmt)){
-
-            // Redirect to login page
-
-            header("location: ../loggedin.php");
-
-        } else{
-         // printf("Error: %s.\n", mysqli_stmt_error($stmt));
-          //  echo "Something went wrong. Please try again later.";
-
-        }
-
-        mysqli_stmt_close($stmt);
-
-
-
-
- mysqli_close($link);
-
-
-
-}
 
 
 ?>
@@ -73,7 +75,7 @@ if(mysqli_stmt_execute($stmt)){
 
 <!DOCTYPE html>
 <html lang="en">
-   <head>
+   <head >
 
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
@@ -105,10 +107,9 @@ if(mysqli_stmt_execute($stmt)){
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
 <!------ Include the above in your HEAD tag ---------->
+</head>
+   <body onload='loadregions()' >
 
-
-   </head>
-   <body>
       <!--=========-TOP_BAR============-->
       <nav class="topBar">
          <div class="container">
@@ -312,10 +313,7 @@ if(mysqli_stmt_execute($stmt)){
          <div class="container">
             <div class="row">
                       <?php 
-                          session_start();
-                          $vegname=$_GET['vegname'];
-                          $image=$_GET['image'];
-                                                        
+                           
                           echo '
                                 <div class="col-md-3 col-sm-3 col-xs-12">
                                     <div class="women-single">
@@ -342,132 +340,60 @@ if(mysqli_stmt_execute($stmt)){
                                  
                                  <h4>Government Price
                                  </h4>
-                                 <div class="product-wid-price">
-                                    <ins>₹
-                                      <?php 
-                                          include './login/config.php';
-                                                      
-                                          $result1 = mysqli_query($link,"SELECT price FROM govt where vegname='$vegname' and region='Hyderabad' ");
 
-                                          if (mysqli_num_rows($result1)) {
-                                              // output data of each row
-                                              while($row = mysqli_fetch_assoc($result1)) {
-                                                  $price=$row["price"];
-                                                    echo   $price;                                                
-
-                                                  }
-                                                 }
-                                      ?>
-                                    </ins> 
+                                 <div  >
+                                    <p id="test">Select Region To Display goverment price.</p>
                                  </div>
                                  <p>Descriptions</p>
 
                               </div>
                               <p>Compare Differences***CHOOSE ROLE IN PHP - CREATE VIEW***</p>
                               
-                              <form>
+                             
 
+
+                            <form action="./addtocartdb.php?vegname=<?php echo $vegname; ?>" method="post">
                               <div class="single-color">
+
+
+                                <div id="regions" >
                                  
-                                 <div class="product-size">
+                                      
+                                          <select  id='regionselect' name='region'>
+                                            <option value="" disabled selected hidden>Region </option>
+                                          
+                                            
+                                          </select>
+                                </div>
+                              
+                                <div class="product-size">
                                     <p>Retailer :</p>
-                                    <select>
-                                        <option value="" disabled selected hidden>Choose Retailer.</option>
-                                        <?php 
-                                          include './login/config.php';
-                                                      
-                                          $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'ret%' ");
-
-                                          if (mysqli_num_rows($result1)) {
-                                              // output data of each row
-                                              while($row = mysqli_fetch_assoc($result1)) {
-
-                                                  $dealerid= $row["dealerid"];
-                                                  $price=$row["price"];
-                                                    echo ' <option>'.$dealerid.'  (  ₹'.$price.')'.'</option>
-                                                    ';                                                  
-
-                                                  }
-                                                 }
-                                                 ?>
+                                    <select class="form-control input-lg" id='retailerselect'>
+                                      <option>retailers</option>
                                     </select>
+
                                  </div>
                                  <div class="product-size">
                                     <p>Whole-Seller :</p>
-                                    <select>
-                                      <option value="" disabled selected hidden>Choose Whole-Seller.</option>
-                                      <?php 
-                                          include './login/config.php';
-                                          $vegname=$vegname;             
-                                          $result2 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'who%'");
-
-                                          if (mysqli_num_rows($result2)) {
-                                              // output data of each row
-                                              while($row = mysqli_fetch_assoc($result2)) {
-
-                                                  $dealerid= $row["dealerid"];
-                                                    $price2=$row["price"];
-                                                    echo ' <option>'.$dealerid.'  (  ₹'.$price.')'.'</option>
-                                                    ';                                                  
-
-                                                  }
-                                                 }
-                                                 ?>
+                                   <select class="form-control input-lg" id='wholesellerselect' >
+                                      <option>wholesellers</option>
                                     </select>
                                  </div>
+                                </div>
+
                                  <div class ="product-size">
                                     <p>   Difference:</p>
                                     
                                     <input placeholder="Choose Retailer and WholeSeller" type="text" value="" readonly >
                                  </div>
-                               </form>
                                
-
-
-                                <form action="./singlepro.php?vegname=<?php echo $vegname ?>&image=<?php echo $vegname?>.png" method="post">
                                  <div class ="product-size-form">
                                   <br> </br>
+
                                   <p>Select A Dealer to Buy From</p>
-                                    <select class="form-control input-lg" name="dealerid">
+                                   
+                                    <select class="form-control input-lg" name="dealerid" id='dealerselect'>
                                       <option value="" disabled selected hidden>Select Dealer</option>
-                                      <optgroup label="Retailer">
-                                         <?php 
-                                          include './login/config.php';
-                                                    $GLOBALS['vegname']=$vegname; 
-                                          $result1 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'ret%'");
-
-                                          if (mysqli_num_rows($result1)) {
-                                              // output data of each row
-                                              while($row = mysqli_fetch_assoc($result1)) {
-
-                                                  $dealerid= $row["dealerid"];
-                                                    $price=$row["price"];
-                                                    echo ' <option value = "'.$dealerid.'">'.$dealerid.'  (  ₹'.$price.')'.'</option>
-                                                    ';                                                  
-
-                                                  }
-                                                 }
-                                                 ?>
-                                      </optgroup>
-                                      <optgroup label="Whole Seller">
-                                        <?php 
-                                          include './login/config.php';
-                                                    
-                                          $result2 = mysqli_query($link,"SELECT dealerid,price FROM stock where vegname='$vegname' and dealerid like 'who%'");
-
-                                          if (mysqli_num_rows($result2)) {
-                                              // output data of each row
-                                              while($row = mysqli_fetch_assoc($result2)) {
-
-                                                  $dealerid= $row["dealerid"];
-                                                    $price2=$row["price"];
-                                                    echo ' <option value ="'.$dealerid.'">'.$dealerid.'  (  ₹'.$price.')'.'</option>
-                                                    ';                                                  
-
-                                                  }
-                                                 }
-                                                 ?>
-                                         </optgroup>
                                       
                                       </select>
 
@@ -577,7 +503,6 @@ if(mysqli_stmt_execute($stmt)){
 
 
 
-
 <!-- START OF FOOTER -->
 <div class="footer-section">
     <div class="footer">
@@ -660,9 +585,70 @@ if(mysqli_stmt_execute($stmt)){
       <script src="./js/jquery.js"></script>
       <script src="./js/bootstrap.js"></script>
       <script src="./js/hover.js"></script>
+      <script type="text/javascript">
+ 
+</script>
+  <script type='text/javascript'>
+      <?php
+        echo "var regions = $jsonregions; \n";
+        echo "var retailers = $jsonretailers; \n";
+        echo "var wholesellers = $jsonwholesellers; \n";
+        echo "var govtprices = $jsongovtprices; \n";
+   
+      ?>
+   
+      function loadregions(){
+        var select = document.getElementById("regionselect");
+        select.onchange = updatedealers;
+        for(var i = 0; i < regions.length; i++){
+          select.options[i] = new Option(regions[i].val);          
+        }
+      }
+      function updatedealers(){
+        var catSelect = this;
+        var catid = this.value;
+     
+        var subcatSelect = document.getElementById("retailerselect");
+        subcatSelect.options.length = 0; //delete all options if any present
+        for(var i = 0; i < retailers[catid].length; i++){
+          subcatSelect.options[i] = new Option(retailers[catid][i].val+" - ₹ "+retailers[catid][i].price);
+        }
+
+         var catSelect = this;
+        var catid = this.value;
+        var subcatSelect = document.getElementById("wholesellerselect");
+        subcatSelect.options.length = 0; //delete all options if any present
+        for(var i = 0; i < wholesellers[catid].length; i++){
+          subcatSelect.options[i] = new Option(wholesellers[catid][i].val+" - ₹ "+wholesellers[catid][i].price);
+        }
+        var role = '<?php echo $role; ?>'
 
 
-  
+        if (role==="civilian"){
+             var catSelect = this;
+          var catid = this.value;
+          var subcatSelect = document.getElementById("dealerselect");
+          subcatSelect.options.length = 0; //delete all options if any present
+          for(var i = 0; i < retailers[catid].length; i++){
+            subcatSelect.options[i] = new Option(retailers[catid][i].val+" - ₹ "+retailers[catid][i].price);
+          }
 
+        }
+
+        if (role==="retailer"){
+            var catSelect = this;
+          var catid = this.value;
+          var subcatSelect = document.getElementById("dealerselect");
+          subcatSelect.options.length = 0; //delete all options if any present
+          for(var i = 0; i < wholesellers[catid].length; i++){
+            subcatSelect.options[i] = new Option(wholesellers[catid][i].val);
+          }
+        }
+            var k =document.getElementById('regionselect').value;
+            var myVar = govtprices[k].price;
+              // document.write(myVar);
+            document.getElementById("test").innerHTML= myVar;
+      }
+    </script>
    </body>
 </html>
