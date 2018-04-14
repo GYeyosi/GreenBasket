@@ -29,7 +29,7 @@ Web application for Vegetable Marketing System
 	2.if(same username and dealer and vegetable update quantity ) ***
 ~~1.errors in php(duplicate entries in database)~~
 ~~3. Edit Dropdowns  in page for Retailer~~
-~~4. Show govt price ~~
+~~4. Show govt price~~
 ~~5. add js ajax to show diff in prices~~
 ~~6. region dropdown box.~~
 ~~7. separate retailer and wholeseller acc to roles (using join)  for pricing diff dropdowns***~~
