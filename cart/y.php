@@ -1,7 +1,7 @@
 <?php
      if (isset($_POST['submitForm'])) { 
 
-    print_r($_POST["A"]);
+    print_r($_POST);
      echo('<script>alert("Form Submitted")</script>');
 
      }

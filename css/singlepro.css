@@ -121,6 +121,14 @@ h6 {
 .single-product-content {
     overflow: hidden;
 }
+.single-product-content p{
+  font-weight: bold;
+  color: #222222;
+  font-size: 17px;
+  margin-bottom: 13px;
+  margin-top: -3px;
+}
+}
 
 .single-product-content h3 {
   color: #222222;
@@ -186,6 +194,10 @@ h6 {
 .product-size input{
   width: 150%;
   height: 30px;
+}
+.product-aaa select{
+  width: 30%;
+  height: 40px;
 }
 
 .product-color {
@@ -261,7 +273,13 @@ h6 {
   margin-bottom: 13px;
   margin-top: 70px;
 }
+.govtPrice p{
 
+  color: #222222;
+  font-size: 26px;
+  margin-bottom: 13px;
+  margin-top: -3px;
+}
 
 .product-size select {
   padding: 4px 30px;

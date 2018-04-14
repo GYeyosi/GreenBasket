@@ -103,7 +103,7 @@ $user= ($_SESSION['username']);
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <span class="hidden-xs"> More <i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-100" role="menu">
                       <li>
-                        <a href="./cart/cart.php">Edit Profile</a>
+                        <a href="./profile/profile.php">Edit Profile</a>
                      </li>
                      <li>
                         <a href="#">Your Orders</a>
@@ -123,7 +123,7 @@ $user= ($_SESSION['username']);
                     <li><a href="./profile/profile.php"><?php echo $user ?> </a>
 
                      </li>
-                    <li><a href="cart.html">My Orders</a>
+                    <li><a href="./cart/cart.php">My Orders</a>
                      </li>
                      <li><a href="./login/logout.php">Logout</a>
                      </li>

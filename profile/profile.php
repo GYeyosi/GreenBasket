@@ -6,7 +6,7 @@ include '../login/config.php';
 // Initialize the session
 session_start();
 
-$name=$email =$state=$zip=$phone=$street=$flat="";
+$name=$email =$city=$zip=$phone=$street=$flat="";
  
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
@@ -15,14 +15,14 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 }
 
 $user= ($_SESSION['username']);
-$result = mysqli_query($link,"SELECT id,name,email,state,zip,phone,street,flat FROM users where username= '$user'");
+$result = mysqli_query($link,"SELECT email,name,city,zip,phone,street,flat FROM users where username= '$user'");
 
 if (mysqli_num_rows($result) == 1) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
         $name= $row["name"];
         $email= $row["email"];
-        $state= $row["state"];
+        $city= $row["city"];
         $zip= $row["zip"];
         $phone= $row["phone"];
         $street= $row["street"];
@@ -40,14 +40,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
 $param_name = trim($_POST["name"]);
  $param_email = trim($_POST["email"]);
- $param_state = trim($_POST["state"]);
+ $param_city = trim($_POST["city"]);
  $param_zip = trim($_POST["zip"]);
  $param_phone = trim($_POST["phone"]);
  $param_street = trim($_POST["street"]);
  $param_flat = trim($_POST["flat"]);
  
-$stmt = mysqli_prepare($link, "UPDATE  users set name=?,email=?,state=?,zip=?,phone=?,street=?,flat=? where username= '$user'");
-mysqli_stmt_bind_param($stmt, "sssssss",$param_name,$param_email,$param_state,$param_zip,$param_phone,$param_street,$param_flat);
+$stmt = mysqli_prepare($link, "UPDATE  users set name=?,email=?,city=?,zip=?,phone=?,street=?,flat=? where username= '$user'");
+mysqli_stmt_bind_param($stmt, "sssssss",$param_name,$param_email,$param_city,$param_zip,$param_phone,$param_street,$param_flat);
 //mysqli_stmt_execute($stmt);
 
 
@@ -82,10 +82,38 @@ mysqli_stmt_bind_param($stmt, "sssssss",$param_name,$param_email,$param_state,$p
 }
 
 
+//change password code
 
+$error = [
+"old_password_error" => '',
+"new_password_error" => '',
+"confirm_password_error" => ''
+];
+ 
+$form_data = [
+"old_password" => '',
+"new_password" => '',
+"confirm_password" => ''
+];
+ 
+if(!empty($_SESSION['error']))
+{
+    $error = $_SESSION['error'];
+}
+ 
+if(!empty($_SESSION['form_data']))
+{
+    $form_data = $_SESSION['form_data'];
+}
 
 
 ?>
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -146,7 +174,8 @@ mysqli_stmt_bind_param($stmt, "sssssss",$param_name,$param_email,$param_state,$p
    
 
 
-
+        <!-- change password-->
+        <script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
 
 
       
@@ -367,7 +396,7 @@ mysqli_stmt_bind_param($stmt, "sssssss",$param_name,$param_email,$param_state,$p
                                  </div>
                                   
                                       <div class="personal-form" >
-                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class>
+                                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" >
                                                 <div class="userleft">
                                                     
                                                         Username
@@ -381,10 +410,10 @@ mysqli_stmt_bind_param($stmt, "sssssss",$param_name,$param_email,$param_state,$p
                                                         <input name="email" value='<?php echo $email; ?>' type="email">
                                                         <br> Flat No.
                                                         <br>
-                                                        <input name="flat" value='<?php echo $flat; ?>' placeholder="Street And House Number" type="text">
+                                                        <input name="flat" value='<?php echo $flat; ?>' placeholder="Flat Number" type="text">
                                                         <br> Street No.
                                                         <br>
-                                                        <input name="street" value='<?php echo $street; ?>'  placeholder="Your Country" type="text">
+                                                        <input name="street" value='<?php echo $street; ?>'  placeholder="Your street number" type="text">
                                                     
                                                 </div>
                                                 <div class="userright">
@@ -396,9 +425,9 @@ mysqli_stmt_bind_param($stmt, "sssssss",$param_name,$param_email,$param_state,$p
                                                         <br> ZIP Code
                                                         <br>
                                                         <input name="zip" value='<?php echo $zip; ?>'  placeholder="Fill Me" type="number">
-                                                        <br> State/Country
+                                                        <br> City
                                                         <br>
-                                                        <input name="state" value='<?php echo $state; ?>'  placeholder="Fill Me" type="text">
+                                                        <input name="city" value='<?php echo $city; ?>'  placeholder="Fill Me" type="text">
                                                         <br>
                                                 </div>
                                                 <button type="submit" name="submit" class="btn btn-default">Save changes</button>
@@ -424,20 +453,48 @@ mysqli_stmt_bind_param($stmt, "sssssss",$param_name,$param_email,$param_state,$p
                                       <h2>Change your password</h2>
                                   </div>
                                   <div class="col-md-12 col-sm-12 col-xs-12">
-                                      <div class="change-form">
-                                          <form>
-                                              Old Password
-                                              <br>
-                                              <input type="text">
-                                              <br> New Password
-                                              <br>
-                                              <input type="text">
-                                              <br> Repeat New Password
-                                              <br>
-                                              <input type="text">
-                                              <br>
-                                              <button type="button" class="btn btn-default">Save changes</button>
-                                          </form>
+                                      <div class="change-form" >
+                                           <form action="change-password.php" method="post" onsubmit="return validate();" id="form_submission_ajax">
+                                            <table >
+                                                 
+                                                <tr>
+                                                    <td><label>Old password:</label></td>
+                                                    <td><input type="password" name="old_password" id="old_password" value="<?php echo $form_data['old_password']; ?>"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td id="old_password_error" class="error"><?php echo $error['old_password_error']; ?></td>
+                                                </tr>
+                                     
+                                                <tr>
+                                                    <td><label>New Password:</label></td>
+                                                    <td><input type="password" name="new_password" id="new_password" value="<?php echo $form_data['new_password']; ?>"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td></td>
+                                                    <td id="new_password_error" class="error"><?php echo $error['new_password_error']; ?></td>
+                                                </tr>
+                                     
+                                                <tr>
+                                                    <td><label>Confirm Password:</label></td>
+                                                    <td><input type="password" name="confirm_password" id="confirm_password" value="<?php echo $form_data['confirm_password']; ?>"></td>
+                                                </tr>
+                                     
+                                                <tr>
+                                                    <td></td>
+                                                    <td id="confirm_password_error" class="error"><?php echo $error['confirm_password_error']; ?></td>
+                                                </tr>
+                                     
+                                                <tr>
+                                                    <td></td>
+                                                    <td>
+                                                        <input type="hidden" name="user_id" id="user_id" value="1">
+                                                        <input type="submit" name="submit" value="Submit" class="btn btn-default btn-warning">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+
                                           
                                       </div>
                                   </div>
@@ -453,6 +510,68 @@ mysqli_stmt_bind_param($stmt, "sssssss",$param_name,$param_email,$param_state,$p
       <script src="../js/jquery-3.1.1.js"></script>
       <script src="../js/bootstrap.js"></script>
       <script src="../js/hover.js"></script>
+      <script type="text/javascript">
+function validate()
+{
+    var valid = true;
+    var old_password = $('#old_password').val();
+    var new_password = $('#new_password').val();
+    var confirm_password = $('#confirm_password').val();
+ 
+    if(old_password=='' || old_password==null)
+    {
+        valid=false;
+        $('#old_password_error').html("* This field is required.");
+    }
+    else
+    {
+        $('#old_password_error').html("");  
+    }
+ 
+    if(new_password=='' || new_password==null)
+    {
+        valid=false;
+        $('#new_password_error').html("* This field is required.");
+    }
+    else
+    {
+        $('#new_password_error').html("");
+    }
+ 
+    if(confirm_password=='' || confirm_password==null)
+    {
+        valid=false;
+        $('#confirm_password_error').html("* This field is required.");
+    }
+    else
+    {
+        $('#confirm_password_error').html("");
+    }
+ 
+    if(new_password != '' && confirm_password != '')
+    {
+        if(new_password != confirm_password)
+        {
+            valid = false;
+            $('#confirm_password_error').html("* Confirm password is same as new password.");
+        }
+ 
+        if(new_password == confirm_password)
+        {
+            $('#confirm_password_error').html("");          
+        }
+    }
+ 
+    if(valid==true)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+</script>
 
    </body>
 </html>

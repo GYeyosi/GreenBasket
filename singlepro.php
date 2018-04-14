@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) == 1) {
     }
 }              
 
-  $db = new mysqli('localhost','root','gyeyosi','greenbasket');//set your database handler
+  $db = new mysqli('localhost','root','iluvmymom','greenbasket');//set your database handler
   $query = "SELECT region FROM govt group by region";
   $result = $db->query($query);
 
@@ -309,7 +309,7 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
 
 
 
-<div class="single-product-area section-padding">
+<div >
          <div class="container">
             <div class="row">
                       <?php 
@@ -338,16 +338,15 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
                               <h3><?php   echo $vegname ?></h3>
                               <div class="product-review">
                                  
-                                 <h4>Government Price
-                                 </h4>
+                                 <h4>Government Price</h4>
 
-                                 <div  >
-                                    <p id="test">Select Region To Display goverment price.</p>
+                                 <div class="govtPrice" >
+                                    <p id="test">Select Region To Display Goverment Price.</p>
                                  </div>
                                  <p>Descriptions</p>
 
                               </div>
-                              <p>Compare Differences***CHOOSE ROLE IN PHP - CREATE VIEW***</p>
+                              <p>Compare Differences</p>
                               
                              
 
@@ -356,11 +355,11 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
                               <div class="single-color">
 
 
-                                <div id="regions" >
+                                <div id="regions" class="product-aaa" >
                                  
                                       
-                                          <select  id='regionselect' name='region'>
-                                            <option value="" disabled selected hidden>Region </option>
+                                          <select class="form-control input-lgl" width="200px"  id='regionselect' name='region'>
+                                            <option value="" disabled selected hidden>Select Region </option>
                                           
                                             
                                           </select>
@@ -369,24 +368,16 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
                                 <div class="product-size">
                                     <p>Retailer :</p>
                                     <select class="form-control input-lg" id='retailerselect'>
-                                      <option>retailers</option>
+                                      <option unselected hidden>Select Retailer</option>
                                     </select>
 
                                  </div>
                                  <div class="product-size">
                                     <p>Whole-Seller :</p>
                                    <select class="form-control input-lg" id='wholesellerselect' >
-                                      <option>wholesellers</option>
+                                       <option unselected hidden>Select Whole-Seller</option>
                                     </select>
                                  </div>
-                                </div>
-
-                                 <div class ="product-size">
-                                    <p>   Difference:</p>
-                                    
-                                    <input placeholder="Choose Retailer and WholeSeller" type="text" value="" readonly >
-                                 </div>
-                               
                                  <div class ="product-size-form">
                                   <br> </br>
 
@@ -399,6 +390,15 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
 
 
                                  </div>
+                                </div>
+                                <!--
+                                 <div class ="product-size">
+                                    <p>   Difference:</p>
+                                    
+                                    <input placeholder="Choose Retailer and WholeSeller" type="text" value="" readonly >
+                                 </div>  -->
+                               
+                                 
 
 
                                  <div class="single-color last-color-child">
@@ -610,6 +610,7 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
      
         var subcatSelect = document.getElementById("retailerselect");
         subcatSelect.options.length = 0; //delete all options if any present
+
         for(var i = 0; i < retailers[catid].length; i++){
           subcatSelect.options[i] = new Option(retailers[catid][i].val+" - ₹ "+retailers[catid][i].price);
         }
@@ -621,6 +622,12 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
         for(var i = 0; i < wholesellers[catid].length; i++){
           subcatSelect.options[i] = new Option(wholesellers[catid][i].val+" - ₹ "+wholesellers[catid][i].price);
         }
+
+
+
+
+
+
         var role = '<?php echo $role; ?>'
 
 
@@ -630,7 +637,7 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
           var subcatSelect = document.getElementById("dealerselect");
           subcatSelect.options.length = 0; //delete all options if any present
           for(var i = 0; i < retailers[catid].length; i++){
-            subcatSelect.options[i] = new Option(retailers[catid][i].val+" - ₹ "+retailers[catid][i].price);
+            subcatSelect.options[i] = new Option(retailers[catid][i].val);
           }
 
         }
@@ -647,7 +654,7 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
             var k =document.getElementById('regionselect').value;
             var myVar = govtprices[k].price;
               // document.write(myVar);
-            document.getElementById("test").innerHTML= myVar;
+            document.getElementById("test").innerHTML= "₹  "+myVar;
       }
     </script>
    </body>

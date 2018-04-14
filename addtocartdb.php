@@ -33,7 +33,7 @@ if(mysqli_stmt_execute($stmt)){
 
             // Redirect to login page
 
-            header("location: ../loggedin.php");
+            header("location: ./loggedin.php");
 
         } else{
           printf("Error: %s.\n", mysqli_stmt_error($stmt));

@@ -311,7 +311,7 @@ if (isset($_POST['clearCart'])){
                                      <form action="" id="form1" method="post">
                                        <input name="clearCart" type="submit" class="btn btn-default right-cart"value ="Clear shopping cart"/>
                                     </form>
-                                    <a href="../loggedin.php" type="button" class="btn btn-default right-cart">Update shopping cart</a>
+                                    <a href="./cart.php" type="button" class="btn btn-default right-cart">Update shopping cart</a>
                                  </div>
                                  <!-- /.shopping-cart-btn -->
                               </td>
@@ -374,7 +374,7 @@ if (isset($_POST['clearCart'])){
                                                        <div class="cc-pr"> ₹ '.$quantity*$price.'</div>
                                                     </td>
                                                     <td class="romove-item">
-                                                       <a href="#"><img src="./cart/remove.png" alt="">
+                                                       <a href="#"><img src="./cart/remove.png" alt="Remove">
                                                        </a>
                                                     </td>
                                           </tr>
