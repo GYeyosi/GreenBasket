@@ -3477,7 +3477,7 @@ input[type="radio"], input[type="checkbox"] {
     margin-right: 10px;
 }
 .shoping-cart.section-padding {
-  padding: 75px 0 30px;
+  padding: 5px 0 30px;
 }
 
 
@@ -4168,7 +4168,31 @@ input[type="radio"], input[type="checkbox"] {
   text-transform: uppercase;
   width: 200px;
 }
-.shopping-cart-btn button.btn.btn-default.left-cart:hover {
+
+
+
+.shopping-cart-btn a.btn.btn-default.left-cart, .shoping-cart-bottom-area a.btn.btn-default.right-cart {
+  background: #f89d18 none repeat scroll 0 0;
+  border: 0 solid;
+  border-radius: 0;
+  color: #ffffff;
+  height: 35px;
+  margin-left: 20px;
+  margin-top: 0px;
+  text-transform: uppercase;
+  width: 200px;
+}
+.shopping-cart-btn a.btn.btn-default.left-cart:hover,.shoping-cart-bottom-area a.btn.btn-default.right-cart:hover{
+  background-color: #e6e6e6;
+  border-color: #adadad;
+  color: #333333;
+}
+
+
+
+
+
+.shopping-cart-btn button.btn.btn-default.left-cart:hover  {
   background-color: #e6e6e6;
   border-color: #adadad;
   color: #333333;
@@ -4195,25 +4219,28 @@ input[type="radio"], input[type="checkbox"] {
   top: 98%;
 }
 
-.shopping-cart-btn button.btn.btn-default.right-cart {
+.shopping-cart-btn a.btn.btn-default.right-cart,.shopping-cart-btn input.btn.btn-default.right-cart {
   background: #ffffff none repeat scroll 0 0;
   border-radius: 0;
   color: #777777;
   float: right;
-  height: 45px;
+  height: 35px;
   margin-left: 20px;
-  margin-top: 0px;
+  margin-top: -30px;
   text-transform: uppercase;
 }
-.shopping-cart-btn button.btn.btn-default.right-cart:hover {
+.shopping-cart-btn a.btn.btn-default.right-cart:hover,.shopping-cart-btn input.btn.btn-default.right-cart{
   background: #f89d18 none repeat scroll 0 0;
   color: #333;
   border:1px solid #f89d18;
 }
 
-.shopping-cart-btn button.btn.btn-default.right-margin {
+.shopping-cart-btn a.btn.btn-default.right-margin {
     margin-right: 20px;
 }
+
+
+shoping-cart-bottom-area
 /*  SHOPING-CART-BOTTOM  */
 
 .theme-box {

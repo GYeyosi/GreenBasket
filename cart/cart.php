@@ -1,6 +1,7 @@
 
 <?php
 // Initialize the session
+ include '../login/config.php';
 session_start();
  
 // If session variable is not set it will redirect to login page
@@ -11,6 +12,25 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 
 $username= ($_SESSION['username']);
 
+if (isset($_POST['clearCart'])){
+          
+           $param_username= $_SESSION['username'];
+            $stmt = mysqli_prepare($link,"delete from cart where username='$param_username' and paymentstatus='no'");
+             if(mysqli_stmt_execute($stmt)){
+                echo('<script>alert("Cart Cleared")</script>');
+
+            } else{
+               echo('<script>alert("Something went wrong. Please try again later.")</script>');
+               }
+            
+
+
+
+
+            }
+
+
+ 
 
 ?>
 
@@ -285,10 +305,13 @@ $username= ($_SESSION['username']);
                            <tr>
                               <td colspan="7">
                                  <div class="shopping-cart-btn">
-                                   <form action="../loggedin.php"><button type="button" class="btn btn-default left-cart">Continue Shopping</button></form> 
+                                   
+                                    <a href="../loggedin.php" type="button" class="btn btn-default left-cart">Continue Shopping</a>
 
-                                    <button type="button" class="btn btn-default right-cart right-margin">Clear shopping cart</button>
-                                    <button type="button" class="btn btn-default right-cart">Update shopping cart</button>
+                                     <form action="" id="form1" method="post">
+                                       <input name="clearCart" type="submit" class="btn btn-default right-cart"value ="Clear shopping cart"/>
+                                    </form>
+                                    <a href="../loggedin.php" type="button" class="btn btn-default right-cart">Update shopping cart</a>
                                  </div>
                                  <!-- /.shopping-cart-btn -->
                               </td>
@@ -348,7 +371,7 @@ $username= ($_SESSION['username']);
                                                        <div class="cc-pr">Free shipping</div>
                                                     </td>
                                                     <td class="cart-product-sub-total">
-                                                       <div class="cc-pr">'.$quantity*$price.'</div>
+                                                       <div class="cc-pr"> ₹ '.$quantity*$price.'</div>
                                                     </td>
                                                     <td class="romove-item">
                                                        <a href="#"><img src="./cart/remove.png" alt="">
@@ -385,7 +408,8 @@ $username= ($_SESSION['username']);
                      <p>Subtotal<span>₹<?php  echo $totalprice ?></span>
                      </p>
                      <h4>Grandtotal<span>₹<?php  echo $totalprice ?></span></h4>
-                     <button type="button" class="btn btn-default">Proceed to checkout</button>
+                     <a href="./checkout.php" type="button" class="btn btn-default right-cart">Proceed to checkout</a>
+
                      <h5>Checkout  with multiple addresses</h5>
                   </div>
                </div>

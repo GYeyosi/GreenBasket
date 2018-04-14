@@ -6,14 +6,17 @@ Web application for Vegetable Marketing System
 # to-do list
 
 profile.php-->
+
 	1. add role div to profile page with dropdown box.
 	2. add change password func
 	3.remove state and country ,add city with dropdown from govt table.
 
 vegetable table-->
+
 	1.rename vegtables in upper camelcase
 
 sell.php-->
+
 	1.extract regions from govt.table
 	2.if(same username and dealer and vegetable )
 		update quantity of vegtable
@@ -33,16 +36,19 @@ singlePro.php-->(MAJOR)
 
 
 cart.php-->
+
 	1.backend (retrieve from cart table and display(front end))
 	2.if checkout go to payment page
 
 payment.php-->
+
 	1.
 
 
 
 
 header-->
+
 	1.search functionality 
 
 
