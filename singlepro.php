@@ -39,15 +39,15 @@ if (mysqli_num_rows($result) == 1) {
   }
 
   
-  $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on s.dealerid=u.username where u.role='retailer' and s.vegname='$vegname' ";
+  $query = "SELECT price,region, dealerid,quantity FROM stock as s inner join users as u on s.dealerid=u.username where u.role='retailer' and s.vegname='$vegname' order by s.price ";
 
   $result = $db->query($query);
 
   while($row = $result->fetch_assoc()){
-    $retailers[$row['region']][] = array("val" => $row['dealerid'],"price"=> $row['price']);
+    $retailers[$row['region']][] = array("val" => $row['dealerid'],"price"=> $row['price'],"quantity"=>$row['quantity']);
   }
 
-$query = "SELECT price,region, dealerid FROM stock as s inner join users as u on s.dealerid=u.username where u.role='wholeseller' and s.vegname='$vegname' ";
+$query = "SELECT price,region, dealerid FROM stock as s inner join users as u on s.dealerid=u.username where u.role='wholeseller' and s.vegname='$vegname'  order by s.price ";
 
   $result = $db->query($query);
 
@@ -348,7 +348,7 @@ function googleTranslateElementInit() {
                                  <div class="govtPrice" >
                                     <p id="test">Select Region To Display Goverment Price.</p>
                                  </div>
-                                 <p>Descriptions</p>
+                                 <p>First shown dealer is the best according to price.</p>
 
                               </div>
                               <p>Compare Differences</p>
@@ -617,7 +617,7 @@ function googleTranslateElementInit() {
         subcatSelect.options.length = 0; //delete all options if any present
 
         for(var i = 0; i < retailers[catid].length; i++){
-          subcatSelect.options[i] = new Option(retailers[catid][i].val+" - ₹ "+retailers[catid][i].price);
+          subcatSelect.options[i] = new Option(retailers[catid][i].val+" - ₹ "+retailers[catid][i].price+" (qty available- "+retailers[catid][i].quantity+"kgs)");
         }
 
          var catSelect = this;
@@ -625,7 +625,7 @@ function googleTranslateElementInit() {
         var subcatSelect = document.getElementById("wholesellerselect");
         subcatSelect.options.length = 0; //delete all options if any present
         for(var i = 0; i < wholesellers[catid].length; i++){
-          subcatSelect.options[i] = new Option(wholesellers[catid][i].val+" - ₹ "+wholesellers[catid][i].price);
+          subcatSelect.options[i] = new Option(wholesellers[catid][i].val+" - ₹ "+wholesellers[catid][i].price+" (qty available- "+retailers[catid][i].quantity+"kgs)");
         }
 
 
