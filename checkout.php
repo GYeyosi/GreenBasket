@@ -318,7 +318,7 @@ $username= ($_SESSION['username']);
                                           
 
                                          echo "0 Products in your Cart";
-                                          exit;
+                                          
                                         }
                                             
 
