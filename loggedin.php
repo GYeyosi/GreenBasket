@@ -1,4 +1,4 @@
-Fa
+
 <?php
 // Initialize the session
 session_start();
@@ -7,6 +7,12 @@ session_start();
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: ./login/login.php");
   exit;
+}
+if(isset($_GET['payment'])) {
+  echo '<script> alert("Payment Successful"); </script>';
+}
+if(isset($_GET['empty'])) {
+  echo '<script> alert("Cart is Empty. Add something to cart.!"); </script>';
 }
 
 $user= ($_SESSION['username']);

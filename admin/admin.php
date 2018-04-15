@@ -104,7 +104,7 @@ if (mysqli_num_rows($result) ) {
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">GreenBasket</a></li>
+            <li class="active"><a href="../index.php">GreenBasket</a></li>
             <li><a href="users.php">Users</a></li>
             <li><a href="posts.html">Stock</a></li>
             <li><a href="vegetables.php">Vegetables</a></li>
@@ -113,7 +113,7 @@ if (mysqli_num_rows($result) ) {
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Welcome, ADMIN</a></li>
+            <li class="active"><a href="../index.php">Welcome, ADMIN</a></li>
             <li><a href="../login/logout.php">Logout</a></li>
           
           </ul>
@@ -147,7 +147,7 @@ if (mysqli_num_rows($result) ) {
     <div class="row">
       <div class="col-md-3">
         <div class="list-group">
-      <a href="index.html" class="list-group-item active main-color-bg"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+      <a href="../index.php" class="list-group-item active main-color-bg"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
         Dashboard <span class="badge"></span>
       </a>
       <a href="users.php" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Users<span class="badge"> <?php echo $numusers; ?></span></a>

@@ -5,11 +5,12 @@ session_start();
  
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
-  header("location: ./login/login.php");
+  header("location: ./login/login.php"); 
   exit;
 }
+$total;
 
-$user= ($_SESSION['username']);
+$username= ($_SESSION['username']);
 
 
 ?>
@@ -18,7 +19,7 @@ $user= ($_SESSION['username']);
 <!DOCTYPE html>
 <html lang="en">
    <head>
-
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
       <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -90,11 +91,6 @@ $user= ($_SESSION['username']);
 
    </head>
    <body>
-     <div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'bn,en,gu,hi,pa,ta,te', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       <!--=========-TOP_BAR============-->
       <nav class="topBar">
          <div class="container">
@@ -287,8 +283,8 @@ function googleTranslateElementInit() {
       </nav> 
 
 <!-- START OF NATURES BASKET -->
-
-  
+<form action="./payment.php" method="post">
+  <div>
     <!-- BILL-SHIP-AREA   -->
     <section class="bill-ship section-padding">
         <div class="container">
@@ -299,47 +295,78 @@ function googleTranslateElementInit() {
                     </div>
                     <div class="summary">
                         <h2>Products<span>Total</span></h2>
-                        <p>Fabulas T-shirt<span>$75</span>
-                        </p>
-                        <p>Awesome t-Shirt<span>$75</span>
-                        </p>
-                        <h3 class="line">Cart subtotal<span>$155</span></h3>
+                        <?php
+                        include './login/config.php';
+                                    $result = mysqli_query($link,"SELECT c.vegname ,c.quantity ,s.price*c.quantity as price from cart c join (select  dealerid,vegname,region,price from stock) s on c.dealerid=s.dealerid and c.vegname=s.vegname and c.region=s.region where c.username='$username' and c.paymentstatus='no' ");
+                                    $total=0;
+                                    if (mysqli_num_rows($result)) {
+                                        // output data of each row
+                                        while($row = mysqli_fetch_assoc($result)) {
+
+                                            $vegname= $row["vegname"];
+                                            $quantity=$row["quantity"];
+                                            $price=$row["price"];
+                                            $total=$total+$price;
+                                            echo '<p>'.$vegname.' ( '.$quantity.' )<span> ₹ '.$price.'</span> </p>';
+
+
+
+
+                                          }
+                                        }
+                                        else{
+                                          
+
+                                         echo "0 Products in your Cart";
+                                          exit;
+                                        }
+                                            
+
+                        ?>
+                        
+                        <h3 class="line">Cart subtotal<span>₹ <?php echo $total;  ?></span></h3>
                         <h3 class="line2">Shipping<span class="mcolor">Free shipping</span></h3>
-                        <h5>Order Total Price<span>$155</span></h5>
+                        <h5>Order Total Price<span>  ₹ <?php echo $total;  ?></span></h5>
                     </div>
                 </div>
                 <div class="col-md-5 col-sm-5 col-xs-12">
                     <div class="headline">
                        <h2>Shipping address</h2>
                    </div>
-                    <div class="Shipping">
-                       
+                   
+
+                    <div class="Shipping" id="shippingadd">
+                      <input type="radio" name="isPrimary" id ="isP1" value="yes"> Ship to Primary Address
+                      <input type="radio" name="isPrimary" id ="isP2" value="no"> Ship to New Address
                         <div class="ship-single">
-                            <form>
-                              <input type="text" name="name" placeholder="First name">
-                                <input type="text" name="name" placeholder="Company Name">
-                            </form>
-                            <form>
-                                <input type="text" name="name" placeholder="Address">
-                            </form>
-                            <form>
-                                <input type="text" name="name" placeholder="Town / City">
-                            </form>
                             
-                        </div>
+                              <input type="text" name="name" placeholder="First name">
+                                <input type="text" name="flat" placeholder="Flat No">
+                            
+                            
+                                <input type="text" name="street" placeholder="Street">
+                            
+                            
+                                <input type="text" name="city" placeholder="Town / City">
+                            
+                            
+                             </div>
                         <div class="ship-tow">
                             <div class="ship-left">
-                                <form>
-                                <input type="text" name="name" placeholder="Postcode / ZIP">
-                            </form>
+                                
+                                <input type="text" name="zip" placeholder="Postcode / ZIP">
+                            
                             </div>
                             <div class="ship-right">
-                                <form>
-                                <input type="text" name="name" placeholder="Phone">
-                            </form>
+                                
+                                <input type="text" name="phone" placeholder="Phone">
+                            
                             </div>
+
                         </div>
+                        
                     </div>
+                   
                 </div>
                 <div class="col-md-2 col-sm-2 col-xs-12">
 
@@ -359,7 +386,7 @@ function googleTranslateElementInit() {
                     </div>
                     <div class="payment">
                     <div class="bank">
-                        <input type="radio" name="optradio">Direct Bank Transfer<br>
+                        <input type="radio" hhidden name="optradio">Direct Bank Transfer<br>
                         <div class="b_text"><p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order wont be shipped
                             <br>until the funds have cleared in our account.</p></div>
                     </div>
@@ -368,9 +395,12 @@ function googleTranslateElementInit() {
                             <input type="radio" name="optradio">Cash On Delivery</label>
                         <br>
                         <label>
+                            <input type="radio" name="optradio">PayTM<img width ="60px"src="./checkout_files/paytm.png" alt="">
+                        </label><br>
+                        <label>
                             <input type="radio" name="optradio">Paypal<img src="./checkout_files/master-card.png" alt="">
                         </label><br>
-                        <button type="button" class="btn btn-default right-cart">Place order</button>
+                        <button type="submit" name="submit" class="btn btn-default right-cart">Place order</button>
                     </div>
                 </div>
             </div>
@@ -378,7 +408,8 @@ function googleTranslateElementInit() {
         </div>
     </section>
     <!-- PAYMENT-AREA:END   -->
-
+    </div>
+ </form>
 
 <!-- END OF NATURES BASKET -->
 
@@ -467,8 +498,7 @@ function googleTranslateElementInit() {
       <script src="./js/jquery.js"></script>
       <script src="./js/bootstrap.js"></script>
       <script src="./js/hover.js"></script>
-
-
+      
   
 
    </body>
