@@ -11,20 +11,6 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 }
 
 $user= ($_SESSION['username']);
-//$checkRole = mysqli_prepare($link,"SELECT role from users where username='$user'");
-
-$result = mysqli_query($link,"SELECT role FROM users where username= '$user'");
-if (mysqli_num_rows($result) == 1) {
-    // output data of each row
-    while($row = mysqli_fetch_assoc($result)) {
-        $role= $row['role'];
-    }
-}   
-if($role=="civilian"){
-   
-      header("location: ../profile/profile.php?civ=1");
-  exit;
-}
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -132,11 +118,6 @@ mysqli_stmt_bind_param($stmt, "sssssss",$param_vegname,$param_region,$param_unam
       
    </head>
    <body>
-      <div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'bn,en,gu,hi,pa,ta,te', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       <!--=========-TOP_BAR============-->
       <nav class="topBar">
          <div class="container">

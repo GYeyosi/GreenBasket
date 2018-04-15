@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) == 1) {
     }
 }              
 
-  $db = new mysqli('localhost','root','gyeyosi','greenbasket');//set your database handler
+  $db = new mysqli('localhost','root','iluvmymom','greenbasket');//set your database handler
   $query = "SELECT region FROM govt group by region";
   $result = $db->query($query);
 
@@ -109,11 +109,6 @@ $query = "SELECT price,region, dealerid FROM stock as s inner join users as u on
 <!------ Include the above in your HEAD tag ---------->
 </head>
    <body onload='loadregions()' >
-    <div id="google_translate_element"></div><script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'bn,en,gu,hi,pa,ta,te', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-}
-</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
       <!--=========-TOP_BAR============-->
       <nav class="topBar">
@@ -363,7 +358,7 @@ function googleTranslateElementInit() {
                                 <div id="regions" class="product-aaa" >
                                  
                                       
-                                          <select class="form-control input-lgl"  id='regionselect' name='region'>
+                                          <select class="form-control input-lgl" width="200px"  id='regionselect' name='region'>
                                             <option value="" disabled selected hidden>Select Region </option>
                                           
                                             

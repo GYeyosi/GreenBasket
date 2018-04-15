@@ -14,7 +14,7 @@
 }
 
 .headline h2 {
-  border-bottom: 2px solid #f89d18;
+  border-bottom: 2px solid #092746;
   color: #222222;
   display: inline-block;
   font-family: "Bitter";
@@ -60,7 +60,7 @@
 }
 
 .change-form button {
-  background: #f89d18 none repeat scroll 0 0;
+  background: #092746 none repeat scroll 0 0;
   border: 0 solid;
   border-radius: 0;
   color: #ffffff;
@@ -70,7 +70,7 @@
   text-transform: uppercase;
 }
 .personal-form button {
-  background: #f89d18 none repeat scroll 0 0;
+  background: #092746 none repeat scroll 0 0;
   border: 0 solid;
   border-radius: 0;
   color: #ffffff;

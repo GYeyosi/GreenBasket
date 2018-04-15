@@ -33,16 +33,27 @@ $user= ($_SESSION['username']);
       <script src=".js/footer.js"></script>
     
 
-
-    <!-- Bootstrap css      -->
-    <link rel="stylesheet" href="./css/mid/bootstrap.css">
+    <!--
+     Bootstrap css          <link rel="stylesheet" href="./css/mid/bootstrap.css">    
     
-  
-    
-    <!-- Main css   -->
     <link rel="stylesheet" href="./css/mid/style(1).css">
     <link rel="stylesheet" href="./css/mid/responsive.css">
+  <link rel="stylesheet" href="./checkout_files/bootstrap.css"> 
+  <link rel="stylesheet" type="text/css" href="./checkout_files/style.css" media="screen">
+  
+ 
+    
+    <link rel="stylesheet" href="./checkout_files/style(1).css">
+    <link rel="stylesheet" href="./checkout_files/responsive.css">
+     CSS STYLE-->
+    
+    
+    <!-- Bootstrap css      -->
+    
+  
 
+    <link rel="stylesheet" href="./css/mid/style(1).css">
+    <link rel="stylesheet" href="./css/mid/responsive.css">
 
 
 
@@ -272,69 +283,96 @@ $user= ($_SESSION['username']);
 
 <!-- START OF NATURES BASKET -->
 
-
-
-
-
- <section class="women-accessories-area section-padding">
+  
+    <!-- BILL-SHIP-AREA   -->
+    <section class="bill-ship section-padding">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="headline women_head">
-                        <h2>Products</h2>
+                 <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="headline">
+                        <h2>Order summary</h2>
                     </div>
-                    <div class="product-tab">
-                        
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="home">
-                                <div class="row">
-                                  <?php 
-                                    include './login/config.php';
-                                    $result = mysqli_query($link,"SELECT vegname,image FROM vegetable");
-
-                                    if (mysqli_num_rows($result)) {
-                                        // output data of each row
-                                        while($row = mysqli_fetch_assoc($result)) {
-
-                                            $vegname= $row["vegname"];
-                                            $image= $row["image"];           
-
-                                             echo '<div class="col-md-3 col-sm-3 col-xs-12" >
-                                              <div class="women-single" >
-                                                  <a href="#"><img src="./img/vegetables/'.$image.'" alt="">
-                                                  </a>
-                                                   
-                                                  <div class="hot-wid-rating">
-                                                      <h4><a href="" style="color:black;margin-left:33%;font-weight:bold;">'.
-                                                      $vegname.'
-                                                      </a></h4>
-                                                     
-                                                  </div>
-                                                    <form method="post" action="singlepro.php?vegname='.$vegname.'&image='.$image.'">
-                                                        <button class="button button1" type="submit" name="buy">Buy This Item</a></button> 
-                                                    </form>
-                                                   
-                                              
-                                              </div>
-                                           </div>';
-                                           
-                                        }
-                                    } else {
-                                        echo "0 results";
-                                    }
-
-                                  ?>
-                                
-                                </div>
-                            </div>
+                    <div class="summary">
+                        <h2>Products<span>Total</span></h2>
+                        <p>Fabulas T-shirt<span>$75</span>
+                        </p>
+                        <p>Awesome t-Shirt<span>$75</span>
+                        </p>
+                        <h3 class="line">Cart subtotal<span>$155</span></h3>
+                        <h3 class="line2">Shipping<span class="mcolor">Free shipping</span></h3>
+                        <h5>Order Total Price<span>$155</span></h5>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <div class="headline">
+                       <h2>Shipping address</h2>
+                   </div>
+                    <div class="Shipping">
+                       
+                        <div class="ship-single">
+                            <form>
+                              <input type="text" name="name" placeholder="First name">
+                                <input type="text" name="name" placeholder="Company Name">
+                            </form>
+                            <form>
+                                <input type="text" name="name" placeholder="Address">
+                            </form>
+                            <form>
+                                <input type="text" name="name" placeholder="Town / City">
+                            </form>
                             
                         </div>
+                        <div class="ship-tow">
+                            <div class="ship-left">
+                                <form>
+                                <input type="text" name="name" placeholder="Postcode / ZIP">
+                            </form>
+                            </div>
+                            <div class="ship-right">
+                                <form>
+                                <input type="text" name="name" placeholder="Phone">
+                            </form>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+
                 </div>
             </div>
         </div>
     </section>
+    <!-- BILL-SHIP-AREA:END   --> 
+  
+    <!-- PAYMENT-AREA   --> 
+    <section class="payment-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="headline">
+                        <h2>Select Payment Mode</h2>
+                    </div>
+                    <div class="payment">
+                    <div class="bank">
+                        <input type="radio" name="optradio">Direct Bank Transfer<br>
+                        <div class="b_text"><p>Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order wont be shipped
+                            <br>until the funds have cleared in our account.</p></div>
+                    </div>
+                    <div class="bank-radio">
+                        <label>
+                            <input type="radio" name="optradio">Cash On Delivery</label>
+                        <br>
+                        <label>
+                            <input type="radio" name="optradio">Paypal<img src="./checkout_files/master-card.png" alt="">
+                        </label><br>
+                        <button type="button" class="btn btn-default right-cart">Place order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- PAYMENT-AREA:END   -->
 
 
 <!-- END OF NATURES BASKET -->

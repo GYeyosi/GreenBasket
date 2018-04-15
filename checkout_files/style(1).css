@@ -1,0 +1,365 @@
+/*===========================================
+
+Template Name: Ecomshop
+Author: Hastech
+Author URI: http://hastech.company/
+Version: 1.0
+    
+---------------------------------------------
+
+CSS INDEX
+=========
+
+01. Base css
+02. Homepage-01
+03. Homepage-02
+04. Homepage-03
+05. About us page
+06. Product list page
+07. Search Result page
+08. Blog page
+09. Single product page
+10. Single post page
+11. Profile page
+12. Wishlist page
+13. Shopping cart page
+14. Checkout page
+15. Contact us page
+
+==============================================*/
+
+
+/* ============================================
+01. Base css
+===============================================*/
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+.container {
+  padding: 0;
+}
+
+body {
+	font-family: 'latosemibold';
+	font-size: 15px;
+    line-height: 25px;
+    color: #8A8A8A;
+}
+
+a:focus {
+    outline: 0 solid
+}
+
+img {
+    max-width: 100%;
+    height: auto
+}
+
+a {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: none
+}
+
+a:focus {
+    outline: 0 solid
+}
+
+a:hover,
+a > *:hover,
+a:focus,
+a > *:focus {
+    text-decoration: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    margin-bottom: 15px
+}
+
+.section-padding {
+    padding: 45px 0 30px;
+}
+.latest-product-area.section-padding {
+  padding: 78px 0 50px;
+}
+.men_clothingcurosel_area.section-padding {
+  padding: 55px 0 90px;
+}
+.touch-area.section-padding {
+  padding: 84px 0 30px;
+}
+.touch-area .headline {
+  margin-top: 0px;
+}
+.product-list-area.section-padding {
+  padding: 89px 0 30px;
+}
+.check-contact.section-padding {
+  padding: 75px 0 30px;
+}
+.search-result-area.section-padding {
+  padding: 89px 0 30px;
+}
+.wish-area.section-padding {
+  padding: 89px 0 30px;
+}
+.check-contact .headline {
+  margin: 11px 0 50px;
+}
+.single-product-area.section-padding {
+  padding: 90px 0 30px;
+}
+.headline {
+  margin: 11px 0 50px;
+}
+.footer-padding {
+    padding: 45px 0 90px;
+}
+
+
+/* ============================================
+14. Checkout page
+===============================================*/
+.contact-mail {
+  border: 1px solid #ececec;
+  overflow: hidden;
+  padding: 37px 50px;
+}
+
+.mail-left form input {
+  border: 1px solid #dddddd;
+  height: 35px;
+  margin-bottom: 24px;
+  margin-top: 5px;
+  padding: 0 15px;
+  width: 200px;
+}
+.mail-btn button {
+  border: 0 solid;
+  float: left;
+  height: 30px;
+  padding-top: 4px;
+  width: 88px;
+}
+
+.mail-rbtn button {
+  height: 30px;
+  padding-top: 4px;
+  width: 120px;
+}
+
+.mail-btn button,
+.mail-rbtn button {
+    background: #f89d18 none repeat scroll 0 0;
+    border: 1px solid #f89d18;
+    border-radius: 0;
+    color: #fff;
+    margin-top: 17px;
+    text-transform: uppercase;
+}
+
+.mail-btn a {
+  color: #ff2a39;
+  float: left;
+  font-size: 13px;
+  margin-left: 15px;
+  margin-top: 20px;
+  width: 153px;
+}
+
+.mail-right {
+    margin-top: -25px;
+}
+
+.mail-right h3 {
+  color: #333333;
+  font-family: "latoheavy";
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.mail-right label {
+    font-size: 14px;
+    color: #777;
+    font-weight: normal;
+}
+
+.mail-right label input {
+    margin-right: 5px;
+}
+
+.summary {
+  border: 1px solid #ececec;
+  padding: 8px 28px;
+}
+
+.summary h2 {
+  border-bottom: 1px solid #ececec;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 40px;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.summary h2 span {
+    float: right;
+}
+
+.summary p {
+    font-size: 14px;
+    color: #777;
+    text-transform: uppercase;
+}
+
+.summary p span {
+    float: right;
+}
+
+.summary h3 {
+    font-size: 14px;
+    color: #3333;
+    font-weight: bold;
+    line-height: 40px;
+    text-transform: uppercase;
+}
+.summary h3.line {
+  border-top: 1px solid #ececec;
+  margin-bottom: 0;
+}
+.summary h3.line2 {
+  margin-top: 0;
+}
+
+.summary h4 {
+    font-size: 14px;
+    color: #3333;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.summary h3 span {
+    float: right;
+}
+.summary h3 span.mcolor {
+  color: #87ca3d;
+  float: right;
+  font-size: 16px;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+.summary h4 span {
+    float: right;
+    text-transform: none;
+    color: #87ca3d;
+}
+
+.summary h5 {
+  font-family: "latoheavy";
+  font-size: 16px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.summary h5 span {
+    color: #f89d18;
+    float: right;
+}
+
+.bill-left, .ship-left {
+  float: left;
+  margin-bottom: 9px;
+  width: 48%;
+}
+
+.bill-left form input, .bill-right form input, .ship-left form input, .ship-right form input {
+  border: 1px solid #dddddd;
+  height: 35px;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.bill-tow {
+  margin-top: 9px;
+}
+
+.ship-tow {
+  margin-top: 9px;
+}
+
+.bill-right, .ship-right {
+  float: right;
+  margin-left: 15px;
+  width: 48%;
+}
+
+.bill-single form input,
+.ship-single form input {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #ddd;
+    margin: 10px 0px;
+    padding-left: 10px;
+}
+
+.bill-text p {
+    margin-top: 50px;
+}
+
+.bank label h4 {
+  color: #333;
+  font-size: 15px;
+  margin-bottom: 24px;
+  margin-left: 25px;
+  margin-top: -22px;
+}
+.bank {
+  margin-bottom: 14px;
+}
+
+.bank label p {
+    color: #777;
+    font-size: 14px;
+    line-height: 20px;
+    margin-left: 25px;
+    margin-top: -15px;
+}
+
+.bank-radio label {
+  color: #333;
+  font-size: 15px;
+  font-weight: normal;
+  margin-bottom: 26px;
+}
+
+.bank-radio label input {
+    margin-right: 10px;
+}
+
+.bank-radio label img {
+    margin-left: 10px;
+}
+
+.bank-radio button {
+  background: #f89d18 none repeat scroll 0 0;
+  border: 1px solid #f89d18;
+  border-radius: 0;
+  color: #ffffff;
+  height: 40px;
+  margin: 18px 0 46px;
+  text-transform: uppercase;
+  width: 150px;
+}
