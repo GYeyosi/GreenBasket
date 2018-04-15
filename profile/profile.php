@@ -436,7 +436,20 @@ function googleTranslateElementInit() {
                                                         <input name="zip" value='<?php echo $zip; ?>'  placeholder="Fill Me" type="number">
                                                         <br> City
                                                         <br>
-                                                        <input name="city" value='<?php echo $city; ?>'  placeholder="Fill Me" type="text">
+                                                        <select>
+                                                        <?php
+
+                                                            $result = mysqli_query($link,"SELECT region  FROM govt group by region ");
+                                                            if (mysqli_num_rows($result)) {
+                                                                // output data of each row
+                                                                while($row = mysqli_fetch_assoc($result)) {
+                                                                  echo' 
+                                                          <option value="'.$row['region'].'">'.$row['region'].'</option>';
+                                                                }
+                                                            } 
+                                                        ?>
+                                                        </select>
+                                                        
                                                         <br>Role
                                                         <br>
                                                         <select name="role">
