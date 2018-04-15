@@ -79,6 +79,11 @@ $user= ($_SESSION['username']);
 
    </head>
    <body>
+    <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'bn,en,gu,hi,pa,ta,te', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       <!--=========-TOP_BAR============-->
       <nav class="topBar">
          <div class="container">
@@ -262,7 +267,7 @@ $user= ($_SESSION['username']);
                         <li><a href="#">About Us</a></li>
                      </ul>
                   </li>
-                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Help-Section</a></li>
+                  <li><a href="./helpsection/help.html">Help-Section</a></li>
                   <li><a href="./feedback_form/formpage.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">FeedBack</a></li>
                </ul>
             </div>

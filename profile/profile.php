@@ -6,7 +6,11 @@ include '../login/config.php';
 // Initialize the session
 session_start();
 
-$name=$email =$city=$zip=$phone=$street=$flat="";
+$name=$email =$city=$zip=$phone=$street=$flat=$role="";
+if (isset($_GET['civ'])) {
+  # code...
+  echo '<script>alert("Change your role to Wholeseller/Retailer");</script>';
+}
  
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
@@ -29,6 +33,7 @@ if (mysqli_num_rows($result) == 1) {
         $phone= $row["phone"];
         $street= $row["street"];
         $flat= $row["flat"];
+        $role= $row["role"];
        
     }
 } else {
@@ -39,7 +44,7 @@ if (mysqli_num_rows($result) == 1) {
 
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
+ $param_role= trim($_POST["role"]);
 $param_name = trim($_POST["name"]);
  $param_email = trim($_POST["email"]);
  $param_city = trim($_POST["city"]);
@@ -48,8 +53,8 @@ $param_name = trim($_POST["name"]);
  $param_street = trim($_POST["street"]);
  $param_flat = trim($_POST["flat"]);
  
-$stmt = mysqli_prepare($link, "UPDATE  users set name=?,email=?,city=?,zip=?,phone=?,street=?,flat=? where username= '$user'");
-mysqli_stmt_bind_param($stmt, "sssssss",$param_name,$param_email,$param_city,$param_zip,$param_phone,$param_street,$param_flat);
+$stmt = mysqli_prepare($link, "UPDATE  users set name=?,email=?,city=?,zip=?,phone=?,street=?,flat=?, role=? where username= '$user'");
+mysqli_stmt_bind_param($stmt, "ssssssss",$param_name,$param_email,$param_city,$param_zip,$param_phone,$param_street,$param_flat,$param_role);
 //mysqli_stmt_execute($stmt);
 
 
@@ -110,9 +115,6 @@ if(!empty($_SESSION['form_data']))
 
 
 ?>
-
-
-
 
 
 
@@ -183,6 +185,11 @@ if(!empty($_SESSION['form_data']))
       
    </head>
    <body>
+    <div id="google_translate_element"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'bn,en,gu,hi,pa,ta,te', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
       <!--=========-TOP_BAR============-->
       <nav class="topBar">
          <div class="container">
@@ -430,7 +437,14 @@ if(!empty($_SESSION['form_data']))
                                                         <br> City
                                                         <br>
                                                         <input name="city" value='<?php echo $city; ?>'  placeholder="Fill Me" type="text">
+                                                        <br>Role
                                                         <br>
+                                                        <select name="role">
+                                                          <option unselected hidden value="">Choose Your Role</option>
+                                                          <option value="civilian">Civilian</option>
+                                                          <option value="retailer">Retailer</option>
+                                                          <option value="wholeseller">Whole-Seller</option>
+                                                        </select>
                                                 </div>
                                                 <button type="submit" name="submit" class="btn btn-default">Save changes</button>
                                         </form>
