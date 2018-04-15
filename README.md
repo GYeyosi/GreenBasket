@@ -6,8 +6,8 @@ Web application for Vegetable Marketing System
 # to-do list
 
 # profile.php-->
-	1. add role div to profile page with dropdown box.
-	4.add city with dropdown from govt table.	
+	~~1. add role div to profile page with dropdown box.~~
+	4.add city with dropdown from govt table.
 	
 ~~2. add change password func~~
 
@@ -21,7 +21,7 @@ Web application for Vegetable Marketing System
 # sell.php-->
 	
 ~~2.if(same username and dealer and vegetable ) update quantity of vegtable~~
-	3.if role is civilian redirect to profile page to change role.
+	~~3.if role is civilian redirect to profile page to change role.~~
 ~~1.extract regions from govt table~~
 
 # singlePro.php-->(MAJOR)
