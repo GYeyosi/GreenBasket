@@ -146,11 +146,11 @@ function googleTranslateElementInit() {
                      <li><a href="./login/register.php">Create Account</a>
                      </li>
                      <li class="divider"></li>
-                     <li><a href="wishlist.html">Wishlist</a>
+                     <li><a href="./cart/cart.php">Wishlist</a>
                      </li>
-                     <li><a href="cart.html" >My Cart</a>
+                     <li><a href="./cart/cart.php" >My Cart</a>
                      </li>
-                     <li><a href="checkout.html">Checkout</a>
+                     <li><a href="checkout.php">Checkout</a>
                      </li>
                   </ul>
                </li>
@@ -159,9 +159,9 @@ function googleTranslateElementInit() {
                   Cart <i class="fa fa-angle-down ml-5"></i>
                   </span> </a>
                   <ul class="dropdown-menu w-150" role="menu">
-                     <li><a href="viewcart.html">View Cart</a>
+                     <li><a href="./cart/cart.php">View Cart</a>
                      </li>
-                     <li><a href="checkout.html">Check Out</a>
+                     <li><a href="checkout.php">Check Out</a>
                      </li>
                   </ul>
                </li>
@@ -274,7 +274,7 @@ function googleTranslateElementInit() {
                      <ul class="dropdown-menu dropdown-menu-left">
                         <li><a href="./login/register.php">Register</a></li>
                         <li><a href="./login/login.php">Login</a></li>
-                        <li><a href="#">Password Recovery</a></li>
+                        <li><a href="./profile/profile.php">Password Recovery</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
                         <li><a href="#">About Us</a></li>
@@ -323,7 +323,7 @@ function googleTranslateElementInit() {
                                                   </a>
                                                    
                                                   <div class="hot-wid-rating">
-                                                      <h4><a href="" style="color:black;margin-left:33%;font-weight:bold;">'.
+                                                      <h4><a href="./singlepro.php?vegname='.$vegname.'&image='.$image.'" style="color:black;margin-left:33%;font-weight:bold;">'.
                                                       $vegname.'
                                                       </a></h4>
                                                      
