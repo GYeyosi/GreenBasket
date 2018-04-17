@@ -617,7 +617,7 @@ function googleTranslateElementInit() {
         subcatSelect.options.length = 0; //delete all options if any present
 
         for(var i = 0; i < retailers[catid].length; i++){
-          subcatSelect.options[i] = new Option(retailers[catid][i].val+" - ₹ "+retailers[catid][i].price+" (qty available- "+retailers[catid][i].quantity+"kgs)");
+          subcatSelect.options[i] = new Option(retailers[catid][i].val+" - ₹ "+retailers[catid][i].price+" (In Stock:- "+retailers[catid][i].quantity+"kgs)");
         }
 
          var catSelect = this;
@@ -625,7 +625,7 @@ function googleTranslateElementInit() {
         var subcatSelect = document.getElementById("wholesellerselect");
         subcatSelect.options.length = 0; //delete all options if any present
         for(var i = 0; i < wholesellers[catid].length; i++){
-          subcatSelect.options[i] = new Option(wholesellers[catid][i].val+" - ₹ "+wholesellers[catid][i].price+" (qty available- "+retailers[catid][i].quantity+"kgs)");
+          subcatSelect.options[i] = new Option(wholesellers[catid][i].val+" - ₹ "+wholesellers[catid][i].price+" (In Stock:- "+retailers[catid][i].quantity+"kgs)");
         }
 
 

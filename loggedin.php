@@ -21,7 +21,7 @@ $user= ($_SESSION['username']);
 ?>
 
 
-?>
+
 
 
 <!DOCTYPE html>
@@ -133,6 +133,10 @@ function googleTranslateElementInit() {
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">My Account<i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-150" role="menu">
+                     <?php
+                       if($user=='admin')
+                      echo '<li><a href="./admin/admin.php">Admin Panel </li>';
+                     ?>
 
                     <li><a href="./profile/profile.php"> Hello <?php echo $user ?> </a>
 
