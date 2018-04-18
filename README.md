@@ -6,8 +6,8 @@ Web application for Vegetable Marketing System
 # to-do list
 
 # profile.php-->
-	~~1. add role div to profile page with dropdown box.~~
-	4.add city with dropdown from govt table.
+~~1. add role div to profile page with dropdown box.~~
+~~4.add city with dropdown from govt table~~
 	
 ~~2. add change password func~~
 
@@ -37,31 +37,31 @@ Web application for Vegetable Marketing System
 	
 
 # cart.php-->
-	2.if checkout go to payment page
+~~2.if checkout go to payment page~~
 ~~1.backend (retrieve from cart table and display(front end))~~
 	
 	
 
 # payment.php-->
 
-	1.
+~~1.~~
 
 
 
 
 # header-->
 
-	1.search functionality 
+~~1.search functionality ~~
 
 
 
 
 ##  OVERALL--->
 
-	1.Put Pages for Govt.
-	2.Add Admin Page.
-	3.revenue.
-	4.payment.php to be created
-	5.set linking for all pages.
+~~1.Put Pages for Govt~~
+~~2.Add Admin Page~~.
+~~3.revenue.~~
+~~4.payment.php to be created~~
+~~5.set linking for all pages.~~
 
 
