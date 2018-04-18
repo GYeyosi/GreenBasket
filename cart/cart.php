@@ -306,7 +306,7 @@ function googleTranslateElementInit() {
                               <th class="cart-unit item">Unit price</th>
                               <th class="cart-delivery item">Delivery info</th>
                               <th class="cart-sub-total last-item">Sub total</th>
-                              <th class="cart-romove item">Remove</th>
+                           
                            </tr>
                         </thead>
                         <!-- /thead -->
@@ -384,10 +384,7 @@ function googleTranslateElementInit() {
                                                     <td class="cart-product-sub-total">
                                                        <div class="cc-pr"> ₹ '.$quantity*$price.'</div>
                                                     </td>
-                                                    <td class="romove-item">
-                                                       <a href="#"><img src="./cart/remove.png" alt="Remove">
-                                                       </a>
-                                                    </td>
+                                                  
                                           </tr>
 
                                             ';                                                  

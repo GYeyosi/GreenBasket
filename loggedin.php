@@ -281,7 +281,7 @@ function googleTranslateElementInit() {
                      </ul>
                   </li>
                   <li><a href="./helpsection/help.html">Help-Section</a></li>
-                  <li><a href="./feedback_form/formpage.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">FeedBack</a></li>
+                  <li><a href="./feedback_form/formpage.php" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">FeedBack</a></li>
                </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) == 1) {
     }
 }              
 
-  $db = new mysqli('localhost','root','iluvmymom','greenbasket');//set your database handler
+  $db = new mysqli('localhost','root','gyeyosi','greenbasket');//set your database handler
   $query = "SELECT region FROM govt group by region";
   $result = $db->query($query);
 

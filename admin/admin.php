@@ -106,9 +106,9 @@ if (mysqli_num_rows($result) ) {
           <ul class="nav navbar-nav">
             <li class="active"><a href="../index.php">GreenBasket</a></li>
             <li><a href="users.php">Users</a></li>
-            <li><a href="posts.html">Stock</a></li>
+            <li><a href="feedback.php">Feedback</a></li>
             <li><a href="vegetables.php">Vegetables</a></li>
-             <li><a href="users.html">Revenue</a></li>
+             <li><a href="payment.php">Revenue</a></li>
 
           </ul>
 
