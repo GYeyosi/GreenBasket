@@ -146,7 +146,7 @@ function googleTranslateElementInit() {
                      <li><a href="./login/register.php">Create Account</a>
                      </li>
                      <li class="divider"></li>
-                     <li><a href="./cart/cart.php">Wishlist</a>
+                     <li><a href="./inflation.php">Inflation</a>
                      </li>
                      <li><a href="./cart/cart.php" >My Cart</a>
                      </li>

@@ -51,14 +51,7 @@ if (mysqli_num_rows($result) ) {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
    
-  
-    <title>GB Admin</title>
-
-    <!-- Bootstrap core CSS -->
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
       <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
       <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -69,20 +62,24 @@ if (mysqli_num_rows($result) ) {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link href="./css/style.css" rel="stylesheet" type="text/css">
       <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
+       <link href="./css/footer.css" rel="stylesheet"/>
+      <script src=".js/footer.js"></script>
       
-    
+
+
 
 
     <!-- Bootstrap css      -->
-    <link rel="stylesheet" href="./admin.css">
+    <link rel="stylesheet" href="./css/mid/bootstrap.css">
     
+    <!-- Main css   -->
+    <link rel="stylesheet" href="./css/singlepro.css">
+    <link rel="stylesheet" href="./css/mid/responsive.css">
 
-    <link rel="stylesheet" href="../css/footer.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link href="./css/style.css" rel="stylesheet" type="text/css">
-      <script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
-       <link href="./css/footer.css" rel="stylesheet"/>
-      <script src=".js/footer.js"></script>
+
+<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     
 
   
@@ -123,10 +120,10 @@ function googleTranslateElementInit() {
                         <a href="./profile/profile.php">Edit Profile</a>
                      </li>
                      <li>
-                        <a href="./cart/cart.php">Your Orders</a>
+                        <a href="./myorders.php">Your Orders</a>
                      </li>
                      <li>
-                        <a href="/sellOnBasket/sell.php">Sell on GreenBasket</a>
+                        <a href="./sellOnBasket/sell.php">Sell on GreenBasket</a>
                      </li>
                      <li>
                         <a href="#">Contact Us</a>

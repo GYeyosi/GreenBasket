@@ -120,7 +120,7 @@ function googleTranslateElementInit() {
                         <a href="./profile/profile.php">Edit Profile</a>
                      </li>
                      <li>
-                        <a href="#">Your Orders</a>
+                        <a href="./myorders.php">Your Orders</a>
                      </li>
                      <li>
                         <a href="./sellOnBasket/sell.php">Sell on GreenBasket</a>

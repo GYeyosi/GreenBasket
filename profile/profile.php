@@ -217,7 +217,7 @@ function googleTranslateElementInit() {
                         <a href="#">Edit Profile</a>
                      </li>
                      <li>
-                        <a href="../cart/cart.php">Your Orders</a>
+                        <a href="../myorders.php">Your Orders</a>
                      </li>
                      <li>
                         <a href="../sellOnBasket/sell.php">Sell on GreenBasket</a>
@@ -232,12 +232,12 @@ function googleTranslateElementInit() {
                   <ul class="dropdown-menu w-150" role="menu">
                     <li><a href=""> Hello <?php echo $user ?> </a>
                      </li>
-                    <li><a href="../cart/cart.php">My Orders</a>
+                    <li><a href="../myorders.php">My Orders</a>
                      </li>
                      <li><a href="../login/logout.php">Logout</a>
                      </li>
                      <li class="divider"></li>
-                     <li><a href="../cart/cart.php">Wishlist</a>
+                     <li><a href="../inflation.php">Inflation</a>
                      </li>
                      <li><a href="../cart/cart.php">My Cart</a>
                      </li>
@@ -387,7 +387,7 @@ function googleTranslateElementInit() {
                         <li><a href="#">About Us</a></li>
                      </ul>
                   </li>
-                  <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Help-Section</a></li>
+                  <li><a href="../helpsection/help.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Help-Section</a></li>
                   <li><a href="../feedback_form/formpage.php" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">FeedBack</a></li>
                </ul>
             </div>

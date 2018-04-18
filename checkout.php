@@ -125,7 +125,7 @@ function googleTranslateElementInit() {
                         <a href="./profile/profile.php">Edit Profile</a>
                      </li>
                      <li>
-                        <a href="#">Your Orders</a>
+                        <a href="./myorders.php">Your Orders</a>
                      </li>
                      <li>
                         <a href="./sellOnBasket/sell.php">Sell on GreenBasket</a>
@@ -147,7 +147,7 @@ function googleTranslateElementInit() {
                      <li><a href="./login/logout.php">Logout</a>
                      </li>
                      <li class="divider"></li>
-                     <li><a href="wishlist.html">Wishlist</a>
+                     <li><a href="./inflation.php">Inflation</a>
                      </li>
                      <li><a href="./cart/cart.php">My Cart</a>
                      </li>
