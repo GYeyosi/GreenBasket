@@ -139,13 +139,13 @@ function googleTranslateElementInit() {
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <span class="hidden-xs"> More <i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-100" role="menu">
                       <li>
-                        <a href="#">Edit Profile</a>
+                        <a href="./profile/profile.php">Edit Profile</a>
                      </li>
                      <li>
-                        <a href="#">Your Orders</a>
+                        <a href="./cart/cart.php">Your Orders</a>
                      </li>
                      <li>
-                        <a href="#">Sell on GreenBasket</a>
+                        <a href="/sellOnBasket/sell.php">Sell on GreenBasket</a>
                      </li>
                      <li>
                         <a href="#">Contact Us</a>
@@ -164,11 +164,11 @@ function googleTranslateElementInit() {
                      <li><a href="./login/logout.php">Logout</a>
                      </li>
                      <li class="divider"></li>
-                     <li><a href="wishlist.html">Wishlist</a>
+                     <li><a href="./cart/cart.php">Wishlist</a>
                      </li>
-                     <li><a href="./cart/vcart.php">My Cart</a>
+                     <li><a href="./cart/cart.php">My Cart</a>
                      </li>
-                     <li><a href="checkout.html">Checkout</a>
+                     <li><a href="checkout.php">Checkout</a>
                      </li>
                   </ul>
                </li>
@@ -177,9 +177,9 @@ function googleTranslateElementInit() {
                   Cart <i class="fa fa-angle-down ml-5"></i>
                   </span> </a>
                   <ul class="dropdown-menu w-150" role="menu">
-                     <li><a href="./cart/vcart.php">View Cart</a>
+                     <li><a href="./cart/cart.php">View Cart</a>
                      </li>
-                     <li><a href="checkout.html">Check Out</a>
+                     <li><a href="checkout.php">Check Out</a>
                      </li>
                   </ul>
                </li>

@@ -121,10 +121,10 @@ function googleTranslateElementInit() {
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <span class="hidden-xs"> More <i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-100" role="menu">
                      <li>
-                        <a href="#">ASDAS</a>
+                        <a href="../profile/profile.php">EDIT PROFILE</a>
                      </li>
                      <li>
-                        <a href="#">Sell on GreenBasket</a>
+                        <a href="../sellOnBasket/sell.php">Sell on GreenBasket</a>
                      </li>
                      <li>
                         <a href="#">Contact Us</a>
@@ -138,14 +138,14 @@ function googleTranslateElementInit() {
                     <li><a href="../profile/profile.php"><?php echo $user ?> </a>
 
                      </li>
-                    <li><a href="cart.php">My Orders</a>
+                    <li><a href="../cart/cart.php">My Orders</a>
                      </li>
                      <li><a href="../login/logout.php">Logout</a>
                      </li>
                      <li class="divider"></li>
-                     <li><a href="wishlist.html">Wishlist</a>
+                     <li><a href="../cart/cart.php">Wishlist</a>
                      </li>
-                     <li><a href="./cart.php">My Cart</a>
+                     <li><a href="../cart/cart.php">My Cart</a>
                      </li>
                      <li><a href="../checkout.php">Checkout</a>
                      </li>
@@ -156,7 +156,7 @@ function googleTranslateElementInit() {
                   Cart <i class="fa fa-angle-down ml-5"></i>
                   </span> </a>
                   <ul class="dropdown-menu w-150" role="menu">
-                     <li><a href="viewcart.html">View Cart</a>
+                     <li><a href="#">View Cart</a>
                      </li>
                      <li><a href="../checkout.php">Check Out</a>
                      </li>
@@ -269,16 +269,16 @@ function googleTranslateElementInit() {
                   <li class="dropdown">
                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Page <i class="fa fa-angle-down ml-5"></i></a>
                      <ul class="dropdown-menu dropdown-menu-left">
-                        <li><a href="./login/register.php">Register</a></li>
-                        <li><a href="./login/login.php">Login</a></li>
-                        <li><a href="#">Password Recovery</a></li>
+                        
+                        
+                        <li><a href="../profile/profile.php">Password Recovery</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms & Conditions</a></li>
                         <li><a href="#">About Us</a></li>
                      </ul>
                   </li>
                   <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">Help-Section</a></li>
-                  <li><a href="../feedback_form/formpage.html" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">FeedBack</a></li>
+                  <li><a href="../feedback_form/formpage.php" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false">FeedBack</a></li>
                </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -474,8 +474,8 @@ function googleTranslateElementInit() {
                <div class="col-md-4 footer-four">
                   <h5>Contact Us</h5>
                   <ul>
-                     <li><i class="fa fa-map-marker"></i>350 Avenue, India, Delhi 110001 </li>
-                     <li><i class="fa fa-envelope-o"></i>info@mailme.com </li>
+                     <li><i class="fa fa-map-marker"></i>IIIT Allahabad</li>
+                     <li><i class="fa fa-envelope-o"></i>projectgreenbasket@gmail.com </li>
                      <li><i class="fa fa-phone"></i>+91-xxx-xxx-2040 </li>
                   </ul>
                </div>
@@ -488,13 +488,13 @@ function googleTranslateElementInit() {
             <div class="row">
                <div class="col-sm-6 ">
                   <div class="copyright-text">
-                     <p>CopyRight © 2017 Digital All Rights Reserved</p>
+                     <p>CopyRight © 2018 Digital All Rights Reserved</p>
                   </div>
                </div>
                <!-- End Col -->
                <div class="col-sm-6  ">
                   <div class="copyright-text pull-right">
-                     <p> <a href="#">Home</a> | <a href="#">Privacy</a> |<a href="#">Terms & Conditions</a> | <a href="#">Refund Policy</a> </p>
+                     <p> <a href="../index.php">Home</a> | <a href="#">Privacy</a> |<a href="#">Terms & Conditions</a> | <a href="#">Refund Policy</a> </p>
                   </div>
                </div>
                <!-- End Col -->
