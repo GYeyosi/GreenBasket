@@ -12,5 +12,5 @@ for c in cities:
 		random.seed(ct)
 		
 		p=random.randrange(10,15)
-		k="INSERT into govt values ('%s','%s',%d);\n" %(v,c,p)
+		k="INSERT into govt (vegname,region,price,createdat) values ('%s','%s',%d,'2017-04-18 01:04:32');\n" %(v,c,p)
 		query.write(k)

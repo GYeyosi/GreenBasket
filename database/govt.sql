@@ -6,6 +6,8 @@ region VARCHAR(50) NOT NULL  ,
 
 price float(4,2) NOT NULL,
 
-PRIMARY KEY (vegname,region)
+createdat DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+PRIMARY KEY (vegname,region,createdat)
 
 );

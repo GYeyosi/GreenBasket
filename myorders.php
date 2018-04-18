@@ -5,15 +5,12 @@
 
 session_start();
 
-include '../login/config.php';
+include './login/config.php';
 
 
 
 $user= ($_SESSION['username']);
-if($user!='admin'){
-  header("location: ../login/login.php");
-  exit;
-}
+
 
 $result = mysqli_query($link,"SELECT count(*) as count FROM users ");
 if (mysqli_num_rows($result) == 1) {
@@ -94,34 +91,24 @@ if (mysqli_num_rows($result) ) {
   <div class="panel-body">
     <table class="table table-striped table-hover">
          <tr>
-           <th>username</th>
-            <th>Vegetable</th>
-             <th>dealerid</th>
-              <th>region</th>
-               <th>quantity</th>
-                <th>paymentstatus</th>
-             <th>paymentat</th>
-             <th>price</th>
+        <th>Username</th>
+        <th>TotalCost</th>
+        <th>PaymentStatus</th>
 
+        <th>Paymentat</th>
       </tr>
       <?php
-        $result = mysqli_query($link,"select c.*,s.price from cart c join (select  dealerid,vegname,region,price from stock) s on c.dealerid=s.dealerid and c.vegname=s.vegname and c.region=s.region  ; ");
+        $result = mysqli_query($link,"select c.username,sum(c.quantity*s.price) as total,c.paymentstatus,c.paymentat from cart c  join (select  dealerid,vegname,region,price from stock) s on c.dealerid=s.dealerid and c.vegname=s.vegname and c.region=s.region where  paymentstatus='yes'  group by c.username,paymentstatus,paymentat;");
         if (mysqli_num_rows($result)) {
 
             // output data of each row
             while($row = mysqli_fetch_assoc($result) ) {
                 echo '
                  <tr>
-
                   <td>'.$row['username'].'</td>
-                  <td>'.$row['vegname'].'</td>
-                  <td>'.$row['dealerid'].'</td>
-                  <td>'.$row['region'].'</td>
-                  <td>'.$row['quantity'].'</td>
+                  <td>'.$row['total'].'</td>
                   <td>'.$row['paymentstatus'].'</td>
-                   <td>'.$row['paymentat'].'</td>
-                    <td>'.$row['price'].'</td>
-
+                  <td>'.$row['paymentat'].'</td>
                 </tr>
                 ';         
                    }

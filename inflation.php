@@ -5,15 +5,12 @@
 
 session_start();
 
-include '../login/config.php';
+include './login/config.php';
 
 
 
 $user= ($_SESSION['username']);
-if($user!='admin'){
-  header("location: ../login/login.php");
-  exit;
-}
+
 
 $result = mysqli_query($link,"SELECT count(*) as count FROM users ");
 if (mysqli_num_rows($result) == 1) {
@@ -94,18 +91,14 @@ if (mysqli_num_rows($result) ) {
   <div class="panel-body">
     <table class="table table-striped table-hover">
          <tr>
-           <th>username</th>
-            <th>Vegetable</th>
-             <th>dealerid</th>
-              <th>region</th>
-               <th>quantity</th>
-                <th>paymentstatus</th>
-             <th>paymentat</th>
-             <th>price</th>
-
+        <th>Vegetable</th>
+        <th>Region</th>
+        <th>Price1</th>
+         <th>Price2</th>
+        <th>Difference</th>
       </tr>
       <?php
-        $result = mysqli_query($link,"select c.*,s.price from cart c join (select  dealerid,vegname,region,price from stock) s on c.dealerid=s.dealerid and c.vegname=s.vegname and c.region=s.region  ; ");
+        $result = mysqli_query($link,"select distinct c.vegname as vegname,c.region as region ,c.price as p1 ,v.price as p2,c.price-v.price as 'diff' from govt c join govt v on c.vegname=v.vegname and c.region=v.region and c.createdat<>v.createdat and c.price-v.price >= 0;");
         if (mysqli_num_rows($result)) {
 
             // output data of each row
@@ -113,15 +106,11 @@ if (mysqli_num_rows($result) ) {
                 echo '
                  <tr>
 
-                  <td>'.$row['username'].'</td>
                   <td>'.$row['vegname'].'</td>
-                  <td>'.$row['dealerid'].'</td>
                   <td>'.$row['region'].'</td>
-                  <td>'.$row['quantity'].'</td>
-                  <td>'.$row['paymentstatus'].'</td>
-                   <td>'.$row['paymentat'].'</td>
-                    <td>'.$row['price'].'</td>
-
+                  <td>'.$row['p1'].'</td>
+                  <td>'.$row['p2'].'</td>
+                  <td>'.$row['diff'].'</td>
                 </tr>
                 ';         
                    }

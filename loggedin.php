@@ -141,12 +141,12 @@ function googleTranslateElementInit() {
                     <li><a href="./profile/profile.php"> Hello <?php echo $user ?> </a>
 
                      </li>
-                    <li><a href="./cart/cart.php">My Orders</a>
+                    <li><a href="./myorders.php">My Orders</a>
                      </li>
                      <li><a href="./login/logout.php">Logout</a>
                      </li>
                      <li class="divider"></li>
-                     <li><a href="./cart/cart.php">Wishlist</a>
+                     <li><a href="./inflation.php">Inflation</a>
                      </li>
                      <li><a href="./cart/cart.php">My Cart</a>
                      </li>
