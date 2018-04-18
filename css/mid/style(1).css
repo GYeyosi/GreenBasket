@@ -4524,7 +4524,7 @@ input[type="radio"], input[type="checkbox"] {
   width: 48%;
 }
 
-.bill-left form input, .bill-right form input, .ship-left form input, .ship-right form input {
+.bill-left  input, .bill-right  input, .ship-left  input, .ship-right  input {
   border: 1px solid #dddddd;
   height: 35px;
   padding-left: 10px;
@@ -4545,8 +4545,8 @@ input[type="radio"], input[type="checkbox"] {
   width: 48%;
 }
 
-.bill-single form input,
-.ship-single form input {
+.bill-single  input,
+.ship-single  input {
     width: 100%;
     height: 35px;
     border: 1px solid #ddd;

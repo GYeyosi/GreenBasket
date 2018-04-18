@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) == 1) {
     }
 }              
 
-  $db = new mysqli('localhost','root','gyeyosi','greenbasket');//set your database handler
+  $db = new mysqli('localhost','root','iluvmymom','greenbasket');//set your database handler
   $query = "SELECT region FROM govt group by region";
   $result = $db->query($query);
 
@@ -617,7 +617,7 @@ function googleTranslateElementInit() {
         subcatSelect.options.length = 0; //delete all options if any present
 
         for(var i = 0; i < retailers[catid].length; i++){
-          subcatSelect.options[i] = new Option(retailers[catid][i].val+" - ₹ "+retailers[catid][i].price+" (qty available- "+retailers[catid][i].quantity+"kgs)");
+          subcatSelect.options[i] = new Option(retailers[catid][i].val+" - ₹ "+retailers[catid][i].price+" (In Stock:- "+retailers[catid][i].quantity+"kgs)");
         }
 
          var catSelect = this;
@@ -625,7 +625,7 @@ function googleTranslateElementInit() {
         var subcatSelect = document.getElementById("wholesellerselect");
         subcatSelect.options.length = 0; //delete all options if any present
         for(var i = 0; i < wholesellers[catid].length; i++){
-          subcatSelect.options[i] = new Option(wholesellers[catid][i].val+" - ₹ "+wholesellers[catid][i].price+" (qty available- "+retailers[catid][i].quantity+"kgs)");
+          subcatSelect.options[i] = new Option(wholesellers[catid][i].val+" - ₹ "+wholesellers[catid][i].price+" (In Stock:- "+retailers[catid][i].quantity+"kgs)");
         }
 
 

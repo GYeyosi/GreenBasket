@@ -10,6 +10,10 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   exit;
 }
 
+if(isset($_GET['empty'])){
+    echo('<script>alert("Cart is Empty")</script>');
+}
+
 $username= ($_SESSION['username']);
 
 if (isset($_POST['clearCart'])){
@@ -143,7 +147,7 @@ function googleTranslateElementInit() {
                      </li>
                      <li><a href="./cart.php">My Cart</a>
                      </li>
-                     <li><a href="checkout.html">Checkout</a>
+                     <li><a href="../checkout.php">Checkout</a>
                      </li>
                   </ul>
                </li>
@@ -154,7 +158,7 @@ function googleTranslateElementInit() {
                   <ul class="dropdown-menu w-150" role="menu">
                      <li><a href="viewcart.html">View Cart</a>
                      </li>
-                     <li><a href="checkout.html">Check Out</a>
+                     <li><a href="../checkout.php">Check Out</a>
                      </li>
                   </ul>
                </li>
@@ -415,7 +419,7 @@ function googleTranslateElementInit() {
                      <p>Subtotal<span>₹<?php  echo $totalprice ?></span>
                      </p>
                      <h4>Grandtotal<span>₹<?php  echo $totalprice ?></span></h4>
-                     <a href="./checkout.php" type="button" class="btn btn-default right-cart">Proceed to checkout</a>
+                     <a href="../checkout.php" type="button" class="btn btn-default right-cart">Proceed to checkout</a>
 
                      <h5>Checkout  with multiple addresses</h5>
                   </div>

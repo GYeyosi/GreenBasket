@@ -1,4 +1,4 @@
-Fa
+
 <?php
 // Initialize the session
 session_start();
@@ -8,11 +8,20 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: ./login/login.php");
   exit;
 }
+if(isset($_GET['payment'])) {
+  echo '<script> alert("Payment Successful"); </script>';
+}
+if(isset($_GET['empty'])) {
+  echo '<script> alert("Cart is Empty. Add something to cart.!"); </script>';
+}
 
 $user= ($_SESSION['username']);
 
 
 ?>
+
+
+
 
 
 <!DOCTYPE html>
@@ -88,7 +97,7 @@ function googleTranslateElementInit() {
       <nav class="topBar">
          <div class="container">
             <ul class="list-inline pull-left hidden-sm hidden-xs">
-               <li><span class="text-primary">Have a question? </span> Call +120 558 7885</li>
+               <li><span class="text-primary">Have a question? </span> Call +91 123 456 7890</li>
                  <li>           <h3>An e-Vegetable Market</h3></li>
             </ul>
             <ul class="topBarNav pull-right">
@@ -124,12 +133,12 @@ function googleTranslateElementInit() {
                <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="false"> <i class="fa fa-user mr-5"></i><span class="hidden-xs">My Account<i class="fa fa-angle-down ml-5"></i></span> </a>
                   <ul class="dropdown-menu w-150" role="menu">
-                    <?php
+                     <?php
                        if($user=='admin')
                       echo '<li><a href="./admin/admin.php">Admin Panel </li>';
                      ?>
 
-                    <li><a href="./profile/profile.php"><?php echo $user ?> </a>
+                    <li><a href="./profile/profile.php"> Hello <?php echo $user ?> </a>
 
                      </li>
                     <li><a href="./cart/cart.php">My Orders</a>
@@ -137,11 +146,11 @@ function googleTranslateElementInit() {
                      <li><a href="./login/logout.php">Logout</a>
                      </li>
                      <li class="divider"></li>
-                     <li><a href="wishlist.html">Wishlist</a>
+                     <li><a href="./cart/cart.php">Wishlist</a>
                      </li>
                      <li><a href="./cart/cart.php">My Cart</a>
                      </li>
-                     <li><a href="checkout.html">Checkout</a>
+                     <li><a href="checkout.php">Checkout</a>
                      </li>
                   </ul>
                </li>
@@ -152,7 +161,7 @@ function googleTranslateElementInit() {
                   <ul class="dropdown-menu w-150" role="menu">
                      <li><a href="./cart/cart.php">View Cart</a>
                      </li>
-                     <li><a href="checkout.html">Check Out</a>
+                     <li><a href="checkout.php">Check Out</a>
                      </li>
                   </ul>
                </li>
@@ -315,7 +324,7 @@ function googleTranslateElementInit() {
                                                   </a>
                                                    
                                                   <div class="hot-wid-rating">
-                                                      <h4><a href="" style="color:black;margin-left:33%;font-weight:bold;">'.
+                                                      <h4><a href="singlepro.php?vegname='.$vegname.'&image='.$image.'" style="color:black;margin-left:33%;font-weight:bold;">'.
                                                       $vegname.'
                                                       </a></h4>
                                                      
@@ -392,8 +401,8 @@ function googleTranslateElementInit() {
           <div class="col-md-4 footer-four">
              <h5>Contact Us</h5>
                 <ul>
-                    <li><i class="fa fa-map-marker"></i>350 Avenue, India, Delhi 110001 </li>
-                    <li><i class="fa fa-envelope-o"></i>info@mailme.com </li>
+                    <li><i class="fa fa-map-marker"></i>IIIT- Allahabad, Allahabad </li>
+                    <li><i class="fa fa-envelope-o"></i>projectgreenbasket.com </li>
                     <li><i class="fa fa-phone"></i>+91-xxx-xxx-2040 </li>
                     
                   </ul>
@@ -415,12 +424,12 @@ function googleTranslateElementInit() {
                <div class="row">
                   <div class="col-sm-6 ">
                      <div class="copyright-text">
-                        <p>CopyRight © 2017 Digital All Rights Reserved</p>
+                        <p>CopyRight © 2018 Digital All Rights Reserved</p>
                      </div>
                   </div> <!-- End Col -->
                   <div class="col-sm-6  ">
                       <div class="copyright-text pull-right">
-                        <p> <a href="#">Home</a> | <a href="#">Privacy</a> |<a href="#">Terms & Conditions</a> | <a href="#">Refund Policy</a> </p>
+                        <p> <a href="./index.php">Home</a> | <a href="#">Privacy</a> |<a href="#">Terms & Conditions</a> | <a href="#">Refund Policy</a> </p>
                      </div>               
                                        
                   </div> <!-- End Col -->
