@@ -2,6 +2,39 @@
 Web application for Vegetable Marketing System
 
 
+Title of the project:
+Website Ranking System
+
+Abstract of the project:
+The World Wide Web is today perennial source of immense information. There is therefore, a definite
+demand for automated methods that can locate, identify and retrieve information to cater to the individuals
+requirements, demands of whims. The internet also creates newer possibilities to organize and recommend
+information The 'Recommendation System in ecommerce facilitates the discovery, collection and analysis of
+dati on bitsiness and its impact on shoppers including their needs and desires av providing valued feedback on
+the potential effect of e-business on the lives of people. For organizing information, the recommender System
+incorporates data mining techniques into their recommendations using knowledge learned from the actions and
+attributes of the users. Web usage mining is an application of data mining techniques to discover Usage patterns
+from web data in order to understand and better serve the needs of web-based applications. In this paper we
+present a survey on the recent studies in the area of recommendation systems based on web sige mining and
+sentantic web.
+
+Specific Technology can be used:
+Oracle. Java, Swing JDBC for Oracle Connectivity. Any technology can be used for the front-end development.
+
+Project Tasks:
+Duw ER Diagram, Schema of each table required in Project. Normalize all table up to 3NF, Implementation
+Task. User Interface
+
+Functional components of the project:
+1 Administrator Module
+Adresin can extracting interesting patterns from the preprocessed weblogs.
+Admin can get general statistics like number of hits, no of visitors.
+2. User Module
+User can login and view the desire information.
+User can search what they need.
+User can get best website when they search the relevant keyword
+
+
 
 # to-do list
 
